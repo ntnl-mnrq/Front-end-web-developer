@@ -1,0 +1,14 @@
+body {
+    background-color: #fff;
+    color: #333;
+    font: 1.2em / 1.5 Helvetica Neue, Helvetica, Arial, sans-serif;
+    padding: 1em;
+    margin: 0;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  .container {
+      columns: 3;
+      gap: 50px;
+    }

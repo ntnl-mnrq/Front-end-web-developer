@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Useful event target example</title>
+    <style>
+      div {
+        background-color: red;
+        height: 100px;
+        width: 25%;
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      for(let i = 1; i <= 16; i++) {
+        const myDiv = document.createElement('div');
+        document.body.appendChild(myDiv);
+      }
+
+      function random(number) {
+        return Math.floor(Math.random() * number);
+      }
+
+      function bgChange() {
+        const rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
+        return rndCol;
+      }
+
+      const divs = document.querySelectorAll('div');
+
+      for(let i = 0; i < divs.length; i++) {
+        divs[i].onclick = function(e) {
+          e.target.style.backgroundColor = bgChange();
+        }
+      }
+
+    //   e.target is incredibly useful when you want to set the same event handler on multiple elements and do something to all of them when an event occurs on them. You might, for example, have a set of 16 tiles that disappear when selected. It is useful to always be able to just set the thing to disappear as e.target, rather than having to select it in some more difficult way. 
+    // In the following example  we create 16 <div> elements using JavaScript. We then select all of them using document.querySelectorAll(), then loop through each one, adding an onclick handler to each that makes it so that a random color is applied to each one when selected
+    </script>
+  </body>
+</html>

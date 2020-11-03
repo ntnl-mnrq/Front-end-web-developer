@@ -1,0 +1,67 @@
+html {
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  background: purple;
+  height: 100px;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  line-height: 100px;
+  margin: 0;
+}
+
+article {
+  padding: 10px;
+  margin: 10px;
+  background: aqua;
+}
+
+
+/* Flexible sizing of flex items
+
+Let's now return to our first example, and look at how we can control what proportion of space flex items take up compared to the other flex items. */
+
+section {
+  display: flex;
+}
+
+article {
+    flex: 1;
+    /* This is a unitless proportion value that dictates how much of the available space along the main axis each flex item will take up compared to other flex items. 
+    In this case, we are giving each <article> element the same value (a value of 1), which means they will all take up an equal amount of the spare space left after things like padding and margin have been set. It is relative to other flex items, meaning that giving each flex item a value of 400000 would have exactly the same effect. */
+}
+
+article:nth-of-type(3) {
+    flex: 2;
+    /* You'll see that the third <article> takes up twice as much of the available width as the other two. There are now four proportion units available in total (since 1 + 1 + 2 = 4). The first two flex items have one unit each, so they take 1/4 of the available space each. The third one has two units, so it takes up 2/4 of the available space (or one-half). */
+}
+
+/* You can also specify a minimum size value inside the flex value. 
+This basically states "Each flex item will first be given 200px of the available space. After that, the rest of the available space will be shared out according to the proportion units." */
+article {
+    flex: 1 200px;
+  }
+  
+  article:nth-of-type(3) {
+    flex: 2 200px;
+  }
+
+  /* The real value of flexbox can be seen in its flexibility/responsiveness — if you resize the browser window, or add another <article> element, the layout continues to work just fine. */
+
+  /* flex: shorthand versus longhand
+
+flex is a shorthand property that can specify up to three different values:
+
+    The unitless proportion value we discussed above. This can be specified individually using the flex-grow longhand property.
+    A second unitless proportion value — flex-shrink — that comes into play when the flex items are overflowing their container. This specifies how much of the overflowing amount is taken away from each flex item's size, to stop them overflowing their container. This is quite an advanced flexbox feature, and we won't be covering it any further in this article.
+    The minimum size value we discussed above. This can be specified individually using the flex-basis longhand value.
+
+We'd advise against using the longhand flex properties unless you really have to (for example, to override something previously set). They lead to a lot of extra code being written, and they can be somewhat confusing. */

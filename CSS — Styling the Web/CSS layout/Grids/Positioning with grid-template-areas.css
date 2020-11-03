@@ -1,0 +1,57 @@
+body {
+    width: 90%;
+    max-width: 900px;
+    margin: 2em auto;
+    font: .9em/1.2 Arial, Helvetica, sans-serif;
+}
+
+header,
+footer {
+    border-radius: 5px;
+    padding: 10px;
+    background-color: rgb(207,232,220);
+    border: 2px solid rgb(79,185,227);
+}
+
+aside {
+    border-right: 1px solid #999;
+}
+
+
+/* Positioning with grid-template-areas
+
+An alternative way to place items on your grid is to use the grid-template-areas property and giving the various elements of your design a name. */
+.container {
+    display: grid;
+    grid-template-areas: 
+    "header header"
+    "sidebar content"
+    "footer footer";
+    grid-template-columns: 1fr 3fr;
+    grid-gap: 20px;
+}
+
+header {
+    grid-area: header;
+}
+
+article {
+    grid-area: content;
+}
+
+aside {
+    grid-area: sidebar;
+}
+
+footer {
+    grid-area: footer;
+}
+
+/* The rules for grid-template-areas are as follows:
+
+    -You need to have every cell of the grid filled.
+    -To span across two cells, repeat the name.
+    -To leave a cell empty, use a . (period).
+    -Areas must be rectangular — you can’t have an L-shaped area for example.
+    -Areas can't be repeated in different locations.
+ */

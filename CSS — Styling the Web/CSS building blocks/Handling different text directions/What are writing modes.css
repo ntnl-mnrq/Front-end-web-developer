@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* A writing mode in CSS refers to whether the text is running horizontally or vertically. 
+The writing-mode property lets us switch from one writing mode to another. You don't need 
+to be working in a language which uses a vertical writing mode to want to do this — you 
+could also change the writing mode of parts of your layout for creative purposes. */
+
+/* The three possible values for the writing-mode property are:
+
+    *horizontal-tb: Top-to-bottom block flow direction. Sentences run horizontally.
+    *vertical-rl: Right-to-left block flow direction. Sentences run vertically.
+    *vertical-lr: Left-to-right block flow direction. Sentences run vertically.
+
+So the writing-mode property is in reality setting the direction in which block-level elements 
+are displayed on the page — either from top-to-bottom, right-to-left, or left-to-right. This
+then dictates the direction text flows in sentences. */
+
+.htb {
+  writing-mode: horizontal-tb;
+}
+.vlr {
+  writing-mode: vertical-lr;
+}
+.vrl {
+  writing-mode: vertical-rl;
+}

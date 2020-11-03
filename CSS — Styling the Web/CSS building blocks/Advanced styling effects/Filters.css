@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  display: flex;
+  align-items: flex-start;
+}
+
+.wrapper > * {
+  margin: 20px;
+  flex: 1;
+}
+
+.box {
+  border: 5px solid darkblue;
+}
+
+/* You can apply filters to any element and not just images. Some of the filter options available do very similar things to other CSS features, for example drop-shadow() works in a very similar way and gives a similar effect to box-shadow or text-shadow.  The really nice thing about filters however, is that they work on the exact shapes of the content inside the box, not just the box itself as one big chunk, so it is worth knowing the difference. */
+
+img {
+  height: 100%;
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.blur {
+  filter: blur(10px);
+}
+
+.grayscale {
+  filter: grayscale(60%);
+}
+
+.contrast {
+    filter: contrast(200%);
+}
+
+.invert {
+    filter: invert(100%);
+}
+
+.hue-rot {
+    filter: hue-rotate(20deg);
+}

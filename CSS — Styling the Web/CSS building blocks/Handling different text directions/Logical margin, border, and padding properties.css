@@ -1,0 +1,72 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body { 
+    background-color: #fff;
+    color: #333;
+    font: 1.2em / 1.5 Helvetica Neue, Helvetica, Arial, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+  .wrapper {
+    display: flex;
+    border: 5px solid #ccc;
+  }
+
+  .box {
+    margin-right: 30px;
+  }
+
+/* The margin-top property is mapped to margin-block-start — this will always 
+refer to the margin at the start of the block dimension.
+
+The padding-left property maps to padding-inline-start, the padding that is applied 
+to the start of the inline direction. This will be where sentences start in that 
+writing mode. The border-bottom property maps to border-block-end, which is the 
+border at the end of the block dimension. */
+
+
+.box {
+    inline-size: 200px;
+    writing-mode: horizontal-tb;
+    /* writing-mode: vertical-rl; */
+    /* writing-mode: vertical-lr; */
+    /* writing-mode: sideways-lr; */
+  }
+  
+  .logical {
+    margin-block-start: 20px;
+    padding-inline-end: 2em;
+    padding-block-start: 2px;
+    border-block-start: 5px solid pink;
+    border-inline-end: 10px dotted rebeccapurple;
+    border-block-end: 1em double orange;
+    border-inline-start: 1px solid black;
+  }
+  
+  .physical {
+    margin-top: 20px;
+    padding-right: 2em;
+    padding-top: 2px;
+    border-top: 5px solid pink;
+    border-right: 10px dotted rebeccapurple;
+    border-bottom: 1em double orange;
+    border-left: 1px solid black;
+  }
+  
+  .h2-p {
+    border-bottom: 5px solid black;
+  }
+  
+  .h2-l {
+    border-block-end: 5px solid black;
+  }
+
+/* If you change the writing mode of the boxes by switching the writing-mode property 
+on .box to vertical-rl, you will see how the physical properties stay tied to their 
+physical direction, whereas the logical properties switch with the writing mode.
+
+You can also see that the <h2> has a black border-bottom. Can you work out how to make 
+that bottom border always go below the text in both writing modes? */

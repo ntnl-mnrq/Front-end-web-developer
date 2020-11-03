@@ -1,0 +1,62 @@
+/* In the standard box model, if you give a box a width and a height attribute, 
+this defines the width and height of the content box. Any padding and border is 
+then added to that width and height to get the total size taken up by the box. */
+
+.standardBox {
+  width: 350px;
+  height: 150px;
+  padding: 25px;
+  border: 5px solid black;
+  margin: 10px; /* el margen es el espacio por fuera de la caja, no suma a su tamaño */
+  /* The space taken up by our box using the standard box model will actually be 410px 
+  (350 + 25 + 25 + 5 + 5), and the height 210px (150 + 25 + 25 + 5 + 5), as the padding 
+  and border are added to the width used for the content box. */
+  /* Note: The margin is not counted towards the actual size of the box — sure, it affects 
+  the total space that the box will take up on the page, but only the space outside the box. 
+  The box's area stops at the border — it does not extend into the margin. */
+}
+
+/* You might think it is rather inconvenient to have to add up the border and padding 
+to get the real size of the box, and you would be right! For this reason, CSS had an 
+alternative box model introduced some time after the standard box model. Using this 
+model, any width is the width of the visible box on the page, therefore the content 
+area width is that width minus the width for the padding and border. The same CSS as 
+used above would give the below result (width = 350px, height = 150px). */
+.alternateBox {
+  box-sizing: border-box;
+  width: 350px;
+  height: 150px;
+  padding: 25px;
+  border: 5px solid black;
+  margin: 10px;
+}
+
+
+/* If you want all of your elements to use the alternative box model, and this is a 
+common choice among developers, set the box-sizing property on the <html> element, 
+then set all other elements to inherit that value, as seen in the snippet below. 
+If you want to understand the thinking behind this, see the CSS Tricks article on 
+box-sizing. */
+
+/* html {
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+} */
+
+.box {
+  border: 5px solid rebeccapurple;
+  background-color: lightgray;
+  padding: 40px;
+  margin: 40px;
+  width: 300px;
+  height: 150px;
+}
+
+.alternate {
+  box-sizing: border-box;
+  width: 390px;
+  height: 240px;
+}
+    

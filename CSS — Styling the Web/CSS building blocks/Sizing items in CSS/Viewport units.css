@@ -1,0 +1,21 @@
+body { 
+    background-color: #fff;
+    color: #333;
+    font: 1.2em / 1.5 Helvetica Neue, Helvetica, Arial, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+/* The viewport — which is the visible area of your page in the browser you are using to view a site — also has a size. In CSS we have units which relate to the size of the viewport — the vw unit for viewport width, and vh for viewport height. Using these units you can size something relative to the viewport of the user.
+
+1vh is equal to 1% of the viewport height, and 1vw is equal to 1% of the viewport width. You can use these units to size boxes, but also text. */
+/* If you change the vh and vw values this will change the size of the box or font; changing the viewport size will also change their sizes because they are sized relative to the viewport.  */
+
+.box {
+    border: 5px solid darkblue;
+    width: 20vw;
+    height: 20vh;
+    font-size: 10vh;
+  }
+
+  /* Sizing things according to the viewport can be useful in your designs. For example, if you want a full-page hero section to show before the rest of your content, making that part of your page 100vh high will push the rest of the content below the viewport, meaning that it will only appear once the document is scrolled. */

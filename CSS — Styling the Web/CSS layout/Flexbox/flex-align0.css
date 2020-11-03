@@ -1,0 +1,71 @@
+html {
+    font-family: sans-serif;
+  }
+
+  body {
+    width: 90%;
+    max-width: 960px;
+    margin: 20px auto;
+  }
+
+  button {
+    font-size: 18px;
+    line-height: 1.5;
+    width: 15%;
+  }
+
+  div {
+    height: 100px;
+    border: 1px solid black;
+  }
+
+  /* You can also use flexbox features to align flex items along the main or cross axis. */
+/* align-items controls where the flex items sit on the cross axis.
+
+    By default, the value is stretch, which stretches all flex items to fill the parent in the direction of the cross axis. If the parent doesn't have a fixed width in the cross axis direction, then all flex items will become as long as the longest flex item. This is how our first example got equal height columns by default.
+    The center value that we used in our above code causes the items to maintain their intrinsic dimensions, but be centered along the cross axis. This is why our current example's buttons are centered vertically.
+    You can also have values like flex-start and flex-end, which will align all items at the start and end of the cross axis respectively. See align-items for the full details.
+ */
+  div {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      /* justify-content: space-between; */
+  }
+
+  /* You can override the align-items behavior for individual flex items by applying the align-self property to them. */
+  button:first-child {
+    align-self: flex-end;
+  }
+
+  /* justify-content controls where the flex items sit on the main axis.
+
+    The default value is flex-start, which makes all the items sit at the start of the main axis.
+    You can use flex-end to make them sit at the end.
+    center is also a value for justify-content, and will make the flex items sit in the center of the main axis.
+    The value we've used above, space-around, is useful — it distributes all the items evenly along the main axis, with a bit of space left at either end.
+    There is another value, space-between, which is very similar to space-around except that it doesn't leave any space at either end.
+ */
+
+ /* Ordering flex items 
+ Flexbox also has a feature for changing the layout order of flex items, without affecting the source order. This is another thing that is impossible to do with traditional layout methods.*/
+ button:first-child {
+    order: 1;
+  }
+
+  button:last-child {
+    order: -1;
+  }
+
+  /* 
+    By default, all flex items have an order value of 0.
+    Flex items with higher order values set on them will appear later in the display order than items with lower order values.
+    Flex items with the same order value will appear in their source order. So if you have four items with order values of 2, 1, 1, and 0 set on them respectively, their display order would be 4th, 2nd, 3rd, then 1st.
+    The 3rd item appears after the 2nd because it has the same order value and is after it in the source order.
+
+You can set negative order values to make items appear earlier than items with 0 set.  */
+
+/* button:nth-of-type(even) {
+    background-color: royalblue;
+    order: 10;
+} */

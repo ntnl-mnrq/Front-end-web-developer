@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <p class="admitted"></p>
+    <p class="refused"></p>
+
+    <script>
+        const people = ['Chris', 'Anne', 'Colin', 'Terri', 'Phil', 'Lola', 'Sam', 'Kay', 'Bruce'];
+    
+    const admitted = document.querySelector('.admitted');
+    const refused = document.querySelector('.refused');
+    admitted.textContent = 'Admit: ';
+    refused.textContent = 'Refuse: '
+    
+    // let i = 0;
+    
+    // refused.textContent += ;
+    // admitted.textContent += ;
+    
+    for (let i = 0; i < people.length; i++) {
+        let p = people[i];
+        if(p === 'Phil' | p === 'Lola'){
+            refused.textContent += p + ', ';
+        }
+        else{
+            admitted.textContent += p + ', ';
+        }
+    }
+
+    let s = refused.textContent;
+    s = s.slice(0, -2) + '.';
+    refused.textContent = s;
+
+    s = admitted.textContent;
+    s = s.slice(0, -2) + '.';
+    admitted.textContent = s;
+
+    </script>
+</body>
+</html>

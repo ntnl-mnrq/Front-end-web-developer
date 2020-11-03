@@ -1,0 +1,39 @@
+/* The universal selector is indicated by an asterisk (*). It selects everything 
+in the document (or inside the parent element if it is being chained together 
+with another element and a descendant combinator).  */
+/* This kind of behavior can sometimes be seen in "reset stylesheets", which strip 
+out all of the browser styling. Since the universal selector makes global changes, 
+we use it for very specific situations. */
+* {
+    margin: 0;
+}
+
+
+/* Using the universal selector to make your selectors easier to read */
+
+/* For example, if we wanted to select any descendant elements of an <article> element 
+that are the first child of their parent, including direct children, and make them bold, 
+we could use the :first-child pseudo-class , as a descendant selector along with the 
+<article> element selector:  */
+
+/* article :first-child {
+    font-weight: bold;
+    background-color: hotpink;
+  } */
+
+/* However, this selector could be confused with article:first-child, which will select 
+any <article> element that is the first child of another element.
+
+/* article:first-child {
+    font-weight: bold;
+    background-color: hotpink;
+  } */
+
+/*To avoid this confusion, we can add the universal selector to the :first-child pseudo-class, 
+so it is more obvious what the selector is doing. It is selecting any element which is the 
+first-child of an <article> element, or the first-child of any descendant element of <article>: */
+
+article *:first-child {
+    font-weight: bold;
+    background-color: hotpink;
+  }

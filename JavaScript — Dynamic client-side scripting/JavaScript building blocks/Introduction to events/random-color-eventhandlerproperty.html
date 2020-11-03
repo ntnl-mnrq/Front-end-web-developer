@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Random color example — event handler property</title>
+    <style>
+        button {
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <button>Change color</button>
+    <script>
+        const btn = document.querySelector('button');
+
+        function random(number) {
+            return Math.floor(Math.random() * number);
+        }
+
+        function bgChange() {
+            const rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
+            document.body.style.backgroundColor = rndCol;
+        }
+
+        //   btn.onclick = bgChange;
+        //   btn.onfocus = bgChange;
+        //   btn.onblur = bgChange;
+        //   btn.ondblclick = bgChange;
+        // window.onkeypress = bgChange;
+        // window.onkeydown = bgChange;
+        // window.onkeyup = bgChange;
+        // btn.onmouseover = bgChange;
+        // btn.onmouseout = bgChange;
+
+        // Inside the addEventListener() function, we specify two parameters — the name of the event we want to register this handler for, and the code that comprises the handler function we want to run in response to it.
+        btn.addEventListener('click', bgChange);
+
+        // Note: It is perfectly appropriate to put all the code inside the addEventListener() function, in an anonymous function, like this:
+        //   btn.addEventListener('click', function() {
+        //     const rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
+        //     document.body.style.backgroundColor = rndCol;
+        //   })
+
+        // This mechanism has some advantages over the older mechanisms discussed earlier. First, there is a counterpart function, removeEventListener(), which removes a previously added listener. For example, this would remove the listener set in the first code block in this section:
+        // btn.removeEventListener('click', bgChange)
+        // This isn't significant for simple, small programs, but for larger, more complex programs it can improve efficiency to clean up old unused event handlers. Plus, this allows you to have the same button performing different actions in different circumstances — all you have to do is add or remove event handlers as appropriate.
+
+        // Second, you can register multiple handlers for the same listener. The following two handlers wouldn't both be applied:
+
+        //  myElement.onclick = functionA;
+        //  myElement.onclick = functionB;
+
+        // The second line overwrites the value of onclick set by the first line. This would work, however:
+        // myElement.addEventListener('click', functionA);
+        // myElement.addEventListener('click', functionB);
+        // Both functions would now run when the element is selected.
+        
+    </script>
+</body>
+
+</html>

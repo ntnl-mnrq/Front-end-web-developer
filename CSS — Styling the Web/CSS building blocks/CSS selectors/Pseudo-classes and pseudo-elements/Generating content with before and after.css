@@ -1,0 +1,119 @@
+/* There are a couple of special pseudo-elements, which are used along with the content property to insert content 
+into your document using CSS. */
+
+.box::before {
+    color: teal;
+    content: "This should show before the other content. >:) "
+}   
+
+.box::after {
+    color: tomato;
+    content: " -----------------------------------------";
+}
+
+/* Inserting strings of text from CSS isn't really something we do very often on the web however, 
+as that text is inaccessible to some screen readers and might be hard for someone to find and edit in the future. */
+/* Además el texto generado no puede ser seleccionado por el usuario */
+
+q {
+    color: blue;
+  }
+  
+  q::before {
+    content: open-quote;
+  }
+  
+  q::after {
+    content: close-quote;
+  }
+  
+  h1::before  {
+    content: "Chapter ";  /* The trailing space creates separation
+                             between the added content and the
+                             rest of the content */
+  }
+
+
+  .new-entry::after {
+    content: " New!";  /* The leading space creates separation
+                          between the added content and the
+                          rest of the content */
+    color: red;
+  }
+
+
+  a {
+    text-decoration: none;
+    border-bottom: 3px dotted navy;
+  }
+  
+  a::after {
+    content: " (" attr(id) ")";
+  }
+  
+  #moz::before {
+    content: url("https://mozorg.cdn.mozilla.net/media/img/favicon.ico");
+  }
+  
+  #mdn::before {
+    content: url("https://mdn.mozillademos.org/files/7691/mdn-favicon16.png");
+  }
+  
+  li {
+    margin: 1em;
+  }
+
+
+  /* 
+
+These pseudo-elements are also frequently used to insert an empty string, which can then be styled just like any element on the page.
+
+In this next example, we have added an empty string using the ::before pseudo-element. We have set this to display: block in order that
+ we can style it with a width and height. We then use CSS to style it just like any element. You can play around with the CSS and change 
+ how it looks and behaves. */
+  .bloque::before {
+      content: "";
+      display: block;
+      width: 100px;
+      height: 100px;
+      background-image: linear-gradient(tomato 20%, orange 80%);
+  }
+
+
+  /* The use of the ::before and ::after pseudo-elements along with the content property is referred to as 
+  "Generated Content" in CSS, and you will often see this technique being used for various tasks. */
+
+
+  .arrow_box {
+	position: relative;
+	background: #88b7d5;
+    border: 4px solid #c2e1f5;
+    font-size: 50px;
+}
+.arrow_box:after, .arrow_box:before {
+	right: 100%;
+	top: 50%;
+	border: solid transparent;
+	content: "";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.arrow_box:after {
+	border-color: rgba(136, 183, 213, 0);
+	border-right-color: #88b7d5;
+	border-width: 30px;
+	margin-top: -30px;
+}
+.arrow_box:before {
+	border-color: rgba(194, 225, 245, 0);
+	border-right-color: #c2e1f5;
+	border-width: 36px;
+	margin-top: -36px;
+}
+
+p::selection{
+    background-color: teal;
+}

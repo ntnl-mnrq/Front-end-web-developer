@@ -1,0 +1,24 @@
+body {
+    width: 500px;
+    height: 1400px;
+    margin: 0 auto;
+  }
+
+  dt {
+      background-color: black;
+      color: white;
+      padding: 10px;
+      position: sticky;
+      top: 0;
+      left: 0;
+      margin: 1em 0;
+  }
+
+  /*
+  position: sticky
+
+There is another position value available called position: sticky, which is somewhat newer than the others. This is basically a hybrid between relative and fixed position, which allows a positioned element to act like it is relatively positioned until it is scrolled to a certain threshold point (e.g. 10px from the top of the viewport), after which it becomes fixed. This can be used to for example cause a navigation bar to scroll with the page until a certain point, and then stick to the top of the page.
+
+  Sticky elements are "sticky" relative to the nearest ancestor with a "scrolling mechanism", which is determined by its ascendants' position property. */
+
+  /* The CSS might look as follows. In normal flow the <dt> elements will scroll with the content. When we add position: sticky to the <dt> element, along with a top value of 0, supporting browsers will stick the headings to the top of the viewport as they reach that position. Each subsequent header will then replace the previous one as it scrolls up to that position. */

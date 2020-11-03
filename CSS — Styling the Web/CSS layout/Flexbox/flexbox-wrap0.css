@@ -1,0 +1,53 @@
+html {
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  background: purple;
+  height: 100px;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  line-height: 100px;
+  margin: 0;
+}
+
+article {
+  padding: 10px;
+  margin: 10px;
+  background: aqua;
+}
+
+/* Wrapping
+
+One issue that arises when you have a fixed amount of width or height in your layout is that eventually your flexbox children will overflow their container, breaking the layout.  Here we see that the children are indeed breaking out of their container.*/
+
+section {
+  display: flex;
+
+  /* flex-direction: row; */
+  /* One way in which you can fix this is to add the following declaration to your <section> rule: */
+  /* flex-wrap: wrap; */
+
+  /* flex-direction: row-reverse; */
+
+  /* flex-flow shorthand */
+  /* At this point it is worth noting that a shorthand exists for flex-direction and flex-wrap — flex-flow.  */
+  flex-flow: row wrap;
+}
+
+article {
+    /* Also, add the following declaration to your <article> rule: */
+    flex: 200px;
+}
+
+/* We now have multiple rows — as many flexbox children are fitted onto each row as makes sense, and any overflow is moved down to the next line.
+
+The flex: 200px declaration set on the articles means that each will be at least 200px wide.
+You might also notice that the last few children on the last row are each made wider so that the entire row is still filled. */

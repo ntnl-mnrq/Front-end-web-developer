@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Page Title</title>
+</head>
+<body>
+    <svg version="1.1"
+     baseProfile="full"
+     width="300" height="200"
+     xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="black" />
+  <circle cx="150" cy="100" r="90" fill="blue" />
+</svg>
+
+<hr>
+
+<h2 >Adding SVG to your pages</h2>
+
+<h3> The quick way: <code>&lt;img&gt;</code></h3>
+<img 
+    src="abzolem.svg" 
+    alt="Logo Abzolem" 
+    width="300">
+
+<h4 >Pros</h4>
+
+<ul>
+ <li>Quick, familiar image syntax with built-in text equivalent available in the <code>alt</code> attribute.</li>
+ <li>You can make the image into a hyperlink easily by nesting the <code>&lt;img&gt;</code> inside an <a href="/en-US/docs/Web/HTML/Element/a" title="The HTML &lt;a> element (or anchor element), with its href attribute, creates a hyperlink to web pages, files, email addresses, locations in the same page, or anything else a URL can address."><code>&lt;a&gt;</code></a> element.</li>
+ <li>The SVG file can be cached by the browser, resulting in faster loading times for any page that uses the image loaded in the future.</li>
+</ul>
+
+<h4>Cons</h4>
+
+<ul>
+ <li>You cannot manipulate the image with JavaScript.</li>
+ <li>If you want to control the SVG content with CSS, you must include inline CSS styles in your SVG code. (External stylesheets invoked from the SVG file take no effect.)</li>
+ <li>You cannot restyle the image with CSS pseudoclasses (like <code>:focus</code>).</li>
+</ul>
+
+<br>
+
+<h3 >How to include SVG code inside your HTML</h3>
+<p>You can also open up the SVG file in a text editor, copy the SVG code, and paste it into your HTML document — this is sometimes called putting your SVG inline, or inlining SVG. Make sure your SVG code snippet begins and ends with the <code> &ltsvg&gt&lt/svg&gt </code> tags (don't include anything outside those.)</p>
+
+<svg width="300" height="200">
+    <rect width="100%" height="100%" fill="green" />
+</svg>
+
+<h4 >Pros</h4>
+
+<ul>
+ <li>Putting your SVG inline saves an HTTP request, and therefore can reduce a bit your loading time.</li>
+ <li>You can assign <code>class</code>es and <code>id</code>s to SVG elements and style them with CSS, either within the SVG or wherever you put the CSS style rules for your HTML document. In fact, you can use any <a href="/en-US/docs/Web/SVG/Attribute#Presentation_attributes">SVG presentation attribute </a>as a CSS property.</li>
+ <li>Inlining SVG is the only approach that lets you use CSS interactions (like <code>:focus</code>) and CSS animations on your SVG image (even in your regular stylesheet.)</li>
+ <li>You can make SVG markup into a hyperlink by wrapping it in an <a href="/en-US/docs/Web/HTML/Element/a" title="The HTML <a> element (or anchor element), with its href attribute, creates a hyperlink to web pages, files, email addresses, locations in the same page, or anything else a URL can address."><code>&lt;a&gt;</code></a> element.</li>
+</ul>
+
+<h4>Cons</h4>
+
+<ul>
+ <li>This method is only suitable if you're using the SVG in only one place. Duplication makes for resource-intensive maintenance.</li>
+ <li>Extra SVG code increases the size of your HTML file.</li>
+ <li>The browser cannot cache inline SVG as it would cache regular image assets, so pages that include the image will not load faster after the first page containing the image is loaded.</li>
+ <li>You may include fallback in a <a href="/en-US/docs/Web/SVG/Element/foreignObject" title="The <foreignObject> SVG element includes elements from a different XML namespace. In the context of a browser, it is most likely (X)HTML."><code>&lt;foreignObject&gt;</code></a> element, but browsers that support SVG still download any fallback images. You need to weigh whether the extra overhead is really worthwhile, just to support obsolescent browsers.</li>
+</ul>
+
+<br>
+
+<h3>How to embed an SVG with an <code>&lt;iframe&gt;</code></h3>
+
+<iframe src="abzolem.svg" width="500" height="500" sandbox>
+    <img src="abzolem.png" alt="Triangle with three unequal sides" />
+</iframe>
+<p>This is definitely not the best method to choose:</p>
+
+<h4 id="Cons_3">Cons</h4>
+
+<ul>
+ <li><code>iframe</code>s do have a fallback mechanism, as you can see, but browsers only display the fallback if they lack support for <code>iframe</code>s altogether.</li>
+ <li>Moreover, unless the SVG and your current webpage have the same <a href="/en-US/docs/Glossary/origin">origin</a>, you cannot use JavaScript on your main webpage to manipulate the SVG.</li>
+<hr>
+</body>
+</html>

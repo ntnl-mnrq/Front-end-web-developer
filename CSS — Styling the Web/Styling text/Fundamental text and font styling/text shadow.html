@@ -1,0 +1,182 @@
+<html>
+  <head>
+    <title>text-shadow FTW</title>
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Alfa+Slab+One"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <style type="text/css">
+      html {
+        font-size: 600%;
+
+        font-family: "Alfa Slab One", cursive;
+
+        background: url(notebook.png);
+      }
+
+      p {
+        text-align: center;
+      }
+
+      .shadow1 {
+        text-shadow: 3px 3px 1px gray;
+      }
+
+      .shadow2 {
+        text-shadow: 3px 3px 7px gray;
+      }
+
+      .shadow3 {
+        text-shadow: 1px 1px 1px #666, 3px 3px 8px black;
+      }
+
+      .shadow4 {
+        text-shadow: 1px 1px 1px red, 2px 2px 1px red;
+      }
+
+      .shadow5 {
+        text-shadow: -1px -1px 1px #555, -2px -2px 1px #666;
+      }
+
+      .shadow6 {
+        text-shadow: -1px -1px 1px #aaa, 0px 4px 1px rgba(0, 0, 0, 0.5),
+          4px 4px 5px rgba(0, 0, 0, 0.7), 0px 0px 7px rgba(0, 0, 0, 0.4);
+      }
+
+      .shadow7 {
+        text-shadow: 0 0 20px #fefcc9, 10px -10px 30px #feec85,
+          -20px -20px 40px #ffae34, 20px -30px 35px #ec760c,
+          -20px -40px 40px #cd4606, 0 -50px 65px #973716,
+          10px -70px 70px #451b0e;
+      }
+
+      .shadow8 {
+        background-color: #333;
+
+        -webkit-background-clip: text;
+
+        -moz-background-clip: text;
+
+        background-clip: text;
+
+        color: transparent;
+
+        text-shadow: rgba(255, 255, 255, 0.5) 2px 3px 6px;
+      }
+
+      .shadow9 {
+        text-shadow: 0 1px #808d93, -1px 0 #cdd2d5, -1px 2px #808d93,
+          -2px 1px #cdd2d5, -2px 3px #808d93, -3px 2px #cdd2d5, -3px 4px #808d93,
+          -4px 3px #cdd2d5, -4px 5px #808d93, -5px 4px #cdd2d5, -5px 6px #808d93,
+          -6px 5px #cdd2d5, -6px 7px #808d93, -7px 6px #cdd2d5, -7px 8px #808d93,
+          -8px 7px #cdd2d5;
+      }
+
+      .shadow10 {
+        color: yellow;
+
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7), 5px 5px 1px orange,
+          6px 6px 2px rgba(0, 0, 0, 0.7), 10px 10px 1px red,
+          11px 11px 2px rgba(0, 0, 0, 0.7), 15px 15px 1px purple,
+          16px 16px 2px rgba(0, 0, 0, 0.7);
+
+        -webkit-animation: text-snake 1s infinite alternate;
+
+        -moz-animation: text-snake 1s infinite alternate;
+
+        -ms-animation: text-snake 1s infinite alternate;
+
+        animation: text-snake 1s infinite alternate;
+      }
+
+      @-webkit-keyframes text-snake {
+        from {
+          text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7), 5px 5px 1px orange,
+            6px 6px 2px rgba(0, 0, 0, 0.7), 10px 10px 1px red,
+            11px 11px 2px rgba(0, 0, 0, 0.7), 15px 15px 1px purple,
+            16px 16px 2px rgba(0, 0, 0, 0.7);
+        }
+
+        to {
+          text-shadow: -1px 1px 2px rgba(0, 0, 0, 0.7), -5px 5px 1px orange,
+            -6px 6px 2px rgba(0, 0, 0, 0.7), -10px 10px 1px red,
+            -11px 11px 2px rgba(0, 0, 0, 0.7), -15px 15px 1px purple,
+            -16px 16px 2px rgba(0, 0, 0, 0.7);
+        }
+      }
+
+      @-moz-keyframes text-snake {
+        from {
+          text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7), 5px 5px 1px orange,
+            6px 6px 2px rgba(0, 0, 0, 0.7), 10px 10px 1px red,
+            11px 11px 2px rgba(0, 0, 0, 0.7), 15px 15px 1px purple,
+            16px 16px 2px rgba(0, 0, 0, 0.7);
+        }
+
+        to {
+          text-shadow: -1px 1px 2px rgba(0, 0, 0, 0.7), -5px 5px 1px orange,
+            -6px 6px 2px rgba(0, 0, 0, 0.7), -10px 10px 1px red,
+            -11px 11px 2px rgba(0, 0, 0, 0.7), -15px 15px 1px purple,
+            -16px 16px 2px rgba(0, 0, 0, 0.7);
+        }
+      }
+
+      @-ms-keyframes text-snake {
+        from {
+          text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7), 5px 5px 1px orange,
+            6px 6px 2px rgba(0, 0, 0, 0.7), 10px 10px 1px red,
+            11px 11px 2px rgba(0, 0, 0, 0.7), 15px 15px 1px purple,
+            16px 16px 2px rgba(0, 0, 0, 0.7);
+        }
+
+        to {
+          text-shadow: -1px 1px 2px rgba(0, 0, 0, 0.7), -5px 5px 1px orange,
+            -6px 6px 2px rgba(0, 0, 0, 0.7), -10px 10px 1px red,
+            -11px 11px 2px rgba(0, 0, 0, 0.7), -15px 15px 1px purple,
+            -16px 16px 2px rgba(0, 0, 0, 0.7);
+        }
+      }
+
+      @keyframes text-snake {
+        from {
+          text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7), 5px 5px 1px orange,
+            6px 6px 2px rgba(0, 0, 0, 0.7), 10px 10px 1px red,
+            11px 11px 2px rgba(0, 0, 0, 0.7), 15px 15px 1px purple,
+            16px 16px 2px rgba(0, 0, 0, 0.7);
+        }
+
+        to {
+          text-shadow: -1px 1px 2px rgba(0, 0, 0, 0.7), -5px 5px 1px orange,
+            -6px 6px 2px rgba(0, 0, 0, 0.7), -10px 10px 1px red,
+            -11px 11px 2px rgba(0, 0, 0, 0.7), -15px 15px 1px purple,
+            -16px 16px 2px rgba(0, 0, 0, 0.7);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <p class="shadow1">Text shadow 1</p>
+
+    <p class="shadow2">Text shadow 2</p>
+
+    <p class="shadow3">Text shadow 3</p>
+
+    <p class="shadow4">Text shadow 4</p>
+
+    <p class="shadow5">Text shadow 5</p>
+
+    <p class="shadow6">Text shadow 6</p>
+
+    <p class="shadow7">Text shadow 7</p>
+
+    <p class="shadow8">Text shadow 8</p>
+
+    <p class="shadow9">Text shadow 9</p>
+
+    <p class="shadow10">Text shadow 10</p>
+  </body>
+</html>

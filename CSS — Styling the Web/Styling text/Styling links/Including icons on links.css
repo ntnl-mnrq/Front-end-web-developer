@@ -1,0 +1,41 @@
+body {
+    width: 300px;
+    margin: 0 auto;
+    font-family: sans-serif;
+  }
+  
+  p {
+    line-height: 1.4;
+  }
+  
+  a {
+    outline: none;
+    text-decoration: none;
+    padding: 2px 1px 0;
+  }
+  
+  a:link {
+    color: blue;
+  }
+  
+  a:visited {
+    color: purple;
+  }
+  
+  a:focus, a:hover {
+    border-bottom: 1px solid;
+  }
+  
+  a:active {
+    color: red;
+  }
+  
+  a[href*="http"] {
+    background: url('https://mdn.mozillademos.org/files/12982/external-link-52.png') no-repeat 100% 0;
+    background-size: 16px 16px;
+    padding-right: 19px;
+    /* here we are inserting a custom background image on external links in a similar manner to how we handled custom bullets on list items in the last article — this time however we are using background shorthand instead of the individual properties. We set the path to the image we want to insert, specify no-repeat so we only get one copy inserted, and then specify the position as 100% of the way over to the right of the text content, and 0 pixels from the top. 
+    We also use background-size to specify the size we want the background image to be shown at — it is useful to have a larger icon and then resize it like this as needed for responsive web design purposes. 
+    Finally, we set some padding-right on the links to make space for the background image to appear in, so we aren't overlapping it with the text.
+    A final word — how did we select just external links? Well, if you are writing your HTML links properly, you should only be using absolute URLs for external links — it is more efficient to use relative links to link to other parts of your own site (as with the first link). The text "http" should therefore only appear in external links (like the second and third ones), and we can select this with an attribute selector: a[href*="http"] selects <a> elements, but only if they have an href attribute with a value that contains "http" somewhere inside it.*/
+  }

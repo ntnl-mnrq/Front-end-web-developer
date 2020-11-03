@@ -1,0 +1,104 @@
+/* Many form controls are added to your page by way of the <input> element — this defines simple form fields such as text inputs, through to more complex fields added in HTML5 such as color and date pickers. There are some additional elements, such as <textarea> for multiline text input, and also elements used to contain and label parts of forms such as <fieldset> and <legend>.
+
+HTML5 also contains attributes that enable web developers to indicate which fields are required, and even the type of content that needs to be entered. If the user enters something unexpected, or leaves a required field blank, the browser can show an error message. Different browsers are inconsistent in how much styling and customization they allow for such items. */
+
+
+/* Styling text input elements
+
+Elements that allow for text input, such as <input type="text">, specific types such as <input type="email">, and the <textarea> element are quite easy to style and tend to behave just like other boxes on your page. The default styling of these elements will differ however based on the operating system and browser that your user visits the site with.
+
+In the example below we have styled some text inputs using CSS — you can see that things such as borders, margins and padding all apply as you would expect. We are using attribute selectors to target the different input types. Try changing how this form looks by adjusting the borders, adding background colors to the fields, and changing fonts and padding. */
+
+
+form > div {
+    display: flex;
+  }
+
+  label {
+    width: 10em;
+  }
+
+  .buttons {
+    justify-content: center;
+  }
+  
+
+
+input[type="text"],
+input[type="email"] {
+  border: 2px solid #000;
+  margin: 0 0 1em 0;
+  padding: 10px;
+  width: 100%;
+}
+
+input[type="submit"] {
+  border: 3px solid #333;
+  background-color: #999;
+  border-radius: 5px;
+  padding: 10px 2em;
+  font-weight: bold;
+  color: #fff;
+}
+
+input[type="submit"]:hover {
+  background-color: #333;
+}
+
+/* As explained in the lessons on form styling in the HTML part of this course, many of the more complex input types are rendered by the operating system and are inaccessible to styling. You should therefore always assume that forms are going to look quite different for different visitors and test complex forms in a number of browsers. */
+
+
+
+/* Inheritance and form elements
+
+In some browsers, form elements do not inherit font styling by default. Therefore if you want to be sure that your form fields use the font defined on the body, or on a parent element, you should add this rule to your CSS. */
+button, 
+input, 
+select, 
+textarea { 
+  font-family : inherit; 
+  font-size : 100%; 
+} 
+
+
+/* Form elements and box-sizing
+
+Across browsers form elements use different box sizing rules for different widgets. You learned about the box-sizing property in our box model lesson and you can use this knowledge when styling forms to ensure a consistent experience when setting widths and heights on form elements.
+
+For consistency it is a good idea to set margins and padding to 0 on all elements, then add these back in when styling particular controls */
+button, 
+input, 
+select, 
+textarea {  
+  box-sizing: border-box; 
+  padding: 0;
+  margin: 0; 
+}
+
+
+/* Other useful settings
+
+In addition to the rules mentioned above, you should also set overflow: auto on <textarea>s to stop IE showing a scrollbar when there is no need for one: */
+textarea {
+    overflow: auto;
+  }
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////// */
+  /* Putting it all together into a "reset"
+
+As a final step, we can wrap up the various properties discussed above into the following "form reset" to provide a consistent base to work from. This includes all the items mentioned in the last three sections: */
+button, 
+input, 
+select, 
+textarea { 
+  font-family: inherit; 
+  font-size: 100%; 
+  box-sizing: border-box; 
+  padding: 0; margin: 0; 
+} 
+
+textarea { 
+  overflow: auto; 
+} 
+/* ////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Note: Normalizing stylesheets are used by many developers to create a set of baseline styles to use on all projects. Typically these do similar things to those described above, making sure that anything different across browsers is set to a consistent default before you do your own work on the CSS. They are not as important as they once were, as browsers are typically more consistent than in the past. However if you want to take a look at one example, check out Normalize.css, which is a very popular stylesheet used as a base by many projects. */

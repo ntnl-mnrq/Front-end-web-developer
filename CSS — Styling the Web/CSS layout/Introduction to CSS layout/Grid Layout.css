@@ -1,0 +1,40 @@
+* {box-sizing: border-box;}
+        
+.wrapper > div {
+    border-radius: 5px;
+    background-color: rgb(207,232,220);
+    padding: 1em;
+}
+
+/* Grid Layout
+
+While flexbox is designed for one-dimensional layout, Grid Layout is designed for two dimensions — lining things up in rows and columns.
+
+Once again, you can switch on Grid Layout with a specific value of display — display: grid.
+*/
+
+/* The below example uses similar markup to the flex example, with a container and some child elements. In addition to using display: grid, we are also defining some row and column tracks on the parent using the grid-template-rows and grid-template-columns properties respectively. We've defined three columns each of 1fr and two rows of 100px. I don’t need to put any rules on the child elements; they are automatically placed into the cells our grid has created. */
+
+.wrapper {
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+grid-template-rows: 100px 100px;
+grid-gap: 10px;
+}
+
+/* Once you have a grid, you can explicitly place your items on it, rather than relying on the auto-placement behavior seen above. In the second example below we have defined the same grid, but this time with three child items. We've set the start and end line of each item using the grid-column and grid-row properties. This causes the items to span multiple tracks. */
+
+.box1 {
+    grid-column: 2 / 4;
+    grid-row: 1;
+}
+
+.box2 {
+    grid-column: 1;
+    grid-row: 1 / 3;
+}
+
+.box3 {
+    grid-row: 2;
+    grid-column: 3;
+}

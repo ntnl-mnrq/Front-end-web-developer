@@ -1,0 +1,106 @@
+* {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  display: flex;
+  background-color: #eee;
+}
+
+.box {
+  width: 200px;
+  height: 100px;
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  background-color: #aaa;
+  margin: 20px;
+}
+
+/* This example demonstrates two things about background images. By default, the large 
+image is not scaled down to fit the box, so we only see a small corner of it, whereas 
+the small image is tiled to fill the box. In this case, the actual image is just a 
+single star. */
+
+/* 
+Sizing the background image
+In the example above, we have a large image that has ended up being cropped as it is larger 
+than the element it is a background of. In this case we could use the background-size property, 
+which can take length or percentage values, to size the image to fit inside the background.
+You can also use keywords:
+*cover — the browser will make the image just large enough so that it completely covers the box 
+ area while still retaining its aspect ratio. In this case, part of the image is likely to end up 
+ outside the box.
+*contain — the browser will make the image the right size to fit inside the box. In this case, 
+ you may end up with gaps on either side or on the top and bottom of the image, if the aspect ratio 
+ of the image is different from that of the box.
+ */
+
+.bal {
+  background-image: url(balloons.jpg);
+}
+
+.resize {
+  background-size: 100px 10em;
+  /* background-size: cover; */
+  /* background-size: contain; */
+}
+
+.cov {
+  background-size: cover;
+}
+.cov::after{
+  content: "cover";
+}
+
+.cont {
+  background-size: contain;
+}
+.cont::after {
+  content: "contain";
+}
+
+/* .bal.size.c {
+  background-size: cover;
+}
+.bal.size.d {
+  background-size: contain;
+} */
+
+/* Controlling background-repeat */
+.star {
+  background-color: red;
+  background-image: url(star.png);
+}
+.no-rep {
+  background-repeat: no-repeat;
+}
+.rep-x {
+  background-repeat: repeat-x;
+}
+.rep-y {
+  background-repeat: repeat-y;
+}
+
+/* Positioning the background image */
+/* The background-position property allows you to choose the position in which the background 
+image appears on the box it is applied to. This uses a coordinate system in which the top-left-hand 
+corner of the box is (0,0), and the box is positioned along the horizontal (x) and vertical (y) axes.
+Note: The default background-position value is (0,0).
+ */
+.pos-a {
+  background-position: top center;
+}
+.pos-b {
+  background-position: 20px 10%;
+}
+.pos-c {
+  background-position: top 20px;
+}
+/* you can also use a 4-value syntax in order to indicate a distance from certain edges of the box — the 
+length unit, in this case, is an offset from the value that precedes it. So in the CSS below we are 
+positioning the background 20px from the top and 10px from the right: */
+.pos-d {
+  background-position: top 20px right 10px;
+}
+/* Note: background-position is a shorthand for background-position-x and background-position-y, which 
+allow you to set the different axis position values individually. */

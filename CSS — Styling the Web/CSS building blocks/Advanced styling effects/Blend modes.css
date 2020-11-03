@@ -1,0 +1,144 @@
+/* CSS blend modes allow us to add blend modes to elements that specify a blending effect when two elements overlap — the final color shown for each pixel will be the result of a combination of the original pixel color, and that of the pixel in the layer underneath it. Blend modes are again very familiar to users of graphics applications like Photoshop.
+
+There are two properties that use blend modes in CSS:
+
+- background-blend-mode, which blends together multiple background images and colors set on a single element.
+- mix-blend-mode, which blends together the element it is set on with elements it is overlapping — both background and content.
+  */
+
+  html {
+    font-family: sans-serif;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  div {
+    width: 280px;
+    height: 130px;
+    padding: 10px;
+    margin: 10px;
+  }
+
+  article {
+    width: 330px;
+    height: 180px;
+    margin: 10px;
+    position: relative;
+
+  }
+
+  body > div, article div:first-child {
+    background: url(colorful-heart.png) no-repeat center 20px;
+    background-color: green;
+  }
+
+  body > div, article {
+    display: inline-block;
+  }
+
+  article div:first-child {
+    position: absolute;
+    top: 10px;
+    left: 0;
+  }
+
+  article div:last-child {
+    background-color: purple;
+    position: absolute;
+    bottom: -10px;
+    right: 0;
+    z-index: -1;
+  }
+
+
+  .multiply {
+    background-blend-mode: multiply;
+  }
+
+  .multiply-mix {
+    mix-blend-mode: multiply;
+  }
+
+  .screen {
+    background-blend-mode: screen;
+  }
+
+  .screen-mix {
+    mix-blend-mode: screen;
+  }
+
+  .overlay {
+    background-blend-mode: overlay;
+  }
+
+  .overlay-mix {
+    mix-blend-mode: overlay;
+  }
+
+  .darken {
+    background-blend-mode: darken;
+  }
+
+  .darken-mix {
+    mix-blend-mode: darken;
+  }
+
+  .lighten {
+    background-blend-mode: lighten;
+  }
+
+  .lighten-mix {
+    mix-blend-mode: lighten;
+  }
+
+  .color-dodge {
+    background-blend-mode: color-dodge;
+  }
+
+  .color-dodge-mix {
+    mix-blend-mode: color-dodge;
+  }
+
+  .color-burn {
+    background-blend-mode: color-burn;
+  }
+
+  .color-burn-mix {
+    mix-blend-mode: color-burn;
+  }
+
+  .hard-light {
+    background-blend-mode: hard-light;
+  }
+
+  .hard-light-mix {
+    mix-blend-mode: hard-light;
+  }
+
+  .soft-light {
+    background-blend-mode: soft-light;
+  }
+
+  .soft-light-mix {
+    mix-blend-mode: soft-light;
+  }
+
+  .difference {
+    background-blend-mode: difference;
+  }
+
+  .difference-mix {
+    mix-blend-mode: difference;
+  }
+
+  .hue {
+    background-blend-mode: hue;
+  }
+
+  .hue-mix {
+    mix-blend-mode: hue;
+  }
+
+

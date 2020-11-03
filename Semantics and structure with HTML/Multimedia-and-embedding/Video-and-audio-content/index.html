@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Simple video example</title>
+</head>
+
+<body>
+    <h1>Below is a simple video example</h1>
+
+    <video src="media/rabbit320.webm" controls>
+        <p>Your browser doesn't support HTML5 video. Here is a <a href="media/rabbit320.webm">link to the video</a>
+            instead.</p>
+    </video>
+
+    <hr>
+
+    <video controls>
+        <source src="media/rabbit320.mp4" type="video/mp4">
+        <source src="media/rabbit320.webm" type="video/webm">
+        <p>Your browser doesn't support HTML5 video. Here is a <a href="media/rabbit320.mp4">link to the video</a>
+            instead.</p>
+    </video>
+
+    <hr>
+
+    <!-- <video controls width="400" height="400" autoplay loop muted preload="auto" poster="media/poster.png"> -->
+    <video controls width="400" height="400" loop muted preload="auto" poster="media/poster.png">
+        <source src="media/rabbit320.mp4" type="video/mp4">
+        <source src="media/rabbit320.webm" type="video/webm">
+        <p>Your browser doesn't support HTML video. Here is a <a href="media/rabbit320.mp4">link to the video</a>
+            instead.</p>
+    </video>
+
+    <hr>
+
+    <audio controls autoplay>
+        <source src="media/viper.mp3" type="audio/mp3">
+        <source src="media/viper.ogg" type="audio/ogg">
+        <p>Your browser doesn't support HTML5 audio. Here is a <a href="media/viper.mp3">link to the audio</a> instead.
+        </p>
+    </audio>
+
+    <hr>
+
+    <!-- <video controls width="400" height="400" autoplay loop muted preload="auto" poster="media/poster.png"> -->
+    <video controls width="400" height="400" loop muted preload="auto" poster="media/poster.png">
+        <source src="media/rabbit320.mp4" type="video/mp4">
+        <source src="media/rabbit320.webm" type="video/webm">
+        <track default kind="subtitles" src="subs/test.webvtt" srclang="es">
+        <p>Your browser doesn't support HTML video. Here is a <a href="media/rabbit320.mp4">link to the video</a>
+            instead.</p>
+    </video>
+
+</body>
+
+</html>

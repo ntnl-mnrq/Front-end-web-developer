@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script>
+        let song = 'Fight the Youth';
+        let score = 9;
+        let highestScore = 10;
+
+        // song = '"Fight the Youth"'
+        // output = 'I like the song ' + song + '. \nI gave it a score of ' + (score / highestScore * 100) + '%.';
+        // output;
+        // console.log(output);
+
+        song = `Fight the Youth`;
+        output = `I like the song "${song}." 
+I gave it a score of ${score / highestScore * 100}%.`
+        console.log(output);
+
+
+        let examScore = 55;
+        let examHighestScore = 70;
+        examReport = `You scored ${examScore}/${examHighestScore} (${Math.round((examScore / examHighestScore * 100))}%). ${examScore >= 49 ? 'Well done, you passed!' : 'Bad luck, you didn\'t pass this time.'}`;
+        console.log(examReport);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

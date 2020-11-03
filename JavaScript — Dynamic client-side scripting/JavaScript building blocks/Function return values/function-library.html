@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Function library example</title>
+    <style>
+        input {
+            font-size: 2em;
+            margin: 10px 1px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input class="numberInput" type="text">
+    <p></p>
+
+    <script>
+        const input = document.querySelector('.numberInput');
+        const para = document.querySelector('p');
+
+        const mal = document.createElement('iframe');
+
+        function squared(num) {
+            return num * num;
+        }
+
+        function cubed(num) {
+            return num * num * num;
+        }
+
+        function factorial(num) {
+            if (num < 0) return undefined;
+            if (num === 0) return 1;
+            let x = num - 1;
+            while (x > 1) {
+                num *= x;
+                x--;
+            }
+            return num;
+        }
+
+        input.onchange = function() {
+            const num = input.value;
+            if (isNaN(num)) {
+                // para.textContent = '꧁꧂';
+                mal.setAttribute('width', '560');
+                mal.setAttribute('height', '315');
+                mal.setAttribute('src', 'https://www.youtube.com/embed/jKONF83ZCxM');
+                para.textContent = '';
+                para.appendChild(mal);
+            // } else if(num !== void 0){
+               } else if(num !== ''){
+                para.textContent = `${num} al cuadrado es ${squared(num)}.
+                ${num} al cubo es ${cubed(num)}.
+                ${num} factorial es ${factorial(num)}.`;
+                // para.textContent = num + ' al cuadrado es: ' + squared(num) + '.\n' + num + ' al cubo es: ' + cubed(num) + '.\n' + num + ' factorial ' + factorial(num) +'.';
+            }
+        }
+
+    </script>
+</body>
+
+</html>

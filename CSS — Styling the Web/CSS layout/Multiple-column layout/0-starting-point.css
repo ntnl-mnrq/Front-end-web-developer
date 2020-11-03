@@ -1,0 +1,59 @@
+body {
+    width: 90%;
+    max-width: 900px;
+    margin: 2em auto;
+    font: .9em/1.2 Arial, Helvetica, sans-serif;
+}
+
+/*The multiple-column layout specification gives you a method of laying content out in columns, as you might see in a newspaper.
+
+We switch on multicol by using one of two properties column-count or column-width. The column-count property will create as many columns as the value you give it,
+
+The columns that you create have flexible widths — the browser works out how much space to assign each column.*/
+
+.container {
+    column-count: 3;
+  }
+
+
+  /* The browser will now give you as many columns as it can of the size that you specify; any remaining space is then shared between the existing columns. This means that you will not get exactly the width that you specify, unless your container is exactly divisible by that width. */
+  .container2 {
+    column-width: 200px;
+  }
+
+
+  /* Styling the columns
+
+The columns created by multicol cannot be styled individually. There is no way to make one column bigger than other columns, or to change the background or text color of a single column. You have two opportunities to change the way that columns display:
+
+    Changing the size of the gap between columns using the column-gap.
+    Adding a rule between columns with column-rule.
+ */
+ .container2 {
+     /* You can play around with different values — the property accepts any length unit. */
+    column-gap: 1.5em;
+    column-rule: 15px double tomato;
+  }
+
+
+  .container {
+    column-count: 3;
+    column-gap: 20px;
+    /* In a similar way to the border property that you encountered in previous lessons, column-rule is a shorthand for column-rule-color, column-rule-style, and column-rule-width, and accepts the same values as border. */
+    /* Something to take note of is that the rule does not take up any width of its own. It lies across the gap you created with column-gap. To make more space either side of the rule you will need to increase the column-gap size. */
+    column-rule: 4px dotted rgb(79, 185, 227);
+  }
+
+
+  /* Spanning columns 
+  You can cause an element to span across all of the columns. In this case the content breaks when the spanning element is introduced and continues below creating a new set of column boxes. To cause an element to span all of the columns use the column-span property set to all.
+
+Note that it isn't possible to cause an element to span some columns. The property can only have the value of none (which is the default) or all.
+*/
+
+h2 {
+ column-span: all;
+ background-color: rgb(79, 185, 227);
+ color: white;
+ padding: .5em;
+}

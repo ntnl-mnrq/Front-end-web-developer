@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+}
+p {
+  margin: 1em 2em;
+  padding: 20px;
+  width: 100px;
+  display: inline-block;
+}
+
+/* You can apply filters to any element and not just images. Some of the filter options available do very similar things to other CSS features, for example drop-shadow() works in a very similar way and gives a similar effect to box-shadow or text-shadow.  The really nice thing about filters however, is that they work on the exact shapes of the content inside the box, not just the box itself as one big chunk, so it is worth knowing the difference. */
+
+p {
+  border: 5px dashed red;
+}
+.filter {
+  filter: drop-shadow(5px 5px 1px rgba(0, 0, 0, 0.7));
+}
+
+.box-shadow {
+  box-shadow: 5px 5px 1px rgba(0, 0, 0, 0.7);
+}

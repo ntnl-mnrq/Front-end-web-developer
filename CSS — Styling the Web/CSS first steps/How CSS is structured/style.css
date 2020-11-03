@@ -1,0 +1,96 @@
+/* The CSS language has rules to control which selector is stronger in the 
+  event of a conflict. These rules are called cascade and specificity.  */
+
+@import "style2.css";
+
+.special {
+  color: red;
+}
+
+p {
+  color: green;
+}
+
+p {
+  color: blue;
+}
+
+/* Cascade: dos definiciones para el mismo selector -> prevalece la última */
+/* Specificity: conflicto entre un selector de clase y un selector de elemento -> prevalece la clase, la clase es un selector más específico */
+
+.outer {
+  border: 5px solid black;
+}
+
+/*  In the case of the calc() example below, the values define the width of this box to be 90% of the containing block width, minus 30 pixels. 
+ The result of the calculation isn't something that can be computed in advance and entered as a static value. */
+.box {
+  padding: 10px;
+  width: calc(90% - 30px);
+  background-color: rebeccapurple;
+  color: white;
+}
+
+.box2 {
+  margin: 30px;
+  width: 100px;
+  height: 100px;
+  /* background-color: rebeccapurple; */
+  background-image: linear-gradient(
+    to top,
+    rgba(255, 255, 0, 0.5),
+    rgba(0, 0, 255, 0.5)
+  );
+  transform: rotate(0.5turn);
+}
+
+.box3 {
+  margin: 30px;
+  width: 100px;
+  height: 100px;
+  /* background-color: rebeccapurple; */
+  background-image: linear-gradient(
+    to top right,
+    rgba(255, 255, 0, 0.5),
+    rgba(0, 0, 255, 0.5)
+  );
+  transform: rotate(0.375turn);
+}
+
+/* In the example below, the stylesheet defines a default pink background for the <body> element. 
+However, a media query follows that defines a blue background if the browser viewport is wider than 30em. */
+body {
+  background-color: rgba(255, 255, 0, 1);
+}
+
+@media (min-width: 30em) {
+  body {
+    /* background-color: blue; */
+    background-color: white;
+  }
+}
+
+/* Shorthand properties set several values in a single line. */
+.shorthandTest {
+  color: white;
+  font-weight: bold;
+  font-size: 40px;
+  
+    /* In 4-value shorthands like padding and margin, the values are applied
+   in the order top, right, bottom, left (clockwise from the top). There are also other 
+   shorthand types, for example 2-value shorthands, which set padding/margin
+   for top/bottom, then left/right */
+  padding: 10px 15px 15px 5px;
+
+  background: red url(chip-color.jpg) 10px 10px repeat-x fixed;
+  /* eqivalente a */
+  /* background-color: red;
+  background-image: url(bg-graphic.png);
+  background-position: 10px 10px;
+  background-repeat: repeat-x;
+  background-attachment: fixed; */
+
+  /* Warning: One less obvious aspect of using CSS shorthand is how omitted values reset. 
+  A value not specified in CSS shorthand reverts to its initial value. 
+  This means an omission in CSS shorthand can override previously set values. */
+}

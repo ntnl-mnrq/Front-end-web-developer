@@ -1,0 +1,77 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  width: 100%;
+}
+.wrapper {
+  /* border: 1px solid gray; */
+
+  margin: 5px;
+  /* padding: 5px; */
+}
+
+/* The  overflow property is how you take control of an element's overflow. It is the way you instruct the browser how it should behave. The default value of overflow is visible. With this default, we can see content when it overflows.
+
+To crop content when it overflows, you can set overflow: hidden. This does exactly what it says: it hides overflow. Beware that this can make some content invisible. You should only do this if hiding content won't cause problems. */
+
+.box {
+  border: 1px solid #333333;
+  width: 200px;
+  height: 100px;
+  overflow: hidden;
+}
+
+/* Instead, perhaps you would like to add scrollbars when content overflows? Using overflow: scroll, browsers with visible scrollbars will always display them—even if there is not enough content to overflow. This offers the advantage of keeping the layout consistent, instead of scrollbars appearing or disappearing, depending upon the amount of content in the container. */
+
+.scroll {
+  overflow: scroll;
+}
+
+/* In the example above, we only need to scroll on the y axis, however we get scrollbars in both axes. To just scroll on the y axis, you could use the overflow-y property, setting overflow-y: scroll. */
+
+.scroll-y {
+  overflow-y: scroll;
+}
+
+/* If you only want scrollbars to appear when there is more content than can fit in the box, use overflow: auto. This allows the browser to determine if it should display scrollbars. */
+
+.overflow-auto {
+    overflow: auto;
+}
+
+
+/* You can also scroll on the x axis using overflow-x, although this is not a recommended way to accommodate long words! If you have a long word in a small box, you might consider using the word-break or overflow-wrap properties. In addition, some of the methods discussed in Sizing items in CSS may help you create boxes that scale better with varying amounts of content. */
+
+.word {
+  margin: 5px;
+  border: 5px solid #333333;
+  width: 100px;
+  font-size: 250%;
+} 
+
+.word-overflow-x {
+  margin: 5px;
+  border: 5px solid #333333;
+  width: 100px;
+  font-size: 250%;
+  overflow-x: scroll;
+}
+
+.word-break {
+  margin: 5px;
+  border: 5px solid #333333;
+  width: 100px;
+  font-size: 250%;
+  word-break: break-all;
+}
+
+.word-overflow-wrap {
+  margin: 5px;
+  border: 5px solid #333333;
+  width: 100px;
+  font-size: 250%;
+  overflow-wrap: break-word;
+}

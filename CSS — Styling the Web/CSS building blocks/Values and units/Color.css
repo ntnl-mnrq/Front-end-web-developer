@@ -1,0 +1,93 @@
+* {
+  box-sizing: border-box;
+}
+.box {
+  padding: 10px;
+  margin: 1em 0;
+  border-radius: 0.5em;
+}
+
+/* The same color values can be used everywhere in CSS, whether you are specifying text color, background color, or whatever else. */
+
+.one-hex {
+  background-color: #02798b;
+}
+
+.two-hex {
+  background-color: #c55da1;
+}
+
+.three-hex {
+  background-color: #128a7d;
+}
+
+.one-rgb {
+  background-color: rgb(2, 121, 139);
+}
+
+.two-rgb {
+  background-color: rgb(197, 93, 161);
+}
+
+.three-rgb {
+  background-color: rgb(18, 138, 125);
+}
+
+.wrapper-bg {
+  background-image: url(https://mdn.github.io/css-examples/learn/values-units/balloons.jpg);
+  padding: 40px 20px;
+}
+
+.one-rgba {
+  background-color: rgba(2, 121, 139, 0.3);
+}
+
+.two-rgba {
+  background-color: rgba(197, 93, 161, 0.7);
+}
+
+.three-rgba {
+  background-color: rgba(18, 138, 125, 0.9);
+}
+
+.three-rgb-opacity {
+  background-color: rgba(18, 138, 125);
+  opacity: 0.5;
+}
+
+/* Note: Setting an alpha channel on a color has one key difference to using the opacity property we looked at earlier. When you use opacity you make the element and everything inside it opaque, whereas using RGBA colors only makes the color you are specifying opaque. */
+/* Note: At some point modern browsers were updated so that rgba() and rgb(), and hsl() and hsla() (see below), became pure aliases of each other and started to behave exactly the same. */
+
+
+/* HSL and HSLA values
+
+Slightly less well-supported than RGB is the HSL color model (not supported on old versions of IE), which was implemented after much interest from designers. Instead of red, green, and blue values, the hsl() function accepts hue, saturation, and lightness values, which are used to distinguish between the 16.7 million colors, but in a different way:
+
+    Hue: The base shade of the color. This takes a value between 0 and 360, representing the angles around a color wheel.
+    Saturation: How saturated is the color? This takes a value from 0–100%, where 0 is no color (it will appear as a shade of grey), and 100% is full color saturation
+    Lightness: How light or bright is the color? This takes a value from 0–100%, where 0 is no light (it will appear completely black) and 100% is full light (it will appear completely white)
+ */
+
+ .one-hlsl {
+    background-color: hsl(188, 97%, 28%);
+  }
+  
+  .two-hlsl {
+    background-color: hsl(321, 47%, 57%);
+  }
+  
+  .three-hlsl {
+    background-color: hsl(174, 77%, 31%);
+  }
+
+  .one-hlsla {
+    background-color: hsla(188, 97%, 28%, .3);
+  }
+  
+  .two-hlsla {
+    background-color: hsla(321, 47%, 57%, .7);
+  }
+  
+  .three-hlsla {
+    background-color: hsla(174, 77%, 31%, .9);
+  }

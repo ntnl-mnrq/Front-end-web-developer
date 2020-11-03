@@ -1,0 +1,24 @@
+* {
+  box-sizing: border-box;
+}
+
+.box {
+  padding: 1em;
+  border-radius: 0.5em;
+  border: 5px solid rebeccapurple;
+  background-color: lightblue;
+}
+
+/* Functions exist in CSS too, as property values. We've already seen functions in action in the Colors section — rgb(), hsl(), etc. The value used to return an image from a file — url() — is also a function.
+
+A value that behaves more like something you might find in a traditional programming language is the calc() CSS function. This function gives you the ability to do simple calculations inside your CSS. It's particularly useful if you want to work out values that you can't define when writing the CSS for your project, and need the browser to work out for you at runtime. */
+
+/* For example, below we are using calc() to make the box 20% + 100px wide. The 20% is calculated from the width of the parent container .wrapper and so will change if that width changes. We can't do this calculation beforehand because we don't know what 20% of the parent will be, so we use calc() to tell the browser to do it for us. */
+
+.wrapper {
+  width: 400px;
+}
+
+.box {
+  width: calc(20% + 100px);
+}

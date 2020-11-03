@@ -1,0 +1,21 @@
+html {
+    font-family: impact, sans-serif;
+  }
+
+  h2 {
+    width: 250px;
+    height: 250px;
+    text-align: center;
+    line-height: 250px;
+    font-size: 75px;
+    display: inline-block;
+    background: url(colorful-heart.png) no-repeat center;
+  }
+
+
+  /* Another feature we thought we'd mention briefly is the text value for background-clip. When used along with the proprietary -webkit-text-fill-color: transparent; feature, this allows you to clip background images to the shape of the element's text, making for some nice effects. This is not an official standard, but has been implemented across multiple browsers, as it is popular, and used fairly widely by developers. When used in this context, both of the properties would require a -webkit- vendor prefix, even for Non-Webkit/Chrome-based browsers: */
+  
+  .text-clip {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }

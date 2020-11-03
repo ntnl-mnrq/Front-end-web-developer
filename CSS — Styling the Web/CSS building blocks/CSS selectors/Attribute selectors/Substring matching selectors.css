@@ -1,0 +1,14 @@
+/* li[class^="a"] matches any attribute value which starts with a, so matches the first two list items. */
+li[class^="a"] {
+    font-size: 200%;
+}
+
+/* li[class$="a"] matches any attribute value that ends with a, so matches the first and third list item. */
+li[class$="a"] {
+    background-color: yellow;
+}
+
+/* li[class*="a"] matches any attribute value where a appears anywhere in the string, so it matches all of our list items. */
+li[class*="a"] {
+    color: red;
+}

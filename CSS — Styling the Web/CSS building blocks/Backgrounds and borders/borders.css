@@ -1,0 +1,47 @@
+body * {
+    margin: 20px;
+}
+
+.box {
+    background-color: #567895;
+    border: 5px solid #0b385f;
+    border-bottom-style: dashed;
+    color: #fff;
+  }
+  
+  h2 {
+    border-top: 2px dotted rebeccapurple;
+    border-bottom: 1em double rgb(24, 163, 78);
+  }
+    
+/* Rounded corners
+
+Rounding corners on a box is achieved by using the border-radius property and associated 
+longhands which relate to each corner of the box. Two lengths or percentages may be used 
+as a value, the first value defining the horizontal radius, and the second the vertical 
+radius. In a lot of cases, you will only pass in one value, which will be used for both. */
+
+  .rounded {
+    width:80%;
+    height:80%;
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+    background-color:#5b6dcd;
+    border: 10px solid #434f96;
+    color:#fff;
+    padding:10px;
+  }
+
+  .r1{
+    border-radius: 1em;
+    border-top-right-radius: 10% 30%;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 10%;
+  }
+  .r2 {
+    border-radius: 10% / 50%;
+  }
+  .r3 {   
+    border-radius: 10px 100px / 120px;
+  }

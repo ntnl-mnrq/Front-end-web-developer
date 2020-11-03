@@ -1,0 +1,27 @@
+/* Replaced elements
+
+Images and video are described as replaced elements. This means that CSS cannot affect the internal layout of these elements — only their position on the page amongst other elements. As we will see however, there are various things that CSS can do with an image.
+
+Certain replaced elements, such as images and video, are also described as having an aspect ratio. This means that it has a size in both the horizontal (x) and vertical (y) dimensions, and will be displayed using the intrinsic dimensions of the file by default. */
+
+/* When using various CSS layout techniques on replaced elements, you may well find that they behave slightly differently to other elements. For example, in a flex or grid layout elements are stretched by default to fill the entire area. Images will not stretch, and instead will be aligned to the start of the grid area or flex container.
+
+You can see this happening in the example below where we have a two column, two row grid container, which has four items in it. All of the <div> elements have a background color and stretch to fill the row and column. The image, however, does not stretch. */
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 200px 200px;
+    gap: 20px;
+  }
+  
+  .wrapper > div {
+    background-color: rebeccapurple;
+    border-radius: .5em;
+  }
+      /* If you are following these lessons in order then you may not have looked at layout yet. Just keep in mind that replaced elements, when they become part of a grid or flex layout, have different default behaviors, essentially to avoid them being stretched strangely by the layout. */
+
+      /* img {
+        width: 100%;
+        height: 100%;
+      } */

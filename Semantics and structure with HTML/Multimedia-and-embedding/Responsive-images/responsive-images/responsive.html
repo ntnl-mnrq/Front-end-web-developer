@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Responsive HTML images demo</title>
+    <style>
+        html {
+            font-family: sans-serif;
+            background-color: gray;
+        }
+
+        body {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+        }
+
+        header {
+            background: url(header.jpg) no-repeat center;
+            height: 200px;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        p {
+            line-height: 1.5;
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+
+    </header>
+
+    <main>
+        <section>
+            <h1>My website</h1>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget venenatis ligula. Ut lacinia at
+                dolor vitae pulvinar. Aliquam pretium dignissim eros. Integer faucibus, dui non aliquet bibendum, lectus
+                orci lobortis odio, ornare porttitor est tellus eget velit. Nulla eros elit, malesuada id neque vel,
+                viverra vehicula neque. Nullam auctor turpis non leo iaculis finibus. Quisque blandit arcu venenatis
+                libero tempor, ac pulvinar ligula dapibus.</p>
+
+            <picture>
+                <source media="(max-width: 799px)" srcset="elva-480w-close-portrait.jpg">
+                <source media="(min-width: 800px)" srcset="elva-800w.jpg">
+                <img src="elva-800w.jpg" alt="Chris standing up holding his daughter Elva">
+            </picture>
+
+            <p>Suspendisse potenti. Ut in luctus eros. Mauris pulvinar vehicula aliquet. Etiam imperdiet eleifend
+                luctus. Duis ut justo nec eros ornare consectetur. Vestibulum convallis condimentum varius. Maecenas
+                rutrum porta varius. Phasellus volutpat sem id sagittis luctus. Morbi vitae quam vitae nisi iaculis
+                dignissim.</p>
+
+            <img srcset="elva-fairy-480w.jpg 480w,
+                         elva-fairy-800w.jpg 800w" sizes="(max-width: 600px) 480px,
+                         800px" src="elva-fairy-800w.jpg" alt="Elva dressed as a fairy">
+
+            <p>Header image originally by <a href="https://www.flickr.com/photos/miwok/17086751527/">Miwok</a>.</p>
+        </section>
+    </main>
+
+
+    <h2>Resolution switching: Different sizes</h2>
+
+    <code>srcset</code></strong> defines the set of images we will allow the browser to choose between, and what size
+    each image is. Each set of image information is separated from the previous one by<strong> </strong>a comma. For
+    each one, we write:</p>
+
+    <ol>
+        <li>An <strong>image filename</strong> (<code>elva-fairy-480w.jpg</code>)</li>
+        <li>A space</li>
+        <li>The image's <strong>intrinsic width in pixels</strong> (<code>480w</code>) — note that this uses the
+            <code>w</code> unit, not <code>px</code> as you might expect. This is the image's real size, which can be
+            found by inspecting the image file on your computer (for example, on a Mac you can select the image in
+            Finder and press <kbd>Cmd</kbd> + <kbd>I</kbd> to bring up the info screen).</li>
+    </ol>
+
+    <p><strong><code>sizes</code></strong> defines a set of media conditions (e.g. screen widths) and indicates what
+        image size would be best to choose, when certain media conditions are true — these are the hints we talked about
+        earlier. In this case, before each comma we write:</p>
+
+    <ol>
+        <li>A <strong>media condition</strong> (<code>(max-width:600px)</code>) — you'll learn more about these in the
+            <a href="/en-US/docs/Learn/CSS">CSS topic</a>, but for now let's just say that a media condition describes a
+            possible state that the screen can be in. In this case, we are saying "when the viewport width is 600 pixels
+            or less".</li>
+        <li>A space</li>
+        <li>The <strong>width of the slot</strong> the image will fill when the media condition is true
+            (<code>480px</code>)</li>
+    </ol>
+
+    <div class="note">
+        <p><strong>Note</strong>: For the slot width, you may provide an absolute length (<code>px</code>,
+            <code>em</code>) or a length relative to the viewport (<code>vw</code>), but not percentages. You may have
+            noticed that the last slot width has no media condition (this is the default that is chosen when none of the
+            media conditions are true). The browser ignores everything after the first matching condition, so be careful
+            how you order the media conditions.</p>
+    </div>
+
+    <p>So, with these attributes in place, the browser will:</p>
+
+    <ol>
+        <li>Look at its device width.</li>
+        <li>Work out which media condition in the <code>sizes</code> list is the first one to be true.</li>
+        <li>Look at the slot size given to that media query.</li>
+        <li>Load the image referenced in the <code>srcset</code> list that has the same size as the slot or, if there
+            isn't one, the first image that is bigger than the chosen slot size.</li>
+    </ol>
+
+    <p>Older browsers that don't support these features will just ignore them. Instead, those browsers will go ahead and
+        load the image referenced in the src attribute as normal.</p>
+
+    <p><strong>Note</strong>: In the <code>&lt;head&gt;</code>
+        of the example linked above, you'll find the
+        line&nbsp;<code>&lt;meta name="viewport" content="width=device-width"&gt;</code>: this forces mobile browsers to
+        adopt their real viewport width for loading web pages (some mobile browsers lie about their viewport width, and
+        instead load pages at a larger viewport width then shrink the loaded page down, which is not very helpful for
+        responsive images or design).</p>
+
+
+    <h3 id="Art_direction">Art direction</h3>
+
+    <p>To recap, the <strong>art direction problem</strong> involves wanting to change the image displayed to suit
+        different image display sizes. </p>
+
+    <p>Let's fix this, with <a href="/en-US/docs/Web/HTML/Element/picture"
+            title="The HTML <picture> element contains zero or more <source> elements and one <img> element to offer 
+                alternative versions of an image for different display/device scenarios."><code>&lt;picture&gt;</code></a>!
+        Like <a
+            href="/en-US/docs/Learn/HTML/Multimedia_and_embedding/Video_and_audio_content"><code>&lt;video&gt;</code>
+            and <code>&lt;audio&gt;</code></a>, the <code>&lt;picture&gt;</code> element is a wrapper containing several
+        <a href="/en-US/docs/Web/HTML/Element/source" title="The HTML <source> element specifies multiple media resources 
+            for the <picture>, the <audio> element, or 
+                the <video> element."><code>&lt;source&gt;</code></a>
+        elements that provide different sources for the browser to choose from, followed by the all-important <a
+            href="/en-US/docs/Web/HTML/Element/img"
+            title="The HTML <img> element embeds an image into the document."><code>&lt;img&gt;</code></a> element.</p>
+
+    <pre>&lt;picture&gt;
+    &lt;source media="(max-width: 799px)" srcset="elva-480w-close-portrait.jpg"&gt;
+    &lt;source media="(min-width: 800px)" srcset="elva-800w.jpg"&gt;
+    &lt;img src="elva-800w.jpg" alt="Chris standing up holding his daughter Elva"&gt;
+&lt;/picture&gt;</pre>
+
+    <ul>
+        <li>The <code>&lt;source&gt;</code> elements include a <code>media</code> attribute that contains a media
+            condition — as with the first <code>srcset</code> example, these conditions are tests that decide which
+            image is shown — the first one that returns true will be displayed. In this case, if the viewport width is
+            799px wide or less, the first <code>&lt;source&gt;</code> element's image will be displayed. If the viewport
+            width is 800px or more, it'll be the second one.</li>
+        <li>The <code>srcset</code> attributes contain the path to the image to display. Just as we saw with
+            <code>&lt;img&gt;</code> above, <code>&lt;source&gt;</code> can take a <code>srcset</code> attribute with
+            multiple images referenced, as well as a <code>sizes</code> attribute. So, you could offer multiple images
+            via a <code>&lt;picture&gt;</code> element, but then also offer multiple resolutions of each one.
+            Realistically, you probably won't want to do this kind of thing very often.</li>
+        <li>In all cases, you must provide an <code>&lt;img&gt;</code> element, with <code>src</code> and
+            <code>alt</code>, right before <code>&lt;/picture&gt;</code>, otherwise no images will appear. This provides
+            a default case that will apply when none of the media conditions return true (you could actually remove the
+            second <code>&lt;source&gt;</code> element in this example), and a fallback for browsers that don't support
+            the <code>&lt;picture&gt;</code> element.</li>
+    </ul>
+
+    <p>This code allows us to display a suitable image on both wide screen and narrow screen displays.</p>
+
+    <p>Note: You should use the media attribute only in art direction scenarios; when you do use media, don't also offer
+        media conditions within the sizes attribute.</p>
+
+    <h3 >Why can't we just do this using CSS or JavaScript?</h3>
+
+    <p>When the browser starts to load a page, it starts to download&nbsp;(preload) any images before the main parser
+        has started to load and interpret the page's CSS and JavaScript. That mechanism is useful in general for
+        reducing page load times, but it is not helpful for responsive images — hence the need to implement solutions
+        like <code>srcset</code>. For example, you couldn't load the <code>&lt;img&gt;</code> element, then
+        detect the viewport width with JavaScript, and then dynamically change the source image to a smaller one if
+        desired. By then, the original image would already have been loaded, and you would load the small image as well,
+        which is even worse in responsive image terms.</p>
+</body>
+
+</html>

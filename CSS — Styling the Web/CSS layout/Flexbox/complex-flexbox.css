@@ -1,0 +1,65 @@
+html {
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  background: purple;
+  height: 100px;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  line-height: 100px;
+  margin: 0;
+}
+
+article {
+  padding: 10px;
+  margin: 10px;
+  background: aqua;
+}
+
+
+/* Nested flex boxes
+
+It is possible to create some pretty complex layouts with flexbox. It is perfectly ok to set a flex item to also be a flex container, so that its children are also laid out like flexible boxes. */
+
+/* First of all, we set the children of the <section> to be laid out as flexible boxes. */
+section {
+  display: flex;
+}
+
+/* Next, we set some flex values on the <article>s themselves. Take special note of the 2nd rule here — we are setting the third <article> to have its children laid out like flex items too, but this time we are laying them out like a column. */
+article {
+  flex: 1 200px;
+}
+
+article:nth-of-type(3) {
+  flex: 3 200px;
+  display: flex;
+  flex-flow: column;
+  background-color: royalblue;
+}
+
+/* Next, we select the first <div>. We first use flex:1 100px; to effectively give it a minimum height of 100px, then we set its children (the <button> elements) to also be laid out like flex items. Here we lay them out in a wrapping row, and align them in the center of the available space, as we did in the individual button example we saw earlier. */
+article:nth-of-type(3) div:first-child {
+  flex: 1 100px;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-around;
+  background-color: salmon;
+}
+
+/* Finally, we set some sizing on the button, but more interestingly we give it a flex value of 1 auto. This has a very interesting effect, which you'll see if you try resizing your browser window width. The buttons will take up as much space as they can, and sit as many on the same line as they can, but when they can no longer fit comfortably on the same line, they'll drop down to create new lines. */
+button {
+  flex: 1 auto;
+  margin: 5px;
+  font-size: 18px;
+  line-height: 1.5;
+}

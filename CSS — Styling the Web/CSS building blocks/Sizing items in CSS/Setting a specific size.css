@@ -1,0 +1,52 @@
+body { 
+    background-color: #fff;
+    color: #333;
+    font: 1.2em / 1.5 Helvetica Neue, Helvetica, Arial, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.wrapper > * {
+  margin: 20px;
+}
+
+
+/* We can, of course, give elements in our design a specific size. When a size is given to an element (the content of which then needs to fit into that size) we refer to it as an extrinsic size.  */
+/* Take our <div> from the example above — we can give it specific width and height values, and it will now have that size no matter what content is placed into it. 
+As we discovered in our previous lesson on overflow, a set height can cause content to overflow if there is more content than the element has space to fit inside it. */
+.box {
+  border: 5px solid darkblue;
+  height: 150px;
+  width: 200px;
+}
+
+
+/* Using percentages */
+/* When using a percentage you need to be aware what it is a percentage of. In the case of a box inside another container, if you give the child box a percentage width it will be a percentage of the width of the parent container. */
+/* This is because percentages resolve against the size of the containing block. 
+With no percentage applied our <div> would take up 100% of the available space, as it is a block level element. 
+If we give it a percentage width, this becomes a percentage of the space it would normally fill. */
+.box-perc {
+    border: 5px solid darkblue;
+    width: 50%;
+  }
+
+
+  /* Percentage margins and padding */
+  /* When you use margin and padding set in percentages, the value is calculated from the inline size — therefore the width when working in a horizontal language. 
+  In our example, all of the margins and padding are 10% of the width. This means you can have equal-sized margins and padding all around the box. This is a fact worth remembering if you do use percentages in this way. */
+  /* You might expect for example the percentage top and bottom margins to be a percentage of the element's height, and the percentage left and right margins to be a percentage of the element's width. However, this is not the case! */
+  .box-perc-m-p {
+    border: 5px solid darkblue;
+    width: 300px;
+    margin: 10%;
+    padding: 10%;
+  }

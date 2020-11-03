@@ -1,0 +1,30 @@
+/* The padding sits between the border and the content area. Unlike margins you 
+cannot have negative amounts of padding, so the value must be 0 or a positive value. 
+Any background applied to your element will display behind the padding, and it is 
+typically used to push the content away from the border. 
+Padding can be changed on any element, and will make space between its border and 
+whatever is inside the element.*/
+
+.box {
+    border: 5px solid rebeccapurple;
+    background-color: lightgray;
+
+    padding-top: 0px;
+    padding-right: 30px;
+    padding-bottom: 40px;
+    padding-left: 4em;
+  }
+  
+  .container {
+    border: 5px dashed blue;
+    /* margin: 40px; */
+    margin: 1px;
+    background-color: lemonchiffon;
+
+    /* padding: 20px; */
+    padding-top: 1px;
+    padding-right: 1px;
+    padding-bottom: 1px;
+    padding-left: 1px;
+  }
+      

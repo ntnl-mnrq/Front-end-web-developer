@@ -1,0 +1,140 @@
+body {
+  width: 500px;
+  margin: 0 auto;
+}
+
+p {
+  background: aqua;
+  border: 3px solid blue;
+  padding: 10px;
+  margin: 10px;
+}
+
+span {
+  background: red;
+  border: 1px solid black;
+}
+
+/* Positioning allows you to take elements out of the normal document layout flow, and make them behave differently.
+  
+  There are a number of different types of positioning that you can put into effect on HTML elements. To make a specific type of positioning active on an element, we use the position property.*/
+
+/* Static positioning
+
+Static positioning is the default that every element gets — it just means "put the element into its normal position in the document layout flow — nothing special to see here." */
+
+/* .positioned {
+  position: static;
+  background: yellow;
+} */
+
+/* Relative positioning 
+
+This is very similar to static positioning, except that once the positioned element has taken its place in the normal layout flow, you can then modify its final position, including making it overlap other elements on the page.
+
+top, bottom, left, and right are used alongside position to specify exactly where to move the positioned element to.
+Note: The values of these properties can take any units you'd logically expect — pixels, mm, rems, %, etc.
+
+Cool, huh? Ok, so this probably wasn't what you were expecting — why has it moved to the bottom and right if we specified top and left? Illogical as it may initially sound, this is just the way that relative positioning works — you need to think of an invisible force that pushes the specified side of the positioned box, moving it in the opposite direction. So for example, if you specify top: 30px;, a force pushes the top of the box, causing it to move downwards by 30px.*/
+
+/* .positioned {
+  position: relative;
+  top: 30px;
+  left: 30px;
+} */
+
+/* Absolute positioning */
+/* First of all, note that the gap where the positioned element should be in the document flow is no longer there — the first and third elements have closed together like it no longer exists! Well, in a way, this is true. An absolutely positioned element no longer exists in the normal document layout flow. Instead, it sits on its own layer separate from everything else. This is very useful: it means that we can create isolated UI features that don't interfere with the layout of other elements on the page.  For example, popup information boxes and control menus; rollover panels; UI features that can be dragged and dropped anywhere on the page; and so on...
+
+Second, notice that the position of the element has changed — this is because top, bottom, left, and right behave in a different way with absolute positioning. Rather than positioning the element based on its relative position within the normal document layout flow, they specify the distance the element should be from each of the containing element's sides. So in this case, we are saying that the absolutely positioned element should sit 30px from the top of the "containing element", and 30px from the left. (In this case, the "containing element" is the initial containing block */
+/* .positioned {
+  position: absolute;
+} */
+
+/* Note: You can use top, bottom, left, and right to resize elements if you need to. Try setting top: 0; bottom: 0; left: 0; right: 0; and margin: 0; */
+/* Note: Yes, margins still affect positioned elements. Margin collapsing doesn't, however. */
+/* .positioned {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+} */
+
+
+/* Positioning contexts 
+
+Which element is the "containing element" of an absolutely positioned element? This is very much dependent on the position property of the ancestors of the positioned element (See Identifying the containing block). 
+
+If no ancestor elements have their position property explicitly defined, then by default all ancestor elements will have a static position. The result of this is, the absolutely positioned element will be contained in the initial containing block. The initial containing block has the dimensions of the viewport, and is also the block that contains the <html> element. Simply put, the absolutely positioned element will be displayed outside of the <html> element, and be positioned relative to the initial viewport. 
+
+The positioned element is nested inside the <body> in the HTML source, but in the final layout, it is 30px away from the top and left of the edge of the page. We can change the positioning context — which element the absolutely positioned element is positioned relative to. This is done by setting positioning on one of the element's ancestors — to one of the elements it is nested inside (you can't position it relative to an element it is not nested inside).
+The positioned element now sits relative to the <body> element. */
+/* body {
+    position: relative;
+} */
+
+
+/* Introducing z-index
+
+when elements start to overlap, what determines which elements appear on top of which other elements? In the example we've seen so far, we only have one positioned element in the positioning context, and it appears on the top, since positioned elements win over non-positioned elements. What about when we have more than one?*/
+/* p:nth-of-type(1) {
+    position: absolute;
+    background: lime;
+    top: 10px;
+    right: 30px;
+    z-index: 1;
+} */
+/* At this point you'll see the first paragraph colored lime, moved out of the document flow, and positioned a bit above from where it originally was. It is also stacked below the original .positioned paragraph, where the two overlap. This is because the .positioned paragraph is the second paragraph in the source order, and positioned elements later in the source order win over positioned elements earlier in the source order.
+
+Can you change the stacking order? Yes, you can, by using the z-index property. "z-index" is a reference to the z-axis. You may recall from previous points in the course where we discussed web pages using horizontal (x-axis) and vertical (y-axis) coordinates to work out positioning for things like background images and drop shadow offsets. (0,0) is at the top left of the page (or element), and the x- and y-axes run across to the right and down the page (for left to right languages, anyway.)
+
+Web pages also have a z-axis: an imaginary line that runs from the surface of your screen, towards your face (or whatever else you like to have in front of the screen). z-index values affect where positioned elements sit on that axis; positive values move them higher up the stack, and negative values move them lower down the stack. By default, positioned elements all have a z-index of auto, which is effectively 0. */
+
+/* p:hover {
+    z-index: 10;
+    color: lightcoral;
+}
+p {
+    z-index: 0;
+} */
+
+
+
+/* Fixed positioning 
+
+This works in exactly the same way as absolute positioning, with one key difference: whereas absolute positioning fixes an element in place relative to its nearest positioned ancestor (the initial containing block if there isn't one), fixed positioning usually fixes an element in place relative to the visible portion of the viewport, except if one of its ascendants is a fixed containing block due to its transform property being different from none. This means that you can create useful UI items that are fixed in place, like persisting navigation menus that are always visible no matter how much the page scrolls.*/
+
+body {
+    width: 500px;
+    height: 1400px;
+    margin: 0 auto;
+  }
+  /* Now we're going to give the <h1> element position: fixed;, and get it to sit at the top of the viewport */
+  /* The top: 0; is required to make it stick to the top of the screen. We give the heading the same width as the content column and then give it a white background and some padding and margin, so the content won't be visible underneath it. */
+  h1 {
+    position: fixed;
+    top: 0;
+    width: 500px;
+    margin-top: 0;
+    background: rgba(255, 255, 255, 0.788);
+    padding: 10px;
+    /* mix-blend-mode: overlay; */
+    /* mix-blend-mode: difference; */
+  }
+
+  /* If you save and refresh now, you'll see a fun little effect whereby the heading stays fixed, and the content appears to scroll up and disappear underneath it. But we could improve this more — at the moment some of the content starts off underneath the heading. This is because the positioned heading no longer appears in the document flow, so the rest of the content moves up to the top. We need to move it all down a bit; we can do this by setting some top margin on the first paragraph.  */
+  p:nth-of-type(1) {
+    margin-top: 60px;
+  }
+
+
+
+  /* position: sticky
+
+There is another position value available called position: sticky, which is somewhat newer than the others. This is basically a hybrid between relative and fixed position, which allows a positioned element to act like it is relatively positioned until it is scrolled to a certain threshold point (e.g. 10px from the top of the viewport), after which it becomes fixed. This can be used to for example cause a navigation bar to scroll with the page until a certain point, and then stick to the top of the page.  */
+.positioned {
+    position: sticky;
+    top: 50px;
+    left: 30px;
+  }

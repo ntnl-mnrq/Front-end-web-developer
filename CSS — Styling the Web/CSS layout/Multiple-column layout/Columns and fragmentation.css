@@ -1,0 +1,33 @@
+/* Columns and fragmentation
+
+The content of a multi-column layout is fragmented. It essentially behaves the same way as content behaves in paged media — such as when you print a webpage. When you turn your content into a multicol container it is fragmented into columns, and the content breaks to allow this to happen.
+
+Sometimes, this breaking will happen in places that lead to a poor reading experience. In the live example below, I have used multicol to lay out a series of boxes, each of which have a heading and some text inside. The heading becomes separated from the text if the columns fragment between the two. */
+body {
+    width: 90%;
+    max-width: 900px;
+    margin: 2em auto;
+    font: .9em/1.2 Arial, Helvetica, sans-serif;
+  }            .container {
+    column-width: 250px;
+    column-gap: 20px;
+  }
+  
+  .card {
+    background-color: rgb(207, 232, 220);
+    border: 2px solid rgb(79, 185, 227);
+    padding: 10px;
+    margin: 0 0 1em 0;
+  }
+
+  /* To control this behavior we can use properties from the CSS Fragmentation specification. This specification gives us properties to control breaking of content in multicol and in paged media. For example, add the property break-inside with a value of avoid to the rules for .card. This is the container of the heading and text, and therefore we do not want to fragment this box.
+
+At the present time it is also worth adding the older property page-break-inside: avoid for best browser support. */
+.card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    background-color: rgb(207,232,220);
+    border: 2px solid rgb(79,185,227);
+    padding: 10px;
+    margin: 0 0 1em 0;
+  }

@@ -1,0 +1,23 @@
+/* What is overflow?
+
+Everything in CSS is a box. You can constrain the size of these boxes by assigning values of width and height (or inline-size and block-size). Overflow happens when there is too much content to fit in a box. CSS provides various tools to manage overflow. As you go further with CSS layout and writing CSS, you will encounter more overflow situations. */
+
+
+.box {
+    border: 1px solid #333333;
+    width: 200px;
+    height: 100px;
+  }
+
+  .word {
+    border: 1px solid #333333;
+    width: 100px;
+    font-size: 250%;
+
+    margin-top: 50px;
+  }
+      
+
+  /* You might wonder why CSS works in such a messy way, displaying content outside of its intended container. Why not hide overflowing content? Why not scale the size of the container to fit all the content?
+
+Wherever possible, CSS does not hide content. This would cause data loss. The problem with data loss is that you might not notice. Website visitors may not notice. If the submit button on a form disappears and no one can complete the form, this could be a big problem! Instead, CSS overflows in visible ways. You are more likely to see there is a problem. At worst, a site visitor will let you know that content is overlapping. */

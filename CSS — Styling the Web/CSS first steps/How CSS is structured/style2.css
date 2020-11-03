@@ -1,0 +1,8 @@
+.box4 {
+    margin: 30px;
+    width: 100px;
+    height: 100px;
+    /* background-color: rebeccapurple; */
+    background-image: radial-gradient( rgba(243, 204, 74, 0.788), rgba(7, 206, 206, 0.788));
+    transform: rotate(0.025turn);       
+}

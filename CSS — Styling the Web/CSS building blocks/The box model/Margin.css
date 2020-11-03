@@ -1,0 +1,48 @@
+/* The margin is an invisible space around your box. It pushes other elements away from the box. 
+Margins can have positive or negative values. Setting a negative margin on one side of your box 
+can cause it to overlap other things on the page. Whether you are using the standard or 
+alternative box model, the margin is always added after the size of the visible box has been calculated. */
+
+* {
+    margin: 0;
+}
+
+.box {
+    background-color: lavender;
+    margin-top: 40px;
+    margin-right: 50%;
+    margin-bottom: 40px;
+    margin-left: 4em;
+    border: 2px dashed tomato;
+  }
+
+  /* Margin collapsing
+
+A key thing to understand about margins is the concept of margin collapsing. 
+*If you have two elements whose margins touch, and both margins are positive, those margins will combine to become one margin, which is the 
+size of the largest individual margin. 
+*If one or both margins are negative, the amount of negative value will 
+subtract from the total.
+
+In the example below, we have two paragraphs. The top paragraph has a margin-bottom of 50 pixels. The second 
+paragraph has a margin-top of 30 pixels. The margins have collapsed together so the actual margin between the
+ boxes is 50 pixels and not the total of the two margins. */
+
+.container2 {
+    border: 5px solid red;
+}
+
+  .one {
+      border: 5px solid blue;
+    margin-bottom: 50px;
+  }
+  
+  .two {
+    border: 5px solid blue;
+    margin-top: 30px;
+    /* margin-top: -30px; */
+    /* margin-top: -50px; */
+    /* margin-top: -78px; */
+
+  }
+      

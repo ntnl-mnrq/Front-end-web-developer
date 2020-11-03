@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+}
+.box {
+  width: 500px;
+  height: 300px;
+  padding: 0.5em;
+}
+
+/* This shorthand lets you set all of the different properties at once.
+
+If using multiple backgrounds, you need to specify all of the properties for the 
+first background, then add your next background after a comma. In the example below 
+we have a gradient with a size and position, then an image background with no-repeat 
+and a position, then a color.
+
+There are a few rules that need to be followed when writing background image shorthand 
+values, for example:
+
+*A background-color may only be specified after the final comma.
+*The value of background-size may only be included immediately after background-position, 
+ separated with the '/' character, like this: center/80%.
+ */
+
+.box {
+  background: linear-gradient(
+        105deg,
+        rgba(255, 255, 255, 0.2) 39%,
+        rgba(51, 56, 57, 1) 96%
+      )
+      center center / 400px 200px no-repeat,
+    url(big-star.png) center no-repeat,
+    url(big-star.png) center / 4px, 
+    rebeccapurple;
+}

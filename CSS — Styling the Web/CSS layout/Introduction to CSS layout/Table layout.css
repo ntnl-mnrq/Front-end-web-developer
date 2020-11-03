@@ -1,0 +1,41 @@
+/* Table layout
+
+HTML tables are fine for displaying tabular data, but many years ago — before even basic CSS was supported reliably across browsers — web developers used to also use tables for entire web page layouts — putting their headers, footers, different columns, etc. in various table rows and columns. This worked at the time, but it has many problems — table layouts are inflexible, very heavy on markup, difficult to debug, and semantically wrong (e.g., screen reader users have problems navigating table layouts). 
+The example below shows one such use; using CSS tables for layout should be considered a legacy method at this point, for those situations where you have very old browsers without support for Flexbox or Grid.*/
+
+html {
+    font-family: sans-serif;
+  }
+  
+  form {
+    display: table;
+    margin: 0 auto;
+  }
+  
+  form div {
+    display: table-row;
+  }
+  
+  form label, form input {
+    display: table-cell;
+    margin-bottom: 10px;
+    /* border: 1px dashed tomato; */
+  }
+  
+  form label {
+    width: 200px;
+    padding-right: 5%;
+    text-align: right;
+  }
+  
+  form input {
+    width: 300px;
+  }
+  
+  form p {
+    display: table-caption;
+    caption-side: bottom;
+    width: 300px;
+    color: #999;
+    font-style: italic;
+  }

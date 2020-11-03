@@ -1,0 +1,45 @@
+/* Font styles */
+
+html {
+    font-size: 10px;
+}
+
+h1 {
+    font-size: 5rem;
+    text-transform: capitalize;
+    color: rgba(0, 0, 0, 1);
+    text-shadow: 1px 1px 1px red,
+    2px 2px 1px red;
+}
+
+h1 + p {
+    font-weight: bold;
+}
+
+p {
+    font-size: 1.5rem;
+    color: red;
+    font-family: Helvetica, Arial, sans-serif;
+    /* text-transform: full-width; */
+    /* text-decoration: underline red wavy; */
+    /* text-shadow: 4px 4px 25px red; */
+}
+
+/* Text layout styles */
+h1 {
+    text-align: center;
+}
+
+p {
+    line-height: 1.6;
+    /* sin unidades, el line-height se calcula multiplicando su valor (usualmente 1.5~2) por el font-size */
+}
+
+p::first-line {
+    letter-spacing: 4px;
+    word-spacing: 4px;
+    font-variant: small-caps;
+    /* Font shorthand */
+    /* font-style font-variant  font-weight  font-stretch  font-size / line-height font-family */
+    font: italic normal bold normal 1.1em/1.5 Helvetica, Arial, sans-serif;
+}

@@ -1,0 +1,18 @@
+/* If you want to select siblings of an element even if they are not
+directly adjacent, then you can use the general sibling combinator (~). */
+
+/* In the example below we are selecting all <p> elements that come after the 
+<h1>, and even though there is a <div> in the document as well, the <p> that 
+comes after it is selected. */
+
+h1 ~ p {
+    font-weight: bold;
+    background-color: #333;
+    color: #fff;
+    padding: .5em;
+}
+
+h2 ~ * {
+    color: tomato;
+}
+

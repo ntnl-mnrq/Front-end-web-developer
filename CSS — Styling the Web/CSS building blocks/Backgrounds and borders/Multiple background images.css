@@ -1,0 +1,75 @@
+* {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.box {
+  width: 300px;
+  height: 100px;
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  margin: 20px;
+}
+
+/* It is also possible to have multiple background images — you specify multiple 
+background-image values in a single property value, separating each one with a comma.
+
+When you do this you may end up with background images overlapping each other. The 
+backgrounds will layer with the last listed background image at the bottom of the stack, 
+and each previous image stacking on top of the one that follows it in the code.
+
+Note: Gradients can be happily mixed with regular background images.
+
+The other background-* properties can also have comma-separated values in the same way 
+as background-image: 
+Each value of the different properties will match up to the values in the same position in the other properties.
+
+However, what happens when different properties have different numbers of values? The answer is that the smaller 
+numbers of values will cycle — in the above example there are four background images but only two background-position
+ values. The first two position values will be applied to the first two images, then they will cycle back around again 
+ — image3 will be given the first position value, and image4 will be given the second position value.*/
+
+.b1 {
+  background-image: url(star.png), url(big-star.png);
+}
+.b2 {
+  background-image: url(big-star.png), url(star.png);
+}
+.b3 {
+  background-image: url(star.png), url(big-star.png);
+  background-repeat: repeat-y, repeat-x;
+  background-position: center, top;
+}
+.b4 {
+  background-image: url(big-star.png), url(star.png);
+  background-repeat: no-repeat, repeat-x;
+  background-position: 50% 25%, top center;
+}
+.b5 {
+  background-image: linear-gradient(
+      rgba(32, 112, 186, 1),
+      rgba(32, 112, 186, 0.5),
+      rgba(0, 0, 0, 0),
+      rgba(236, 204, 33, 0.5),
+      rgba(236, 204, 33, 1)
+    ),
+    url(star.png), url(big-star.png);
+  /* background-repeat: repeat-y, repeat-x; */
+  background-position: center, center;
+  background-blend-mode: difference, screen;
+  height: 500px;
+  background-attachment: fixed, scroll;
+}
+.b6 {
+  background-image: url(big-star.png), url(star.png), url(big-star.png),
+    url(big-star.png), url(star.png), url(big-star.png);
+  /* background-repeat: repeat-y, repeat-x, repeat-y; */
+  background-size: 20px, 25px, 30px, 35px, 40px, 45px;
+  background-blend-mode: difference;
+  background-position: center;
+  height: 500px;
+  background-attachment: fixed, scroll, local;
+}

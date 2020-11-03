@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Images in HTML</title>
+  </head>
+  <body>
+    <h1>Images in HTML</h1>
+
+    <img src="images/dinosaur.jpg"
+         alt="The head and torso of a dinosaur skeleton; it has a large head with long sharp teeth"
+         width="400"
+         height="341"
+         title="A T-Rex on display in the Manchester University Museum">
+
+    <hr>
+
+    <div class="figure">
+      <img src="images/dinosaur.jpg"
+           alt="The head and torso of a dinosaur skeleton;
+                it has a large head with long sharp teeth"
+           width="400"
+           height="341">
+    
+      <p>A T-Rex on display in the Manchester University Museum.</p>
+    </div>
+
+    <hr>
+    <figure>
+      <img src="images/dinosaur.jpg"
+           alt="The head and torso of a dinosaur skeleton;
+                it has a large head with long sharp teeth"
+           width="400"
+           height="341">
+    
+      <figcaption>A T-Rex on display in the Manchester University Museum.</figcaption>
+    </figure>
+
+    <!-- A figure doesn't have to be an image. It is an independent unit of content that:
+
+      Expresses your meaning in a compact, easy-to-grasp way.
+      Could go in several places in the page's linear flow.
+      Provides essential information supporting the main text.
+
+    A figure could be several images, a code snippet, audio, video, equations, a table, or something else. -->
+
+  <!-- if an image has meaning, in terms of your content, you should use an HTML image. 
+  If an image is purely decoration, you should use CSS background images. -->
+
+  </body>
+</html>

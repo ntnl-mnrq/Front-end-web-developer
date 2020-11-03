@@ -1,0 +1,16 @@
+body {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+
+/* Multi-column layout
+
+The multi-column layout module gives us a way to lay out content in columns, similar to how text flows in a newspaper. While reading up and down columns is less useful in a web context as you don’t want to force users to scroll up and down, arranging content into columns can be a useful technique. */
+
+/* To turn a block into a multicol container we use either the column-count property, which tells the browser how many columns we would like to have, or the column-width property, which tells the browser to fill the container with as many columns of at least that width. */
+
+/* We are using a column-width of 200 pixels on that container, causing the browser to create as many 200-pixel columns as will fit in the container and then share the remaining space between the created columns. */
+.container {
+  column-width: 200px;
+}

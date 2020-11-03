@@ -1,0 +1,16 @@
+/* HTML Elements have a natural size, set before they are affected by any CSS. A straightforward example is an image. An image has a width and a height defined in the image file it is embedding into the page. This size is described as the intrinsic size — which comes from the image itself.
+
+If you place an image on a page and do not change its height and width, either using attributes on the <img> tag or CSS, it will be displayed using that intrinsic size. */
+
+img {
+    border: 5px solid darkblue;
+}
+
+/* An empty <div>, on the other hand, has no size of its own. If you add a <div> to your HTML with no content, then give it a border as we did with the image, you will see a line on the page. This is the collapsed border on the element — there is no content to hold it open. */
+
+/* In our example below, that border stretches to the width of the container, because it is a block level element, a behavior that should be starting to become familiar to you. It has no height (or size in the block dimension) because there is no content. */
+
+.border {
+    border: 5px solid darkblue;
+}
+/* In the example above, try adding some text inside the empty element. The border now contains that text because the height of the element is defined by the content. Therefore the size of this <div> in the block dimension comes from the size of the content. Again, this is the intrinsic size of the element — its size is defined by its content. */

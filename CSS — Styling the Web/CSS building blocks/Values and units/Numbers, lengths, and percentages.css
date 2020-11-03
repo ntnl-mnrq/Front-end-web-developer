@@ -1,0 +1,101 @@
+* {
+  box-sizing: border-box;
+}
+.box {
+  background-color: lightblue;
+  border: 5px solid darkblue;
+  padding: 10px;
+  margin: 1em 0;
+}
+
+.wrpr {
+  font-size: 1em;
+}
+
+.px {
+  width: 200px;
+}
+
+.vw {
+  width: 10vw;
+}
+
+.em {
+  width: 10em;
+}
+
+
+/* 
+The em unit means "my parent element's font-size" in the case of typography. 
+
+The <li> elements inside the <ul> with a class of ems take their sizing from their parent. So each successive level of nesting gets progressively larger, as each has its font size set to 1.3em — 1.3 times its parent's font size. 
+
+ the rem unit means "The root element's font-size". (rem stands for "root em".) 
+ 
+ The <li> elements inside the <ul> with a class of rems take their sizing from the root element (<html>). This means that each successive level of nesting does not keep getting larger.
+*/
+
+html {
+    font-size: 16px;
+  }
+  
+  .ems li {
+    font-size: 1.3em; 
+    /*1.3 veces el tamaño del parent*/
+  }
+  
+  .rems li {
+    font-size: 1.3rem;
+    /*1.3 veces el tamaño del root*/
+  }
+  
+
+  /* Percentages
+
+In a lot of cases, a percentage is treated in the same way as a length. The thing with percentages is that they are always set relative to some other value. For example, if you set an element's font-size as a percentage it will be a percentage of the font-size of the element's parent. If you use a percentage for a width value, it will be a percentage of the width of the parent. */
+  
+/* 
+para averiguar el parent de un elemento
+let x = document.querySelector('#x')
+console.log(x)
+console.log(x.parentNode) */
+.wrapper {
+    width: 400px;
+    border: 5px solid rebeccapurple;
+  }
+  
+  .px {
+    width: 200px;
+  }
+  
+  .percent {
+    width: 50%;
+  }
+      
+  /* The next example has font sizes set in percentages. Each <li> has a font-size of 80%, therefore the nested list items become progressively smaller as they inherit their sizing from their parent. */
+  li {
+    font-size: 80%;
+  }
+      
+/* Note that, while many value types accept a length or a percentage, there are some that only accept length. You can see which values are accepted on the MDN property reference pages. If the allowed value includes <length-percentage> then you can use a length or a percentage. If the allowed value only includes <length>, it is not possible to use a percentage. */
+
+
+/* Numbers
+
+Some value types accept numbers, without any unit added to them. An example of a property which accepts a unitless number is the opacity property, which controls the opacity of an element (how transparent it is). This property accepts a number between 0 (fully transparent) and 1 (fully opaque). */
+
+.w {
+  background-image: url(https://mdn.github.io/css-examples/learn/values-units/balloons.jpg);
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  padding: 20px;
+}
+
+.bx {
+  margin: 40px auto;
+  width: 200px;
+  background-color: lightblue;
+  border: 5px solid darkblue;
+  padding: 10px;
+  opacity: 0.6;
+}

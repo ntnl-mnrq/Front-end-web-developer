@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.box {
+  border: 1px solid #ccc;
+  padding: 0.5em;
+  margin: 10px;
+}
+
+/* We have already discussed block and inline layout, and the fact that some things 
+display as block elements and others as inline elements. As we have seen described 
+above, block and inline is tied to the writing mode of the document, and not the 
+physical screen. Blocks are only displayed from the top to the bottom of the page 
+if you are using a writing mode that displays text horizontally, such as English. */
+
+.horizontal {
+  writing-mode: horizontal-tb;
+}
+
+.vertical {
+  writing-mode: vertical-rl;
+}
+
+/* When we switch the writing mode, we are changing which direction is block and which 
+is inline. 
+*In a horizontal-tb writing mode the block direction runs from top to bottom; 
+*in a vertical-rl writing mode the block direction runs right-to-left horizontally. 
+*So the block dimension is always the direction blocks are displayed on the page in the 
+writing mode in use. 
+*The inline dimension is always the direction a sentence flows. */

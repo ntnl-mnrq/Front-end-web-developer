@@ -1,0 +1,17 @@
+/* Some pseudo-classes only apply when the user interacts with the document in some way. These user-action pseudo-classes, 
+sometimes referred to as dynamic pseudo-classes, act as if a class had been added to the element when the user interacts with it. 
+Examples include:
+
+    :hover — mentioned above; this only applies if the user moves their pointer over an element, typically a link.
+    :focus — only applies if the user focuses the element using keyboard controls.
+ */
+
+a:link,
+a:visited {
+    color: rebeccapurple;
+    font-weight: bold;
+}
+
+a:hover {
+    color:hotpink;
+}  

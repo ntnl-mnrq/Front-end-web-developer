@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Responsive HTML images demo</title>
+  <style>
+    img {
+      width: 320px;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <img srcset="elva-fairy-320w.jpg,
+                     elva-fairy-480w.jpg 1.5x,
+                     elva-fairy-640w.jpg 2x" src="elva-fairy-640w.jpg" alt="Elva dressed as a fairy">
+
+
+
+
+  <h3 id="Resolution_switching_Same_size_different_resolutions">Resolution switching: Same size, different resolutions
+  </h3>
+
+  <p>If you're supporting multiple display resolutions, but everyone sees your image at the same real-world size on the
+    screen, you can allow the browser to choose an appropriate resolution image by using <code>srcset</code> with
+    x-descriptors and without <code>sizes</code> — a somewhat easier syntax!
+
+  <p>In this example, the following CSS is applied
+    to the image so that it will have a width of 320 pixels on the screen (also called CSS pixels):</p>
+
+  <code>img { <br>
+  width: 320px; <br>
+}</code>
+
+  <p> In this case, <code>sizes</code> is not needed — the browser simply works out what resolution the display is that
+    it is being shown on, and serves the most appropriate image referenced in the <code>srcset</code>. So if the device
+    accessing the page has a standard/low resolution display, with one device pixel representing each CSS pixel, the
+    <code>elva-fairy-320w.jpg</code> image will be loaded (the 1x is implied, so you don't need to include it.) If the
+    device has a high resolution of two device pixels per CSS pixel or more, the <code>elva-fairy-640w.jpg</code> image
+    will be loaded. The 640px image is 93KB, whereas the 320px image is only 39KB.</p>
+
+</body>
+
+</html>

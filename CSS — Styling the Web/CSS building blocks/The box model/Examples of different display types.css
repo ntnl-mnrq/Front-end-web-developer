@@ -1,0 +1,95 @@
+/* Below we have three different HTML elements, 
+all of which have an outer display type of block. */
+
+/* The first is a paragraph, which has a border added 
+in CSS. The browser renders this as a block box, so the 
+paragraph begins on a new line, and expands to the full 
+width available to it. */
+
+/* The second is a list, which is laid out using 
+display: flex. This establishes flex layout for the items 
+inside the container, however, the list itself is a block 
+box and — like the paragraph — expands to the full container
+ width and breaks onto a new line. */
+
+ /* Below this, we have a block-level paragraph, inside 
+ which are two <span> elements. These elements would 
+ normally be inline, however, one of the elements has a 
+ class of block, and we have set it to display: block. */
+
+/* If a box is defined as a block, it will behave in the following ways:
+
+    *The box will break onto a new line.
+    *The box will extend in the inline direction to fill the space available 
+        in its container. In most cases this means that the box will become as 
+        wide as its container, filling up 100% of the space available.
+    *The width and height properties are respected.
+    *Padding, margin and border will cause other elements to be pushed 
+        away from the box
+ */
+
+ /* If a box has an outer display type of inline, then:
+
+    *The box will not break onto a new line.
+    *The width and height properties will not apply.
+    *Vertical padding, margins, and borders will apply but will not cause other 
+        inline boxes to move away from the box.
+    *Horizontal padding, margins, and borders will apply and will cause other 
+        inline boxes to move away from the box.
+ */
+p,
+ul {
+  border: 2px solid rebeccapurple;
+  padding: 0.5em;
+  background-color: rgba(255, 255, 0, 0.5);
+}
+
+.block,
+li {
+  border: 2px solid blue;
+  padding: 0.5em;
+  background-color: rgba(0, 255, 255, 0.5);
+  /* display: inline; */
+}
+
+ul {
+    /* sin flex los items se aparecen uno debajo de otro */
+  display: flex;
+  /* display: inline; */
+  list-style: none;
+  background-color: rgba(0, 0, 255, 0.5);;
+}
+
+.block {
+    /* el span por defecto sería inline */
+  display: block;
+}
+
+h1 {
+    border: 2px solid tomato;
+    display: inline;
+}
+
+.pBlock {
+    border: 2px solid turquoise;
+    background-color: rgba(201, 66, 201, 0.151);
+    /* normalmente block abarca todo el espacio disponible,
+    o se acota al width y height especificado */
+    /* width: 500px;
+    height: 200px; */
+    padding-left: 50px;
+    padding-top: 50px; 
+    
+}
+
+.pInline {
+    border: 2px solid turquoise;
+    background-color: rgba(201, 66, 201, 0.151);
+    /* width: 500px;
+    height: 200px;     */
+    /* con inline width y height no tienen efecto */
+    padding-left: 50px;
+    padding-top: 50px; 
+
+    display: inline;
+}

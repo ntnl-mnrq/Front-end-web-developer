@@ -1,0 +1,18 @@
+/* You can create a selector that will target specific elements with the class applied. 
+In this next example, we will highlight a <span> with a class of highlight differently 
+to an <h1> heading with a class of highlight. We do this by using the type selector for 
+the element we want to target, with the class appended using a dot, with no white space in between. */
+/* This approach reduces the scope of a rule. The rule will only apply to that particular element and class combination. */
+span.highlight {
+    background-color: yellow;
+}
+
+h1.highlight {
+    background-color: pink;
+}
+
+/* En este caso selecciona todos los elementos dentro de span -descendientes-, que sean de la clase highlight,
+mientras que en el anterior selecciona todos los elementos span que sean de la clase highlight */
+span .highlight {
+    background-color: tomato;
+}

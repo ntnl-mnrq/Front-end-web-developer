@@ -1,0 +1,60 @@
+h1 {
+  color: red;
+}
+
+p,
+li {
+  color: green;
+}
+
+@counter-style circled-alpha {
+  system: fixed;
+  symbols: Ⓐ Ⓑ Ⓒ Ⓓ Ⓔ Ⓕ Ⓖ Ⓗ Ⓘ Ⓙ Ⓚ Ⓛ Ⓜ Ⓝ Ⓞ Ⓟ Ⓠ Ⓡ Ⓢ Ⓣ Ⓤ Ⓥ Ⓦ Ⓧ Ⓨ Ⓩ;
+  suffix: " ";
+}
+
+li {
+  /* list-style: "\015402"; */
+  /* list-style: "\003402"; */
+  /* list-style: "\r4r0 "; */
+  /* list-style-type: "\1F44D"; // thumbs up sign */
+  /* list-style: circled-alpha; */
+  list-style: square;
+}
+
+li.special,
+span.special {
+  color: orange;
+  font-weight: bold;
+}
+
+/* descendant combinator */
+li em {
+  color: rebeccapurple;
+}
+
+/* Something else you might like to try is styling a paragraph when it comes directly after a heading at the 
+same hierarchy level in the HTML. To do so place a +  (an adjacent sibling combinator) between the selectors. */
+h1 + p {
+    font-size: 200%;
+}
+
+/* the CSS below styles unvisited links pink and visited links green. */
+a:link {
+    color: pink;
+}
+
+a:visited{
+    color: green;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/* This will style any element with a class of special, which is inside a <p>, which comes just after an <h1>, which is inside a <body> */
+body h1 + p .special{
+    color: yellow;
+    background-color: black;
+    padding: 5px;
+}

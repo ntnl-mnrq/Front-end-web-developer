@@ -1,0 +1,65 @@
+html {
+  font-family: sans-serif;
+}
+
+p {
+  margin: 0;
+}
+
+article {
+  max-width: 500px;
+  padding: 10px;
+  background-color: red;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.25)
+  );
+}
+
+/*A simple box shadow 
+You'll see that we've got four items in the box-shadow property value:
+
+    The first length value is the horizontal offset — the distance to the right the shadow is offset from the original box (or left, if the value is negative).
+    The second length value is the vertical offset — the distance downwards that the shadow is offset from the original box (or upwards, if the value is negative).
+    The third length value is the blur radius — the amount of blurring applied to the shadow.
+    The color value is the base color of the shadow.
+
+You can use any length and color units that would make sense to do so to define these values. */
+.simple {
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.7);
+}
+
+/* Multiple box shadows
+
+You can also specify multiple box shadows in a single box-shadow declaration, by separating them with commas */
+.multiple {
+  box-shadow: 1px 1px 1px black, 2px 2px 1px black, 3px 3px 1px red,
+    4px 4px 1px red, 5px 5px 1px black, 6px 6px 1px black;
+}
+
+/* Other box shadow features
+
+Unlike text-shadow, box-shadow has an inset keyword available — putting this at the start of a shadow declaration causes it to become an inner shadow, rather than an outer shadow. */
+button {
+  width: 150px;
+  font-size: 1.1rem;
+  line-height: 2;
+  border-radius: 10px;
+  border: none;
+  background-image: linear-gradient(to bottom right, #777, #ddd);
+  box-shadow: 1px 1px 1px black, inset 2px 3px 5px rgba(0, 0, 0, 0.3),
+    inset -2px -3px 5px rgba(255, 255, 255, 0.5);
+}
+
+button:focus,
+button:hover {
+  background-image: linear-gradient(to bottom right, #888, #eee);
+}
+
+button:active {
+  box-shadow: inset 2px 2px 1px black, inset 2px 3px 5px rgba(0, 0, 0, 0.3),
+    inset -2px -3px 5px rgba(255, 255, 255, 0.5);
+}
+
+/* Note: There is another item that can be set in the box-shadow value — another length value can be optionally set just before the color value, which is a spread radius. If set, this causes the shadow to become bigger than the original box. It is not very commonly used, but worth mentioning. */

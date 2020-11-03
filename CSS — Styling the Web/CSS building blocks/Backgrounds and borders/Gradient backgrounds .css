@@ -1,0 +1,60 @@
+* {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  display: flex;
+  background-color: #eee;
+}
+
+.box {
+  width: 200px;
+  height: 100px;
+
+  padding: 0.5em;
+  border: 2px solid #ccc;
+  margin: 20px;
+}
+
+/* A gradient — when used for a background — acts just like an image and is also 
+set by using the background-image property. */
+
+.a {
+  background-image: linear-gradient(
+    105deg,
+    rgba(0, 249, 255, 1) 39%,
+    rgba(51, 56, 57, 1) 96%
+  );
+}
+
+.b {
+  background-image: radial-gradient(
+    circle,
+    rgba(0, 249, 255, 1) 39%,
+    rgba(51, 56, 57, 1) 96%
+  );
+  background-size: 100px 50px;
+  /* background-repeat: no-repeat; */
+}
+
+.c {
+  background: rgb(63, 94, 251);
+  background: radial-gradient(
+    circle,
+    rgba(63, 94, 251, 1) 0%,
+    rgba(252, 70, 107, 1) 100%
+  );
+}
+
+.d {
+  background: rgb(63, 94, 251);
+  background: linear-gradient(
+    rgba(63, 94, 251, 1) 0%,
+    rgba(252, 70, 107, 1) 100%
+  );
+  margin-top: 50px;
+  /* background-size: 250px 500px; */
+  width: 500px;
+  height: 700px;
+  background-attachment: fixed;
+}
