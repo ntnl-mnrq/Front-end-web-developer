@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Object-oriented JavaScript example</title>
+</head>
+
+<body>
+    <p>This example requires you to enter commands in your browser's JavaScript console (see <a
+            href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools">What
+            are browser developer tools</a> for more information).</p>
+
+</body>
+
+<script>
+    // function createNewPerson(name) {
+    //     const obj = {};
+    //     obj.name = name;
+    //     obj.greeting = function() {
+    //         alert(`Hi I'm ${obj.name}.`);
+    //     }
+    //     return obj;
+    // }
+    // const salva = createNewPerson('Salva');
+    // salva.name;
+    // salva.greeting();
+
+    //constructor function
+    // function Person(name) {
+    //     this.name = name;
+    //     this.greeting = function(){
+    //         alert(`Hi I'm ${this.name}.`)
+    //     };
+    // }
+    // The constructor function is JavaScript's version of a class. Notice that it has all the features you'd expect in a function, although it doesn't return anything or explicitly create an object — it basically just defines properties and methods. Notice also the this keyword being used here as well — it is basically saying that whenever one of these object instances is created, the object's name property will be equal to the name value passed to the constructor call, and the greeting() method will use the name value passed to the constructor call too.
+
+    // Note: A constructor function name usually starts with a capital letter — this convention is used to make constructor functions easier to recognize in code.
+
+    // let person1 = new Person('Bob');
+    // let person2 = new Person('Sarah');
+
+    // person1.greeting();
+    // person2.greeting();
+
+
+    // function Person(first, last, age, gender, interests) {
+    //     this.name = {
+    //         first: first,
+    //         last: last
+    //     }
+    //     this.age = age;
+    //     this.gender = gender;
+    //     this.pronoun = function() {
+    //         switch(this.gender){
+    //             case 'male':
+    //                 return 'He likes';
+    //             case 'female':
+    //                 return 'She likes';
+    //             default:
+    //                 return 'They like';
+    //         }
+    //     }
+    //     this.interests = function(){
+    //         let ints = interests.join(', ');
+    //         ints = ints.slice(0, ints.length-interests[interests.length-1].length-2);
+    //         ints += ' and ' + interests[interests.length-1];
+    //         return ints;
+    //     };
+    //     this.bio = function() {
+    //         alert(`${this.name.first} ${this.name.last} is ${this.age} years old. ${this.pronoun()} ${this.interests()}.`)
+    //     };
+    //     this.greeting = function() {
+    //         alert(`Hi! I'm ${this.name.first}.`)
+    //     };
+    // }
+
+    // let person1 = new Person('Bob', 'Smith', 32, 'male', ['music', 'skiing', 'movies']);
+    // let person2 = new Person('Molly', 'Nilsson', 35, 'female', ['music', 'literature', 'making videos'])
+    // let person3 = new Person('Doña', 'Arca', 'x', 'mutanta', ['music', 'art', 'videogames', 'being mutant'])
+    // person1.bio();
+    // person2.bio();
+    // person3.bio();
+
+/////////////////////////////////////////////////////
+
+    // The Object() constructor
+
+    // First of all, you can use the Object() constructor to create a new object. Yes, even generic objects have a constructor, which generates an empty object.
+    // This stores an empty object in the person1 variable. You can then add properties and methods to this object using dot or bracket notation as desired
+    // let person1 = new Object(); 
+    // person1.name = 'Chris';
+    // person1['age'] = 38;
+    // person1.greeting = function() {
+    //     alert(`Hi! I'm ${this.name}.`)
+    // };
+
+    // You can also pass an object literal to the Object() constructor as a parameter, to prefill it with properties/methods. 
+    let person1 = new Object({
+        name: 'Chris',
+        age: 38,
+        greeting: function() {
+            alert(`Hi! I'm ${this.name}.`);
+        }
+    });
+
+    // person1.greeting();
+
+////////////////////////////////////////////////
+
+// Using the create() method
+
+// Constructors can help you give your code order—you can create constructors in one place, then create instances as needed, and it is clear where they came from.
+
+// However, some people prefer to create object instances without first creating constructors, especially if they are creating only a few instances of an object. JavaScript has a built-in method called create() that allows you to do that. With it, you can create a new object, using an existing object as the prototype of the newly created object.
+
+// With your finished exercise from the previous sections loaded in the browser, try this in your JavaScript console: 
+let person2 = Object.create(person1);
+
+person2.greeting();
+// You'll see that person2 has been created based on person1 as its prototype —it has the same properties and method available to it.
+
+</script>
+
+</html>
+
+© 2020 GitHub, Inc.
+Term

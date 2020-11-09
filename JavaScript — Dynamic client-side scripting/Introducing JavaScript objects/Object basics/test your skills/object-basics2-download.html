@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Object basics: Task 2</title>
+    <style>
+        p {
+            color: purple;
+            margin: 0.5em 0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+    </style>
+    <link rel="stylesheet" href="../styles.css" />
+</head>
+
+<body>
+
+    <section class="preview">
+
+
+
+    </section>
+
+</body>
+<script>
+    let bandInfo;
+
+    // Add your code here
+
+    const band = {
+        name: 'Deerhunter',
+        nationality: 'USA',
+        genre: 'indie/experimental',
+        members: ['Bradford Cox', 'Lockett Pundt', 'Moses Archuleta', 'Josh McKay'],
+        formed: 2001,
+        split: 0,
+        albums: [
+            {
+                name: 'Turn It Up Faggot',
+                released: 2005,
+            },
+            {
+                name: 'Cryptograms ',
+                released: 2007,
+            },
+            {
+                name: 'Microcastle',
+                released: 2008,
+            }
+        ]
+    }
+
+    bandInfo = `${band.name} is an ${band.genre} band from ${band.nationality}, formed in ${band.formed}. Its members are ${band.members.join(', ')}. ${band.split ? `They split on ${band.split}` : 'They are currently active'}. They first album, '${band.albums[0].name}' was released on ${band.albums[0].released}.`;
+    // Don't edit the code below here!
+
+    const section = document.querySelector('section');
+    let para1 = document.createElement('p');
+    para1.textContent = bandInfo;
+    section.appendChild(para1);
+</script>
+
+</html>

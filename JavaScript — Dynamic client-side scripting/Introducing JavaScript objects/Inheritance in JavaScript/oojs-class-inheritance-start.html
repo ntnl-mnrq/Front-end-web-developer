@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Object-oriented JavaScript inheritance</title>
+</head>
+
+<body>
+  <div>
+    <label for="jscode">Enter code:</label>
+    <input type="text" id="jscode">
+    <button>Submit code</button>
+  </div>
+
+  <p></p>
+</body>
+
+<script>
+  const input = document.querySelector('input');
+  const btn = document.querySelector('button');
+  const para = document.querySelector('p');
+
+  btn.onclick = function () {
+    const code = input.value;
+    para.textContent = eval(code);
+  }
+
+  // We've defined only the properties inside the constructor:
+  function Person(first, last, age, gender, interests) {
+    this.name = {
+      first,
+      last
+    };
+    this.age = age;
+    this.gender = gender;
+    this.interests = interests;
+  };
+
+  // The methods are all defined on the constructor's prototype.
+  Person.prototype.bio = function () {
+    // First define a string, and make it equal to the part of
+    // the bio that we know will always be the same.
+    let string = this.name.first + ' ' + this.name.last + ' is ' + this.age + ' years old. ';
+    // define a variable that will contain the pronoun part of
+    // the second sentence
+    let pronoun;
+
+    // check what the value of gender is, and set pronoun
+    // to an appropriate value in each case
+    if (this.gender === 'male' || this.gender === 'Male' || this.gender === 'm' || this.gender === 'M') {
+      pronoun = 'He likes ';
+    } else if (this.gender === 'female' || this.gender === 'Female' || this.gender === 'f' || this.gender === 'F') {
+      pronoun = 'She likes ';
+    } else {
+      pronoun = 'They like ';
+    }
+
+    // add the pronoun string on to the end of the main string
+    string += pronoun;
+
+    // use another conditional to structure the last part of the
+    // second sentence depending on whether the number of interests
+    // is 1, 2, or 3
+    if (this.interests.length === 1) {
+      string += this.interests[0] + '.';
+    } else if (this.interests.length === 2) {
+      string += this.interests[0] + ' and ' + this.interests[1] + '.';
+    } else {
+      // if there are more than 2 interests, we loop through them
+      // all, adding each one to the main string followed by a comma,
+      // except for the last one, which needs an and & a full stop
+      for (let i = 0; i < this.interests.length; i++) {
+        if (i === this.interests.length - 1) {
+          string += 'and ' + this.interests[i] + '.';
+        } else {
+          string += this.interests[i] + ', ';
+        }
+      }
+    }
+
+    // finally, with the string built, we alert() it
+    alert(string);
+  };
+
+  Person.prototype.greeting = function () {
+    alert('Hi! I\'m ' + this.name.first + '.');
+  };
+
+  Person.prototype.farewell = function () {
+    alert(this.name.first + ' has left the building. Bye for now!');
+  }
+
+  let person1 = new Person('Tammi', 'Smith', 17, 'female', ['music', 'skiing', 'kickboxing']);
+
+
+  // Defining a Teacher() constructor function
+  function Teacher(first, last, age, gender, interests, subject) {
+    Person.call(this, first, last, age, gender, interests);
+
+    this.subject = subject;
+  }
+    // This looks similar to the Person constructor in many ways, but there is something strange here that we've not seen before — the call() function. This function basically allows you to call a function defined somewhere else, but in the current context. The first parameter specifies the value of this that you want to use when running the function, and the other parameters are those that should be passed to the function when it is invoked.
+    // We want the Teacher() constructor to take the same parameters as the Person() constructor it is inheriting from, so we specify them all as parameters in the call() invocation.
+
+    // The last line inside the constructor simply defines the new subject property that teachers are going to have, which generic people don't have.
+
+    // Setting Teacher()'s prototype and constructor reference
+    Teacher.prototype = Object.create(Person.prototype);
+    // Here our friend create() comes to the rescue again. In this case we are using it to create a new object and make it the value of Teacher.prototype. The new object has Person.prototype as its prototype and will therefore inherit, if and when needed, all the methods available on Person.prototype.
+
+    // We need to do one more thing before we move on. After adding the last line, Teacher.prototype's constructor property is now equal to Person(), because we just set Teacher.prototype to reference an object that inherits its properties from Person.prototype! Try saving your code, loading the page in a browser, and entering Teacher.prototype.constructor into the console to verify.
+    // This can become a problem, so we need to set this right. You can do so by going back to your source code and adding the following line at the bottom: 
+    Object.defineProperty(Teacher.prototype, 'constructor', {
+      value: Teacher,
+      enumerable: false, // so that it does not appear in 'for in' loop
+      writable: true
+    });
+    // Now if you save and refresh, entering Teacher.prototype.constructor should return Teacher(), as desired, plus we are now inheriting from Person()!
+
+    // Giving Teacher() a new greeting() function
+    Teacher.prototype.greeting = function() {
+      let prefix;
+
+      if(this.gender === 'male' || this.gender === 'Male' || this.gender === 'm' || this.gender === 'M') {
+        prefix = 'Mr.';
+      }
+      else if(this.gender === 'female' || this.gender === 'Female' || this.gender === 'f' || this.gender === 'F') {
+        prefix = 'Ms.';
+      }
+      else {
+        prefix = 'Mx.'
+      }
+
+      alert(`Hello. My name is ${prefix} ${this.name.last} and I teach ${this.subject}.`)
+    }
+
+    let teacher1 = new Teacher('Dave', 'Griffiths', 31, 'male', ['football', 'cookery'], 'mathematics');
+
+    // teacher1.greeting();
+    // teacher1.bio();
+    // console.log(teacher1.subject);
+
+    //student
+    //constructor
+    function Student(first, last, age, gender, interests){
+      Person.call(this, first, last, age, gender, interests);
+    }
+    // Setting Student()'s prototype and constructor reference
+    Student.prototype = Object.create(Person.prototype);
+
+    // Object.defineProperty(Student.prototype, 'constructor', {
+    //   value: Student,
+    //   enumerable: false,
+    //   writable: true
+    // });
+    Student.prototype.constructor = Student;
+
+    // Giving Student() a new greeting() function
+    Student.prototype.greeting = function() {
+      alert(`Yo! I'm ${this.name.first} ${this.name.last}.`);
+    }
+
+    let student1 = new Student('Tony', 'Randall', 79, 'male', ['eating contests', 'acting']);
+    student1.greeting();
+
+    </script>
+
+</html>
