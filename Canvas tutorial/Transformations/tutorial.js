@@ -6,13 +6,13 @@ function draw() {
     c2('.c2');
     c3('.c3');
     c4('.c4');
-    c5('.c5');
-    c6('.c6');
-    c7('.c7');
-    c8('.c8');
-    c9('.c9');
-    c10('.c10');
-    c11('.c11');
+    // c5('.c5');
+    // c6('.c6');
+    // c7('.c7');
+    // c8('.c8');
+    // c9('.c9');
+    // c10('.c10');
+    // c11('.c11');
     // c12('.c12'); 
     // c13('.c13'); 
 }
@@ -163,7 +163,6 @@ function c3(s) {
     }
 }
 
-
 function c4(s) {
     console.log(`${s} loaded`);
     let canvas = document.querySelector(s);
@@ -184,243 +183,6 @@ function c4(s) {
                 ry = (j/19) * (Math.PI*2);
                 ctx.rotate((rx*ry));
                 ctx.fillRect(-w/2, -w/2, 10, 10);
-                ctx.restore();
-            }
-        }
-    }
-}
-
-function c5(s) {
-    console.log(`${s} loaded`);
-    let canvas = document.querySelector(s);
-    if (canvas.getContext) {
-        let ctx = canvas.getContext('2d');
-
-        // ctx.fillStyle = '#0095dd';
-        let x, y, rx, ry;
-        let w = 10;
-        let n = 20;
-        ctx.translate(15, 15);
-        for (let i = 0; i < n; i++) {
-            for (let j = 0; j < n; j++) {
-                ctx.save();
-                // x = i * 20 - w / 2;
-                // y = j * 20 - w / 2;
-                x = i * 20 - w / 2;
-                y = j * 20 - w / 2;
-                ctx.translate(x, y);
-                rx = (i/(n-1)) * (Math.PI*2);
-                ry = (j/(n-1)) * (Math.PI*2);
-                ctx.rotate((rx*ry));
-                // ctx.rotate(i * 0.1 - j * 0.1);
-                // ctx.fillRect(-w/2, -w/2, 10, 10);
-                ctx.font='12px serif';
-                ctx.textBaseline = 'hanging';
-                ctx.fillText('A', -w/2, -w/2);  
-                ctx.restore();
-            }
-        }
-    }
-}
-
-function c6(s) {
-    console.log(`${s} loaded`);
-    let canvas = document.querySelector(s);
-    if (canvas.getContext) {
-        let ctx = canvas.getContext('2d');
-
-        // ctx.fillStyle = '#0095dd';
-        let x, y, rx, ry;
-        let w = 10;
-        let n = 20;
-        ctx.translate(15, 15);
-        for (let i = 0; i < n; i++) {
-            for (let j = 0; j < n; j++) {
-                ctx.save();
-                // x = i * 20 - w / 2;
-                // y = j * 20 - w / 2;
-                x = i * 20 - w / 2;
-                y = j * 20 - w / 2;
-                ctx.translate(x, y);
-                rx = (i/(n-1)) * (Math.PI*2);
-                ry = (j/(n-1)) * (Math.PI*2);
-                ctx.rotate((rx*ry));
-                // ctx.rotate(i * 0.1 - j * 0.1);
-                // ctx.fillRect(-w/2, -w/2, 10, 10);
-                ctx.font='10px serif';
-                ctx.textBaseline = 'hanging';
-                ctx.fillText('raro', -w/2, -w/2);  
-                ctx.restore();
-            }
-        }
-    }
-}
-
-function c7(s) {
-    console.log(`${s} loaded`);
-    let canvas = document.querySelector(s);
-    if (canvas.getContext) {
-        let ctx = canvas.getContext('2d');
-
-        // ctx.fillStyle = '#0095dd';
-        let x, y, rx, ry;
-        let w = 14.75;
-        let n = 20;
-        ctx.translate(w*1.5, w*1.5);
-        for (let i = 0; i < n; i++) {
-            for (let j = 0; j < n; j++) {
-                ctx.save();
-                // x = i * 20 - w / 2;
-                // y = j * 20 - w / 2;
-                x = i * (2*w) - w / 2;
-                y = j * (2*w) - w / 2;
-                ctx.translate(x, y);
-                rx = (i/(n-1)) * (Math.PI);
-                ry = (j/(n-1)) * (Math.PI*2);
-                ctx.rotate((rx*ry));
-                // ctx.rotate(i * 0.1 - j * 0.1);
-                // ctx.fillRect(-w/2, -w/2, 10, 10);
-                ctx.font='15px serif';
-                ctx.textBaseline = 'hanging';
-                ctx.fillText('raro', -w/2, -w/2);  
-                ctx.restore();
-            }
-        }
-    }
-}
-
-function c8(s) {
-    console.log(`${s} loaded`);
-    let canvas = document.querySelector(s);
-    if (canvas.getContext) {
-        let ctx = canvas.getContext('2d');
-
-        // ctx.fillStyle = '#0095dd';
-        let x, y, rx, ry;
-        let w = 14.75;
-        let n = 20;
-        ctx.translate(w*1.5, w*1.5);
-        for (let i = 0; i < n; i++) {
-            for (let j = 0; j < n; j++) {
-                ctx.save();
-                x = i * (2*w) - w / 2;
-                y = j * (2*w) - w / 2;
-                ctx.translate(x, y);
-                rx = 2*(i/((n-1))) * (Math.PI);
-                ry = 1//(j/(n-1)) * (Math.PI);
-                ctx.rotate((rx*ry));
-                // ctx.rotate(i * 0.1 - j * 0.1);
-                // ctx.fillRect(-w/2, -w/2, 10, 10);
-                ctx.font='15px serif';
-                ctx.textBaseline = 'hanging';
-                ctx.fillText('raro', -w/2, -w/2);  
-                ctx.restore();
-            }
-        }
-    }
-}
-
-function c9(s) {
-    console.log(`${s} loaded`);
-    let canvas = document.querySelector(s);
-    if (canvas.getContext) {
-        let ctx = canvas.getContext('2d');
-
-        // ctx.fillStyle = '#0095dd';
-        let x, y, rx, ry;
-        let w = 14.75;
-        let n = 20;
-        ctx.translate(w*1.5, w*1.5);
-        for (let i = 0; i < n; i++) {
-            for (let j = 0; j < n; j++) {
-                ctx.save();
-                x = i * (2*w) - w / 2;
-                y = j * (2*w) - w / 2;
-                ctx.translate(x, y);
-                rx = 2*(i/((n-1))) * (Math.PI);
-                ry = 2*(j/((n-1))) * (Math.PI);
-                ctx.rotate((rx-ry));
-                // ctx.rotate(i * 0.1 - j * 0.1);
-                // ctx.fillRect(-w/2, -w/2, 10, 10);
-                ctx.font='15px serif';
-                ctx.textBaseline = 'hanging';
-                ctx.fillText('raro', -w/2, -w/2);  
-                ctx.restore();
-            }
-        }
-    }
-}
-
-function c10(s) {
-    console.log(`${s} loaded`);
-    let canvas = document.querySelector(s);
-    if (canvas.getContext) {
-        let ctx = canvas.getContext('2d');
-
-        // ctx.fillStyle = '#0095dd';
-        let x, y, rx, ry;
-        let w = 14.75;
-        let n = 20;
-        ctx.translate(w*1.5, w*1.5);
-        for (let i = 0; i < n; i++) {
-            for (let j = 0; j < n; j++) {
-                ctx.save();
-                // x = i * 20 - w / 2;
-                // y = j * 20 - w / 2;
-                x = i * (2*w) - w / 2;
-                y = j * (2*w) - w / 2;
-                ctx.translate(x, y);
-                // rx = (i/(n-1)) * (Math.PI);
-                // ry = (j/(n-1)) * (Math.PI*2);
-                rx = (i/(n-1)) * (Math.PI*2);
-                ry = (j/(n-1)) * (Math.PI*2);
-                rx = 2*Math.sin(rx);
-                ry = 2*Math.cos(ry);
-                console.log(rx, ry);
-                ctx.rotate((rx+ry));
-                // ctx.rotate(i * 0.1 - j * 0.1);
-                // ctx.fillRect(-w/2, -w/2, 10, 10);
-                ctx.font='15px serif';
-                ctx.textBaseline = 'hanging';
-                ctx.fillText('raro', -w/2, -w/2);  
-                ctx.restore();
-            }
-        }
-    }
-}
-
-function c11(s) {
-    console.log(`${s} loaded`);
-    let canvas = document.querySelector(s);
-    if (canvas.getContext) {
-        let ctx = canvas.getContext('2d');
-
-        // ctx.fillStyle = '#0095dd';
-        let x, y, rx, ry;
-        let w = 10;
-        let n = 20*3;
-        ctx.translate(w*1.5, w*1.5);
-        for (let i = 0; i < n; i++) {
-            for (let j = 0; j < n; j++) {
-                ctx.save();
-                // x = i * 20 - w / 2;
-                // y = j * 20 - w / 2;
-                x = i * (2*w) - w / 2;
-                y = j * (2*w) - w / 2;
-                ctx.translate(x, y);
-                // rx = (i/(n-1)) * (Math.PI);
-                // ry = (j/(n-1)) * (Math.PI*2);
-                rx = (i/(n-1)) * (Math.PI);
-                ry = (j/(n-1)) * (Math.PI*2);
-                rx = Math.abs(Math.sin(4*rx+Math.sin(4*ry)));
-                ry = 1//Math.abs(Math.sin(ry));
-                console.log(rx, ry);
-                ctx.rotate((rx*ry));
-                // ctx.rotate(i * 0.1 - j * 0.1);
-                // ctx.fillRect(-w/2, -w/2, 10, 10);
-                ctx.font='18px serif';
-                ctx.textBaseline = 'hanging';
-                ctx.fillText('raro', -w/2, -w/2);  
                 ctx.restore();
             }
         }
