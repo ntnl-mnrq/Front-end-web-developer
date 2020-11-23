@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Using images</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='tutorial.css'>
+</head>
+
+<body>
+    <!-- <body onload="draw();"> -->
+    <!-- Por  alguna razón, drawImage() con una img definida en html como fuente, solo funciona si
+        a) el callback se define inline, o sea dentro de la etiqueta body y no como evento de body desde js 
+        o
+        b) el callback se define como evento de window.onload, tanto inline como desde js-->
+    <canvas class="tutorial" width="150" height="150">
+        Definir contenido fallback dentro del canvas, puede ser texto, imágenes o cualquier elemento DOM.
+    </canvas>
+    <canvas class="c2" width="150" height="150"></canvas>
+
+    <canvas class="c3" width="150" height="150"></canvas>
+    <div style="display:none;">
+        <img id="source" src="https://mdn.mozillademos.org/files/5397/rhino.jpg" width="300" height="227">
+        <img id="frame" src="https://mdn.mozillademos.org/files/242/Canvas_picture_frame.png" width="132" height="150">
+    </div>
+    <script src="tutorial.js"></script>
+</body>
+
+</html>
