@@ -225,6 +225,40 @@ function c5(s) {
     }
 }
 
+// function c6(s) {
+//     console.log(`${s} loaded`);
+//     let canvas = document.querySelector(s);
+//     if (canvas.getContext) {
+//         let ctx = canvas.getContext('2d');
+
+//         // ctx.fillStyle = '#0095dd';
+//         let x, y, rx, ry;
+//         let w = 10;
+//         let n = 20;
+//         ctx.translate(15, 15);
+//         for (let i = 0; i < n; i++) {
+//             for (let j = 0; j < n; j++) {
+//                 ctx.save();
+//                 // x = i * 20 - w / 2;
+//                 // y = j * 20 - w / 2;
+//                 x = i * 20 - w / 2;
+//                 y = j * 20 - w / 2;
+//                 ctx.translate(x, y);
+//                 rx = (i/(n-1)) * (Math.PI*2);
+//                 ry = (j/(n-1)) * (Math.PI*2);
+//                 ctx.rotate((rx*ry));
+//                 // ctx.rotate(i * 0.1 - j * 0.1);
+//                 // ctx.fillRect(-w/2, -w/2, 10, 10);
+//                 ctx.font='10px serif';
+//                 ctx.textBaseline = 'hanging';
+//                 ctx.fillText('raro', -w/2, -w/2);  
+                
+//                 ctx.restore();
+//             }
+//         }
+//     }
+// }
+
 function c6(s) {
     console.log(`${s} loaded`);
     let canvas = document.querySelector(s);
@@ -233,23 +267,31 @@ function c6(s) {
 
         // ctx.fillStyle = '#0095dd';
         let x, y, rx, ry;
-        let w = 10;
-        let n = 20;
-        ctx.translate(15, 15);
+        let n = 24;
+        let w = n/2;
+        let ii, jj;
+        ctx.translate(w*2, w*2);
         for (let i = 0; i < n; i++) {
+        // ii = i < n/2 ? i : n/2-i;
+        // ii = i < n/2 ? i : i -(n/2-i);
+         ii = i <= n/2 ? i : -(n-1-i);
+         console.log(ii);
             for (let j = 0; j < n; j++) {
+              jj = j <= n/2 ? j : -(n-1-j);
                 ctx.save();
                 // x = i * 20 - w / 2;
                 // y = j * 20 - w / 2;
-                x = i * 20 - w / 2;
-                y = j * 20 - w / 2;
+                x = i * n - w / 2;
+                y = j * n - w / 2;
                 ctx.translate(x, y);
-                rx = (i/(n-1)) * (Math.PI*2);
-                ry = (j/(n-1)) * (Math.PI*2);
+                // rx = (ii/((n-1)/2)) * (Math.PI*2);
+                // ry = (jj/((n-1)/2)) * (Math.PI*2);
+                rx = (ii/((n-1))) * (Math.PI*2);
+                ry = (jj/((n-1))) * (Math.PI*2);
                 ctx.rotate((rx*ry));
                 // ctx.rotate(i * 0.1 - j * 0.1);
                 // ctx.fillRect(-w/2, -w/2, 10, 10);
-                ctx.font='10px serif';
+                ctx.font=`${n/2}px serif`;
                 ctx.textBaseline = 'hanging';
                 ctx.fillText('raro', -w/2, -w/2);  
                 ctx.restore();
@@ -490,7 +532,7 @@ function c13(s) {
                 // ry = (j/(n-1)) * (Math.PI*2);
                 rx = (i/(n-1)) * (Math.PI*2);
                 ry = (j/(n-1)) * (Math.PI*2);
-                rx = Math.sin(rx+Math.sin(ry));
+                rx = Math.abs(Math.sin(rx+Math.sin(ry)));
                 ry = Math.cos(ry+Math.cos(rx));
                 // console.log(rx, ry);
                 ctx.rotate(Math.PI*rx*0.5);
@@ -498,7 +540,7 @@ function c13(s) {
                 // ctx.fillRect(-w/2, -w/2, 10, 10);
                 ctx.font='17px serif';
                 ctx.textBaseline = 'hanging';
-                ctx.fillStyle = `rgb(${rx},${ry},0)`;
+                ctx.fillStyle = `rgb(${rx*255},${0},${0})`;
                 ctx.fillText('raro', -w/2, -w/2);  
                 ctx.restore();
             }
@@ -535,9 +577,15 @@ function c14(s) {
                 ctx.rotate(r);
                 // ctx.rotate(i * 0.1 - j * 0.1);
                 // ctx.fillRect(-w/2, -w/2, 10, 10);
-                ctx.font='15px serif';
+                // ctx.font='15px Quicksand, sans-serif';
+                // ctx.font='25px "Great Vibes", cursive';
+                // ctx.font='11px "Druk Wide Super", sans-serif';
+                // ctx.font='30px "Druk XCond Super", sans-serif';
+                // ctx.font='14px "Farisea Dark", sans-serif';
+                // ctx.font='17px "BlackmoonFY-Regular", sans-serif';
+                ctx.font='17px "Alkhemikal", sans-serif';
                 ctx.textBaseline = 'hanging';
-                ctx.fillText('raro', -w/2, -w/2);  
+                ctx.fillText('Raro', -w/2, -w/2);  
                 ctx.restore();
             }
         }

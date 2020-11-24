@@ -1,4 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+
+@font-face {
+  font-family: 'Druk Wide Super';
+  src:  url('Druk Wide Super.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Druk XCond Super';
+  src:  url('Druk XCond Super.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Farisea Dark';
+  src:  url('Farisea-Dark.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'BlackmoonFY-Regular';
+  src:  url('BlackmoonFY-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Alkhemikal';
+  src:  url('Alkhemikal.woff2') format('woff2');
+}
+
 canvas {
   border: 1px solid black;
 }
-
