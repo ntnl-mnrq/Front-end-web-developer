@@ -235,17 +235,22 @@ function c6(s) {
         let x, y, rx, ry;
         let w = 10;
         let n = 20;
+        let ii, jj;
         ctx.translate(15, 15);
-        for (let i = 0; i < n; i++) {
+        for (let i = 0; i <= n; i++) {
+        // ii = i < n/2 ? i : n/2-i;
+        // ii = i < n/2 ? i : i -(n/2-i);
+         ii = i < n/2 ? i : n/2 -(n/2)*(1-i);
             for (let j = 0; j < n; j++) {
+              jj = j < n/2 ? j : j -(n/2-j);
                 ctx.save();
                 // x = i * 20 - w / 2;
                 // y = j * 20 - w / 2;
-                x = i * 20 - w / 2;
-                y = j * 20 - w / 2;
+                x = i * n - w / 2;
+                y = j * n - w / 2;
                 ctx.translate(x, y);
-                rx = (i/(n-1)) * (Math.PI*2);
-                ry = (j/(n-1)) * (Math.PI*2);
+                rx = (ii/((n-1)/2)) * (Math.PI*2);
+                ry = (jj/(n-1)) * (Math.PI*2);
                 ctx.rotate((rx*ry));
                 // ctx.rotate(i * 0.1 - j * 0.1);
                 // ctx.fillRect(-w/2, -w/2, 10, 10);
