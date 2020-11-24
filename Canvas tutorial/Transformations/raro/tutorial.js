@@ -583,7 +583,8 @@ function c14(s) {
                 // ctx.font='30px "Druk XCond Super", sans-serif';
                 // ctx.font='14px "Farisea Dark", sans-serif';
                 // ctx.font='17px "BlackmoonFY-Regular", sans-serif';
-                ctx.font='17px "Alkhemikal", sans-serif';
+                // ctx.font='17px "Alkhemikal", sans-serif';
+                ctx.font='20px "BM", sans-serif';
                 ctx.textBaseline = 'hanging';
                 ctx.fillText('Raro', -w/2, -w/2);  
                 ctx.restore();

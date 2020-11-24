@@ -27,6 +27,11 @@
   src:  url('Alkhemikal.woff2') format('woff2');
 }
 
+@font-face {
+  font-family: 'BM';
+  src:  url('XXII Ultimate-Black-Metal.woff2') format('woff2');
+}
+
 canvas {
   border: 1px solid black;
 }
