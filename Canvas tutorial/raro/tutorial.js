@@ -2,7 +2,7 @@ let body = document.querySelector('body');
 body.addEventListener('load', draw());
 
 function draw() {
-    c1('.tutorial');
+    c1('.c1');
     c2('.c2');
     c3('.c3');
     c4('.c4');
@@ -13,10 +13,10 @@ function draw() {
     c9('.c9');
     c10('.c10');
     c11('.c11');
-    c12('.c12'); 
-    c13('.c13'); 
-    c14('.c14'); 
-    c15('.c15'); 
+    c12('.c12');
+    c13('.c13');
+    c14('.c14');
+    c15('.c15');
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -51,23 +51,43 @@ function c1(s) {
     if (canvas.getContext) {
         let ctx = canvas.getContext('2d');
 
-        // Drawing rectangles
-        ctx.fillRect(0, 0, 150, 150); // Draw rectangle with default settings.
-        ctx.save();
-
-        ctx.fillStyle = '#09f'; // Make changes to the settings
-        ctx.fillRect(15, 15, 120, 120); // Draw a rectangle with new settings
-
-        ctx.save(); // Save the current state
-        ctx.fillStyle = '#fff'; // Make changes to the settings
-        ctx.globalAlpha = 0.5;
-        ctx.fillRect(30, 30, 90, 90); // Draw a rectangle with new settings
-
-        ctx.restore(); // Restore previous state
-        ctx.fillRect(45, 45, 60, 60); // Draw a rectangle with restored settings
-
-        ctx.restore(); // Restore original state
-        ctx.fillRect(60, 60, 30, 30); // Draw a rectangle with restored settings
+        // ctx.fillStyle = '#0095dd';
+        // const str = `El no el no inóvulo el no nonato el noo el no poslodocosmos de impuros ceros noes que noan noan noan y nooan y plurimono noan al morbo amorfo noo no démono no deo sin son sin sexo ni órbita el yerto inóseo noo en unisolo amódulo sin poros ya sin nódulo ni yo ni fosa ni hoyo el macro no ni polvo el no más nada todo el puro no sin no `;
+        const str = 'abc de fghij kl mnñop qrst u vw xyz ABCDEF G HI JKL MN ÑOPQ RSTUV WXYZ '
+        const palabras = str.split(' ');
+        console.log(palabras);
+        let p = 0;
+        let x, y, rx, ry;
+        // let w = 14.75;
+        let w;
+        let h = 10;
+        let r = 25;
+        let c = 30
+        ctx.translate(30, 30);
+        for (let j = 0; j < r; j++) {
+            for (let i = 0; i < c; i++) {
+                ctx.save();
+                rx = 0//2 * (i / ((n - 1))) * (Math.PI);
+                ry = 0//1//(j/(n-1)) * (Math.PI);
+                w = ctx.measureText(palabras[p]).width;
+                // h = ctx.measureText(palabras[p]).height;
+                // w = palabras[p].length * (14.75) / 4;
+                // console.log('w '+ w);
+                x = i * (2 * w) - w / 2;
+                // y = j * (2 * h) - h / 2;
+                // x = i * w//(2 * w) - w / 2;
+                y = j * (2 * h) - h / 2;
+                ctx.translate(x, y);
+                ctx.rotate((rx * ry));
+                // ctx.rotate(i * 0.1 - j * 0.1);
+                // ctx.fillRect(-w/2, -w/2, 10, 10);
+                ctx.font = '15px serif';
+                ctx.textBaseline = 'hanging';
+                ctx.fillText(palabras[p], -w / 2, -h / 2);
+                ctx.restore();
+                p < palabras.length - 1 ? p++ : p = 0;
+            }
+        }
     }
 }
 
@@ -182,10 +202,10 @@ function c4(s) {
                 x = i * 20 - w / 2;
                 y = j * 20 - w / 2;
                 ctx.translate(x, y);
-                rx = (i/19) * (Math.PI*2);
-                ry = (j/19) * (Math.PI*2);
-                ctx.rotate((rx*ry));
-                ctx.fillRect(-w/2, -w/2, 10, 10);
+                rx = (i / 19) * (Math.PI * 2);
+                ry = (j / 19) * (Math.PI * 2);
+                ctx.rotate((rx * ry));
+                ctx.fillRect(-w / 2, -w / 2, 10, 10);
                 ctx.restore();
             }
         }
@@ -211,14 +231,14 @@ function c5(s) {
                 x = i * 20 - w / 2;
                 y = j * 20 - w / 2;
                 ctx.translate(x, y);
-                rx = (i/(n-1)) * (Math.PI*2);
-                ry = (j/(n-1)) * (Math.PI*2);
-                ctx.rotate((rx*ry));
+                rx = (i / (n - 1)) * (Math.PI * 2);
+                ry = (j / (n - 1)) * (Math.PI * 2);
+                ctx.rotate((rx * ry));
                 // ctx.rotate(i * 0.1 - j * 0.1);
                 // ctx.fillRect(-w/2, -w/2, 10, 10);
-                ctx.font='12px serif';
+                ctx.font = '12px serif';
                 ctx.textBaseline = 'hanging';
-                ctx.fillText('A', -w/2, -w/2);  
+                ctx.fillText('A', -w / 2, -w / 2);
                 ctx.restore();
             }
         }
@@ -252,7 +272,7 @@ function c5(s) {
 //                 ctx.font='10px serif';
 //                 ctx.textBaseline = 'hanging';
 //                 ctx.fillText('raro', -w/2, -w/2);  
-                
+
 //                 ctx.restore();
 //             }
 //         }
@@ -268,16 +288,16 @@ function c6(s) {
         // ctx.fillStyle = '#0095dd';
         let x, y, rx, ry;
         let n = 24;
-        let w = n/2;
+        let w = n / 2;
         let ii, jj;
-        ctx.translate(w*2, w*2);
+        ctx.translate(w * 2, w * 2);
         for (let i = 0; i < n; i++) {
-        // ii = i < n/2 ? i : n/2-i;
-        // ii = i < n/2 ? i : i -(n/2-i);
-         ii = i <= n/2 ? i : -(n-1-i);
-         console.log(ii);
+            // ii = i < n/2 ? i : n/2-i;
+            // ii = i < n/2 ? i : i -(n/2-i);
+            ii = i <= n / 2 ? i : -(n - 1 - i);
+            console.log(ii);
             for (let j = 0; j < n; j++) {
-              jj = j <= n/2 ? j : -(n-1-j);
+                jj = j <= n / 2 ? j : -(n - 1 - j);
                 ctx.save();
                 // x = i * 20 - w / 2;
                 // y = j * 20 - w / 2;
@@ -286,14 +306,14 @@ function c6(s) {
                 ctx.translate(x, y);
                 // rx = (ii/((n-1)/2)) * (Math.PI*2);
                 // ry = (jj/((n-1)/2)) * (Math.PI*2);
-                rx = (ii/((n-1))) * (Math.PI*2);
-                ry = (jj/((n-1))) * (Math.PI*2);
-                ctx.rotate((rx*ry));
+                rx = (ii / ((n - 1))) * (Math.PI * 2);
+                ry = (jj / ((n - 1))) * (Math.PI * 2);
+                ctx.rotate((rx * ry));
                 // ctx.rotate(i * 0.1 - j * 0.1);
                 // ctx.fillRect(-w/2, -w/2, 10, 10);
-                ctx.font=`${n/2}px serif`;
+                ctx.font = `${n / 2}px serif`;
                 ctx.textBaseline = 'hanging';
-                ctx.fillText('raro', -w/2, -w/2);  
+                ctx.fillText('raro', -w / 2, -w / 2);
                 ctx.restore();
             }
         }
@@ -310,23 +330,23 @@ function c7(s) {
         let x, y, rx, ry;
         let w = 14.75;
         let n = 20;
-        ctx.translate(w*1.5, w*1.5);
+        ctx.translate(w * 1.5, w * 1.5);
         for (let i = 0; i < n; i++) {
             for (let j = 0; j < n; j++) {
                 ctx.save();
                 // x = i * 20 - w / 2;
                 // y = j * 20 - w / 2;
-                x = i * (2*w) - w / 2;
-                y = j * (2*w) - w / 2;
+                x = i * (2 * w) - w / 2;
+                y = j * (2 * w) - w / 2;
                 ctx.translate(x, y);
-                rx = (i/(n-1)) * (Math.PI);
-                ry = (j/(n-1)) * (Math.PI*2);
-                ctx.rotate((rx*ry));
+                rx = (i / (n - 1)) * (Math.PI);
+                ry = (j / (n - 1)) * (Math.PI * 2);
+                ctx.rotate((rx * ry));
                 // ctx.rotate(i * 0.1 - j * 0.1);
                 // ctx.fillRect(-w/2, -w/2, 10, 10);
-                ctx.font='15px serif';
+                ctx.font = '15px serif';
                 ctx.textBaseline = 'hanging';
-                ctx.fillText('raro', -w/2, -w/2);  
+                ctx.fillText('raro', -w / 2, -w / 2);
                 ctx.restore();
             }
         }
@@ -343,21 +363,21 @@ function c8(s) {
         let x, y, rx, ry;
         let w = 14.75;
         let n = 20;
-        ctx.translate(w*1.5, w*1.5);
+        ctx.translate(w * 1.5, w * 1.5);
         for (let i = 0; i < n; i++) {
             for (let j = 0; j < n; j++) {
                 ctx.save();
-                x = i * (2*w) - w / 2;
-                y = j * (2*w) - w / 2;
+                x = i * (2 * w) - w / 2;
+                y = j * (2 * w) - w / 2;
                 ctx.translate(x, y);
-                rx = 2*(i/((n-1))) * (Math.PI);
+                rx = 2 * (i / ((n - 1))) * (Math.PI);
                 ry = 1//(j/(n-1)) * (Math.PI);
-                ctx.rotate((rx*ry));
+                ctx.rotate((rx * ry));
                 // ctx.rotate(i * 0.1 - j * 0.1);
                 // ctx.fillRect(-w/2, -w/2, 10, 10);
-                ctx.font='15px serif';
+                ctx.font = '15px serif';
                 ctx.textBaseline = 'hanging';
-                ctx.fillText('raro', -w/2, -w/2);  
+                ctx.fillText('raro', -w / 2, -w / 2);
                 ctx.restore();
             }
         }
@@ -374,21 +394,21 @@ function c9(s) {
         let x, y, rx, ry;
         let w = 14.75;
         let n = 20;
-        ctx.translate(w*1.5, w*1.5);
+        ctx.translate(w * 1.5, w * 1.5);
         for (let i = 0; i < n; i++) {
             for (let j = 0; j < n; j++) {
                 ctx.save();
-                x = i * (2*w) - w / 2;
-                y = j * (2*w) - w / 2;
+                x = i * (2 * w) - w / 2;
+                y = j * (2 * w) - w / 2;
                 ctx.translate(x, y);
-                rx = 2*(i/((n-1))) * (Math.PI);
-                ry = 2*(j/((n-1))) * (Math.PI);
-                ctx.rotate((rx-ry));
+                rx = 2 * (i / ((n - 1))) * (Math.PI);
+                ry = 2 * (j / ((n - 1))) * (Math.PI);
+                ctx.rotate((rx - ry));
                 // ctx.rotate(i * 0.1 - j * 0.1);
                 // ctx.fillRect(-w/2, -w/2, 10, 10);
-                ctx.font='15px serif';
+                ctx.font = '15px serif';
                 ctx.textBaseline = 'hanging';
-                ctx.fillText('raro', -w/2, -w/2);  
+                ctx.fillText('raro', -w / 2, -w / 2);
                 ctx.restore();
             }
         }
@@ -405,28 +425,28 @@ function c10(s) {
         let x, y, rx, ry;
         let w = 14.75;
         let n = 20;
-        ctx.translate(w*1.5, w*1.5);
+        ctx.translate(w * 1.5, w * 1.5);
         for (let i = 0; i < n; i++) {
             for (let j = 0; j < n; j++) {
                 ctx.save();
                 // x = i * 20 - w / 2;
                 // y = j * 20 - w / 2;
-                x = i * (2*w) - w / 2;
-                y = j * (2*w) - w / 2;
+                x = i * (2 * w) - w / 2;
+                y = j * (2 * w) - w / 2;
                 ctx.translate(x, y);
                 // rx = (i/(n-1)) * (Math.PI);
                 // ry = (j/(n-1)) * (Math.PI*2);
-                rx = (i/(n-1)) * (Math.PI*2);
-                ry = (j/(n-1)) * (Math.PI*2);
-                rx = 2*Math.sin(rx);
-                ry = 2*Math.sin(ry);
+                rx = (i / (n - 1)) * (Math.PI * 2);
+                ry = (j / (n - 1)) * (Math.PI * 2);
+                rx = 2 * Math.sin(rx);
+                ry = 2 * Math.sin(ry);
                 // console.log(rx, ry);
-                ctx.rotate((rx*ry));
+                ctx.rotate((rx * ry));
                 // ctx.rotate(i * 0.1 - j * 0.1);
                 // ctx.fillRect(-w/2, -w/2, 10, 10);
-                ctx.font='15px serif';
+                ctx.font = '15px serif';
                 ctx.textBaseline = 'hanging';
-                ctx.fillText('raro', -w/2, -w/2);  
+                ctx.fillText('raro', -w / 2, -w / 2);
                 ctx.restore();
             }
         }
@@ -443,28 +463,28 @@ function c11(s) {
         let x, y, rx, ry;
         let w = 14.75;
         let n = 20;
-        ctx.translate(w*1.5, w*1.5);
+        ctx.translate(w * 1.5, w * 1.5);
         for (let i = 0; i < n; i++) {
             for (let j = 0; j < n; j++) {
                 ctx.save();
                 // x = i * 20 - w / 2;
                 // y = j * 20 - w / 2;
-                x = i * (2*w) - w / 2;
-                y = j * (2*w) - w / 2;
+                x = i * (2 * w) - w / 2;
+                y = j * (2 * w) - w / 2;
                 ctx.translate(x, y);
                 // rx = (i/(n-1)) * (Math.PI);
                 // ry = (j/(n-1)) * (Math.PI*2);
-                rx = (i/(n-1)) * (Math.PI*2);
-                ry = (j/(n-1)) * (Math.PI*2);
-                rx = 2*Math.sin(rx);
-                ry = 2*Math.sin(ry);
+                rx = (i / (n - 1)) * (Math.PI * 2);
+                ry = (j / (n - 1)) * (Math.PI * 2);
+                rx = 2 * Math.sin(rx);
+                ry = 2 * Math.sin(ry);
                 // console.log(rx, ry);
-                ctx.rotate((rx+ry));
+                ctx.rotate((rx + ry));
                 // ctx.rotate(i * 0.1 - j * 0.1);
                 // ctx.fillRect(-w/2, -w/2, 10, 10);
-                ctx.font='15px serif';
+                ctx.font = '15px serif';
                 ctx.textBaseline = 'hanging';
-                ctx.fillText('raro', -w/2, -w/2);  
+                ctx.fillText('raro', -w / 2, -w / 2);
                 ctx.restore();
             }
         }
@@ -481,28 +501,28 @@ function c12(s) {
         let x, y, rx, ry;
         let w = 14.75;
         let n = 20;
-        ctx.translate(w*1.5, w*1.5);
+        ctx.translate(w * 1.5, w * 1.5);
         for (let i = 0; i < n; i++) {
             for (let j = 0; j < n; j++) {
                 ctx.save();
                 // x = i * 20 - w / 2;
                 // y = j * 20 - w / 2;
-                x = i * (2*w) - w / 2;
-                y = j * (2*w) - w / 2;
+                x = i * (2 * w) - w / 2;
+                y = j * (2 * w) - w / 2;
                 ctx.translate(x, y);
                 // rx = (i/(n-1)) * (Math.PI);
                 // ry = (j/(n-1)) * (Math.PI*2);
-                rx = (i/(n-1)) * (Math.PI*2);
-                ry = (j/(n-1)) * (Math.PI*2);
-                rx = 2*Math.sin(rx);
-                ry = 2*Math.sin(ry);
+                rx = (i / (n - 1)) * (Math.PI * 2);
+                ry = (j / (n - 1)) * (Math.PI * 2);
+                rx = 2 * Math.sin(rx);
+                ry = 2 * Math.sin(ry);
                 // console.log(rx, ry);
-                ctx.rotate((rx+ry)*(rx-ry));
+                ctx.rotate((rx + ry) * (rx - ry));
                 // ctx.rotate(i * 0.1 - j * 0.1);
                 // ctx.fillRect(-w/2, -w/2, 10, 10);
-                ctx.font='15px serif';
+                ctx.font = '15px serif';
                 ctx.textBaseline = 'hanging';
-                ctx.fillText('raro', -w/2, -w/2);  
+                ctx.fillText('raro', -w / 2, -w / 2);
                 ctx.restore();
             }
         }
@@ -519,29 +539,29 @@ function c13(s) {
         let x, y, rx, ry;
         let w = 14.75;
         let n = 20;
-        ctx.translate(w*1.5, w*1.5);
+        ctx.translate(w * 1.5, w * 1.5);
         for (let i = 0; i < n; i++) {
             for (let j = 0; j < n; j++) {
                 ctx.save();
                 // x = i * 20 - w / 2;
                 // y = j * 20 - w / 2;
-                x = i * (2*w) - w / 2;
-                y = j * (2*w) - w / 2;
+                x = i * (2 * w) - w / 2;
+                y = j * (2 * w) - w / 2;
                 ctx.translate(x, y);
                 // rx = (i/(n-1)) * (Math.PI);
                 // ry = (j/(n-1)) * (Math.PI*2);
-                rx = (i/(n-1)) * (Math.PI*2);
-                ry = (j/(n-1)) * (Math.PI*2);
-                rx = Math.abs(Math.sin(rx+Math.sin(ry)));
-                ry = Math.cos(ry+Math.cos(rx));
+                rx = (i / (n - 1)) * (Math.PI * 2);
+                ry = (j / (n - 1)) * (Math.PI * 2);
+                rx = Math.abs(Math.sin(rx + Math.sin(ry)));
+                ry = Math.cos(ry + Math.cos(rx));
                 // console.log(rx, ry);
-                ctx.rotate(Math.PI*rx*0.5);
+                ctx.rotate(Math.PI * rx * 0.5);
                 // ctx.rotate(i * 0.1 - j * 0.1);
                 // ctx.fillRect(-w/2, -w/2, 10, 10);
-                ctx.font='17px serif';
+                ctx.font = '17px serif';
                 ctx.textBaseline = 'hanging';
-                ctx.fillStyle = `rgb(${rx*255},${0},${0})`;
-                ctx.fillText('raro', -w/2, -w/2);  
+                ctx.fillStyle = `rgb(${rx * 255},${0},${0})`;
+                ctx.fillText('raro', -w / 2, -w / 2);
                 ctx.restore();
             }
         }
@@ -558,20 +578,20 @@ function c14(s) {
         let x, y, rx, ry;
         let w = 14.75;
         let n = 20;
-        ctx.translate(w*1.5, w*1.5);
+        ctx.translate(w * 1.5, w * 1.5);
         for (let i = 0; i < n; i++) {
             for (let j = 0; j < n; j++) {
                 ctx.save();
                 // x = i * 20 - w / 2;
                 // y = j * 20 - w / 2;
-                x = i * (2*w) - w / 2;
-                y = j * (2*w) - w / 2;
+                x = i * (2 * w) - w / 2;
+                y = j * (2 * w) - w / 2;
                 ctx.translate(x, y);
                 // rx = (i/(n-1)) * (Math.PI);
                 // ry = (j/(n-1)) * (Math.PI*2);
-                rx = (i/(n-1)) * (Math.PI*2);
-                ry = (j/(n-1)) * (Math.PI*2);
-                let r = 1*Math.sin(rx+ry)+1*Math.cos(rx+ry);
+                rx = (i / (n - 1)) * (Math.PI * 2);
+                ry = (j / (n - 1)) * (Math.PI * 2);
+                let r = 1 * Math.sin(rx + ry) + 1 * Math.cos(rx + ry);
                 // ry = 300+2*Math.cos(ry);
                 // console.log(rx, ry);
                 ctx.rotate(r);
@@ -582,11 +602,11 @@ function c14(s) {
                 // ctx.font='11px "Druk Wide Super", sans-serif';
                 // ctx.font='30px "Druk XCond Super", sans-serif';
                 // ctx.font='14px "Farisea Dark", sans-serif';
-                ctx.font='17px "BlackmoonFY-Regular", sans-serif';
+                ctx.font = '17px "BlackmoonFY-Regular", sans-serif';
                 // ctx.font='17px "Alkhemikal", sans-serif';
                 // ctx.font='20px "BM", sans-serif';
                 ctx.textBaseline = 'hanging';
-                ctx.fillText('Raro', -w/2, -w/2);  
+                ctx.fillText('Raro', -w / 2, -w / 2);
                 ctx.restore();
             }
         }
@@ -602,29 +622,29 @@ function c15(s) {
         // ctx.fillStyle = '#0095dd';
         let x, y, rx, ry;
         let w = 10;
-        let n = 20*3;
-        ctx.translate(w*1.5, w*1.5);
+        let n = 20 * 3;
+        ctx.translate(w * 1.5, w * 1.5);
         for (let i = 0; i < n; i++) {
             for (let j = 0; j < n; j++) {
                 ctx.save();
                 // x = i * 20 - w / 2;
                 // y = j * 20 - w / 2;
-                x = i * (2*w) - w / 2;
-                y = j * (2*w) - w / 2;
+                x = i * (2 * w) - w / 2;
+                y = j * (2 * w) - w / 2;
                 ctx.translate(x, y);
                 // rx = (i/(n-1)) * (Math.PI);
                 // ry = (j/(n-1)) * (Math.PI*2);
-                rx = (i/(n-1)) * (Math.PI);
-                ry = (j/(n-1)) * (Math.PI*2);
-                rx = Math.abs(Math.sin(4*rx+Math.sin(4*ry)));
+                rx = (i / (n - 1)) * (Math.PI);
+                ry = (j / (n - 1)) * (Math.PI * 2);
+                rx = Math.abs(Math.sin(4 * rx + Math.sin(4 * ry)));
                 ry = 1//Math.abs(Math.sin(ry));
                 // console.log(rx, ry);
-                ctx.rotate((rx*ry));
+                ctx.rotate((rx * ry));
                 // ctx.rotate(i * 0.1 - j * 0.1);
                 // ctx.fillRect(-w/2, -w/2, 10, 10);
-                ctx.font='18px serif';
+                ctx.font = '18px serif';
                 ctx.textBaseline = 'hanging';
-                ctx.fillText('raro', -w/2, -w/2);  
+                ctx.fillText('raro', -w / 2, -w / 2);
                 ctx.restore();
             }
         }

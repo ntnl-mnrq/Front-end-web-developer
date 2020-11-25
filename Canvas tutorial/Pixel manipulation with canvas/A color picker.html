@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Color picker | Canvas pixel manipulation</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        .color-cell {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Source</th>
+                <th width="150">Hovered color</th>
+                <th width="150">Selected color</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <canvas id="canvas" width="300" height="227"></canvas>
+                </td>
+                <td text-align="center" class="color-cell" id="hovered-color"></td>
+                <td text-align="center" class="color-cell" id="selected-color"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src='A color picker.js'></script>
+</body>
+
+</html>
