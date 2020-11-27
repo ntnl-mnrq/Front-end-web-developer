@@ -3,20 +3,20 @@ body.addEventListener('load', draw());
 
 function draw() {
     c1('.c1');
-    c2('.c2');
-    c3('.c3');
-    c4('.c4');
-    c5('.c5');
-    c6('.c6');
-    c7('.c7');
-    c8('.c8');
-    c9('.c9');
-    c10('.c10');
-    c11('.c11');
-    c12('.c12');
-    c13('.c13');
-    c14('.c14');
-    c15('.c15');
+    // c2('.c2');
+    // c3('.c3');
+    // c4('.c4');
+    // c5('.c5');
+    // c6('.c6');
+    // c7('.c7');
+    // c8('.c8');
+    // c9('.c9');
+    // c10('.c10');
+    // c11('.c11');
+    // c12('.c12');
+    // c13('.c13');
+    // c14('.c14');
+    // c15('.c15');
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -51,69 +51,245 @@ function c1(s) {
     if (canvas.getContext) {
         let ctx = canvas.getContext('2d');
 
-        // ctx.fillStyle = '#0095dd';
-        // const str = `El no el no inóvulo el no nonato el noo el no poslodocosmos de impuros ceros noes que noan noan noan y nooan y plurimono noan al morbo amorfo noo no démono no deo sin son sin sexo ni órbita el yerto inóseo noo en unisolo amódulo sin poros ya sin nódulo ni yo ni fosa ni hoyo el macro no ni polvo el no más nada todo el puro no sin no `;
-        const str = 'abc de fghij kl mnñop qrst u vw xyz ABCDEF G HI JKL MN ÑOPQ RSTUV WXYZ '
+        //!!Agregar un espacio al final de la cadena siempre
+        // const str = `El no el no inóvulo el no nonato el noo el no poslodocosmos de impuros ceros noes que noan noan noan y nooan y plurimono noan al morbo amorfo noo no démono no deo sin son sin sexo ni órbita el yerto inóseo noo en unisolo amódulo sin poros ya sin nódulo ni yo ni fosa ni hoyo el macro no ni polvo el no más nada todo el puro no sin no. `;
+        // const str = "Cansado. ¡Sí! Cansado de usar un solo bazo, dos labios, veinte dedos, no sé cuántas palabras, no sé cuantos recuerdos, grisáceos, fragmentarios. Cansado, muy cansado de este frío esqueleto, tan púdico, tan casto, que cuando se desnude no sabrá si es el mismo que usé mientras vivía. Cansado. ¡Sí! Cansado por carecer de antenas, de un ojo en cada omóplato y de una cola autentica, alegre desatada, y no este rabo hipócrita, degenerado, enano. Cansado, sobre todo, de estar siempre conmigo, de hallarme cada día, cuando termina el sueño, allí, donde me encuentre, con las mismas narices y con las mismas piernas; como si no deseara esperar la rompiente con un cutis de playa, ofrecer, al rocío, dos senos de magnolia, acariciar la tierra con un vientre de oruga, y vivir, unos meses, adentro de una piedra. "
+        const str = "Abandoné las sombras, las espesas paredes, los ruidos familiares, la amistad de los libros, el tabaco, las plumas, los secos cielorrasos; para salir volando, desesperadamente. Abajo: en la penumbra, las amargas cornisas, las calles desoladas, los faroles sonámbulos, las muertas chimeneas los rumores cansados, desesperadamente. Ya todo era silencio, simuladas catástrofes, grandes charcos de sombra, aguaceros, relámpagos, vagabundos islotes de inestable riberas; pero seguí volando, desesperadamente. Un resplandor desnudo, una luz calcinante se interpuso en mi ruta, me fascinó de muerte, pero logré evadirme de su letal influjo, para seguir volando, desesperadamente. Todavía el destino de mundos fenecidos, desorientó mi vuelo -de sideral constancia- con sus vanas parábolas y sus aureolas falsas; pero seguí volando, desesperadamente. Me oprimía lo flúido, la limpidez maciza, el vacío escarchado, la inaudible distancia, la oquedad insonora, el reposo asfixiante; pero seguía volando, desesperadamente. Ya no existía nada, la nada estaba ausente; ni oscuridad, ni lumbre, -ni unas manos celestes- ni vida, ni destino, ni misterio, ni muerte; pero seguía volando, desesperadamente. ";
+        // const  str = "Toco toco poros amarras calas toco teclas de nervios muelles tejidos que me tocan cicatrices cenizas trópicos vientres toco solos solos resacas estertores toco y mas toco y nada Prefiguras de ausencia inconsistentes tropos qué tú qué qué qué quenas qué hondonadas qué máscaras qué soledades huecas qué sí qué no qué sino que me destempla el toque qué reflejos qué fondos qué materiales brujos qué llaves qué ingredientes nocturnos qué fallebas heladas que no abren qué nada toco en todo. ";
+//         const str = `Toco 
+// toco poros
+// amarras
+// calas toco
+// teclas de nervios
+// muelles
+// tejidos que me tocan
+// cicatrices
+// cenizas
+// trópicos vientres toco
+// solos solos
+// resacas
+// estertores
+// toco y mas toco
+// y nada
+// Prefiguras de ausencia
+// inconsistentes tropos
+// qué tú
+// qué qué
+// qué quenas
+// qué hondonadas
+// qué máscaras
+// qué soledades huecas
+// qué sí qué no
+// qué sino que me destempla el toque
+// qué reflejos
+// qué fondos
+// qué materiales brujos
+// qué llaves
+// qué ingredientes nocturnos
+// qué fallebas heladas que no abren
+// qué nada toco
+// en todo`
+        // const str = 'abc de fghij kl mnñop qrst u vw xyz ABCDEF G HI JKL MN ÑOPQ RSTUV WXYZ '
         const palabras = str.split(' ');
         console.log(palabras);
-        let p = 0;
-        let x, y, rx, ry;
-        // let w = 14.75;
-        let w;
-        let h = 10;
-        let r = 25;
-        let c = 30
-        ctx.translate(30, 30);
-        for (let j = 0; j < r; j++) {
+        console.log(palabras.length);
+        let ip = 0; //índice de palabra
+        let x = 0; //coord x del centro de la palabra
+        let y = 0; //coord y del centro de la palabra
+        let rx, ry; //parámetros de la rotación
+        fontSize = 13;
+        ctx.font = `${fontSize}px serif`;
+        ctx.textBaseline = 'hanging';
+        let w; //ancho en px de cada palabra 
+        let mw = maxW(palabras, ctx);  //ancho en px de la palabra más larga
+        let s = ctx.measureText(' ').width * 2; // ancho del espacio horizontal entre palabras en px
+        // let h = fontSize / 2; //altura de la línea
+        //densidad vertical
+        h = mw/8;
+        //
+        let r = 15; //filas *no usado
+        // let c = 12; //columnas, o sea, palabras por fila
+        let c = Math.sqrt(palabras.length);
+        let margen = 30;
+        ctx.translate(margen, margen);
+        // for (let j = 0; j < r; j++) {
+        // En lugar de contar r filas, agrego tantas filas como sean necesarias para completar el texto
+        for (let j = 0; ip < palabras.length - 1; j++) {
+            x = -s;
+            // for (let i = 0; i < c; i++) {
             for (let i = 0; i < c; i++) {
-                ctx.save();
-                rx = 0//2 * (i / ((n - 1))) * (Math.PI);
-                ry = 0//1//(j/(n-1)) * (Math.PI);
-                w = ctx.measureText(palabras[p]).width;
-                // h = ctx.measureText(palabras[p]).height;
-                // w = palabras[p].length * (14.75) / 4;
-                // console.log('w '+ w);
-                x = i * (2 * w) - w / 2;
-                // y = j * (2 * h) - h / 2;
-                // x = i * w//(2 * w) - w / 2;
-                y = j * (2 * h) - h / 2;
-                ctx.translate(x, y);
-                ctx.rotate((rx * ry));
-                // ctx.rotate(i * 0.1 - j * 0.1);
-                // ctx.fillRect(-w/2, -w/2, 10, 10);
-                ctx.font = '15px serif';
-                ctx.textBaseline = 'hanging';
-                ctx.fillText(palabras[p], -w / 2, -h / 2);
-                ctx.restore();
-                p < palabras.length - 1 ? p++ : p = 0;
+                // w = ctx.measureText(palabras[ip]).width;
+                // densidad horizontal
+                w = mw*0.5;
+                //
+                // w = Math.ceil(ctx.measureText(palabras[ip]).actualBoundingBoxRight);
+                // console.log('l = ' + ctx.measureText(palabras[ip]).actualBoundingBoxLeft);
+                // console.log('r = ' + ctx.measureText(palabras[ip]).actualBoundingBoxRight);
+                //////////////////////////////////////////////////////////////////////////
+                // fontHeight = fontBoundingBoxAscent + fontBoundingBoxDescent;         //
+                // actualHeight = actualBoundingBoxAscent + actualBoundingBoxDescent;   //
+                //                                                                      //
+                // fontHeight is the bounding box height regardless of the string being //
+                // rendered. actualHeight is specific to the string being rendered.     //
+                //////////////////////////////////////////////////////////////////////////
+                // h = ctx.measureText(palabras[ip]).actualBoundingBoxAscent + ctx.measureText(palabras[ip]).actualBoundingBoxDescent;
+                // h = ctx.measureText(palabras[ip]).fontBoundingBoxAscent + ctx.measureText(palabras[ip]).fontBoundingBoxDescent;
+                // console.log('h ' + h);
+                // h = ctx.measureText(palabras[ip]).height;
+                // w = palabras[ip].length * (14.75) / 4;
+                // x = i * (2 * w) - w / 2;
+                // x += 20 +( w) - w / 2;
+                // x < canvas.width ? x += s +( w) - w / 2 : x = 0;
+                // x = centro de la palabra
+                if (x + w / 2 + s < canvas.width - 3 * margen) {
+                    ctx.save();
+                    // rx = 0;
+                    // ry = 0;
+                    // rx = 2 * (i / ((c - 1))) * (Math.PI);
+                    // ry = (j / (c - 1)) * (Math.PI);
+                    x += s + w / 2;
+                    // console.log(canvas.width);
+                    // console.log(`w[${ip}]` + w);
+                    // console.log(`x[${ip}]` + x);
+                    // y = j * (2 * h) - h / 2;
+                    // x = i * w//(2 * w) - w / 2;
+                    y = 2 * j * (2 * h) - h / 2;
+                    ctx.translate(x, y);
+                    // ctx.rotate((rx * ry));
+                    ctx.rotate(rotacion(i, j, c, 9));
+                    // ctx.rotate(i * 0.1 - j * 0.1);
+                    //
+                    // guias(w, h, s, ctx);
+                    //
+                    // ctx.textAlign = 'left';
+                    ctx.textAlign = 'center';
+                    ctx.fillStyle = 'rgba(0,0,0,1)';
+                    // ctx.fillText(palabras[ip], w/2, -h / 2);
+                    ctx.fillText(palabras[ip], 0, -h / 2);
+                    ctx.restore();
+                    // ip < palabras.length - 1 ? ip++ : ip = 0;
+                    ip < palabras.length - 1 ? ip++ : null;
+                    x += w / 2; // x = final de la palabra
+                }
             }
         }
     }
 }
 
-// The first step is to draw a large rectangle with the default settings. Next we save this state and make changes to the fill color. We then draw the second and smaller blue rectangle and save the state. Again we change some drawing settings and draw the third semi-transparent white rectangle.
+function rotacion(i, j, c, a) {
+    let rx = 0;
+    let ry = 0;
+    let r;
+    switch (a) {
+        case 0:
+            rx = 2 * (i / ((c - 1))) * (Math.PI);
+            ry = (j / (c - 1)) * (Math.PI);
+            r = rx * ry;
+            break;
+        case 1:
+            r = i * 0.1 - j * 0.2;
+            break;
+        case 2:
+            rx = 2 * (i / ((c - 1))) * (Math.PI);
+            ry = 1//(j/(n-1)) * (Math.PI);
+            r = (rx * ry) * 0.5;
+            break;
+        case 3:
+            rx = (i / (c - 1)) * (Math.PI * 2);
+            ry = (j / (c - 1)) * (Math.PI * 2);
+            r = rx * ry;
+            break;
+        case 4:
+            rx = 2 * (i / ((c - 1))) * (Math.PI);
+            ry = 2 * (j / ((c - 1))) * (Math.PI);
+            r = (rx - ry);
+            break;
+        case 5:
+            rx = (i / (c - 1)) * (Math.PI * 2);
+            ry = (j / (c - 1)) * (Math.PI * 2);
+            rx = 2 * Math.sin(rx);
+            ry = 2 * Math.sin(ry);
+            r = (rx * ry);
+            break;
+        case 6:
+            rx = (i / (c - 1)) * (Math.PI * 2);
+            ry = (j / (c - 1)) * (Math.PI * 2);
+            rx = 2 * Math.sin(rx);
+            ry = 2 * Math.sin(ry);
+            r = (rx + ry);
+            break;
+        case 7:
+            rx = (i / (c - 1)) * (Math.PI * 2);
+            ry = (j / (c - 1)) * (Math.PI * 2);
+            rx = 2 * Math.sin(rx);
+            ry = 2 * Math.sin(ry);
+            r = ((rx + ry) * (rx - ry));
+            break;
+        case 8:
+            rx = (i / (c - 1)) * (Math.PI * 2);
+            ry = (j / (c - 1)) * (Math.PI * 2);
+            rx = Math.abs(Math.sin(rx + Math.sin(ry)));
+            ry = Math.cos(ry + Math.cos(rx));
+            r = (Math.PI * rx * 0.5);
+            break;
+        case 9:
+            rx = (i / (c - 1)) * (Math.PI * 2);
+            ry = (j / (c - 1)) * (Math.PI * 2);
+            r = 1 * Math.sin(rx + ry) + 1 * Math.cos(rx + ry);
+            break;
+        case 10:
+            rx = (i / (c - 1)) * (Math.PI);
+            ry = (j / (c - 1)) * (Math.PI * 2);
+            rx = Math.abs(Math.sin(4 * rx + Math.sin(4 * ry)));
+            ry = 1
+            r = (rx * ry);
+            break;
+        default:
+            r = 0;
+            break;
+    }
+    return r;
+}
 
-// So far this is pretty similar to what we've done in previous sections. However once we call the first restore() statement, the top drawing state is removed from the stack, and settings are restored. If we hadn't saved the state using save(), we would need to change the fill color and transparency manually in order to return to the previous state. This would be easy for two properties, but if we have more than that, our code would become very long, very fast.
+function maxW(palabras, ctx) {
+    var i = palabras.length, max = 0; 
+    var im = 0;
+    while (i--) {
+      if (palabras[i].length > max) {
+        max = palabras[i].length;
+        im = i;
+      }
+    }
+    console.log('palabra más larga: "'+palabras[im]+'" '+palabras[im].length+ ' letras, '+ctx.measureText(palabras[im]).width+'px,'+' n '+ im);
+    return ctx.measureText(palabras[im]).width;
+  };
 
-// When the second restore() statement is called, the original state (the one we set up before the first call to save) is restored and the last rectangle is once again drawn in black.
+function guias(w, h, s, ctx){
+    ctx.fillStyle = 'rgba(255,0,0,0.25)';
+    ctx.fillRect(-w / 2, -h / 2, w, h);
+    ctx.fillStyle = 'rgba(0,255,0,0.25)';
+    ctx.fillRect(w / 2, -h / 2, s, h);
+}
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// function maxW (palabras) {
+//     let ws = [];
+//     let i = 0;
+//     palabras.forEach(element => {
+//         ws[i] = element.length;
+//         i++;
+//     });
+//     return Math.max.apply(Math, ws);
+// }
 
-// Translating
-
-// The first of the transformation methods we'll look at is translate(). This method is used to move the canvas and its origin to a different point in the grid.
-
-// translate(x, y)
-//     Moves the canvas and its origin on the grid. x indicates the horizontal distance to move, and y indicates how far to move the grid vertically.
-
-// It's a good idea to save the canvas state before doing any transformations. In most cases, it is just easier to call the restore method than having to do a reverse translation to return to the original state. Also if you're translating inside a loop and don't save and restore the canvas state, you might end up missing part of your drawing, because it was drawn outside the canvas edge.
-
-
-// A translate example
-
-// This example demonstrates some of the benefits of translating the canvas origin. Without the translate() method, all of the rectangles would be drawn at the same position (0,0). The translate() method also gives us the freedom to place the rectangle anywhere on the canvas without having to manually adjust coordinates in the fillRect() function. This makes it a little easier to understand and use.
-
-// In the draw() function, we call the fillRect() function nine times using two for loops. In each loop, the canvas is translated, the rectangle is drawn, and the canvas is returned back to its original state. Note how the call to fillRect() uses the same coordinates each time, relying on translate() to adjust the drawing position.
+// function arrayMax(arr) {
+//   var len = arr.length, max = -Infinity;
+//   while (len--) {
+//     if (arr[len] > max) {
+//       max = arr[len];
+//     }
+//   }
+//   return max;
+// };
 
 function c2(s) {
     console.log(`${s} loaded`);
@@ -121,17 +297,157 @@ function c2(s) {
     if (canvas.getContext) {
         let ctx = canvas.getContext('2d');
 
-        for (let i = 0; i < 3; i++) {
-            for (let j = 0; j < 3; j++) {
+        // ctx.fillStyle = '#0095dd';
+        //!!Agregar un espacio al final de la cadena siempre
+        // const str = `El no el no inóvulo el no nonato el noo el no poslodocosmos de impuros ceros noes que noan noan noan y nooan y plurimono noan al morbo amorfo noo no démono no deo sin son sin sexo ni órbita el yerto inóseo noo en unisolo amódulo sin poros ya sin nódulo ni yo ni fosa ni hoyo el macro no ni polvo el no más nada todo el puro no sin no. `;
+        // const str = "Cansado. ¡Sí! Cansado de usar un solo bazo, dos labios, veinte dedos, no sé cuántas palabras, no sé cuantos recuerdos, grisáceos, fragmentarios.  Cansado, muy cansado de este frío esqueleto, tan púdico, tan casto, que cuando se desnude no sabrá si es el mismo que usé mientras vivía.  Cansado. ¡Sí! Cansado por carecer de antenas, de un ojo en cada omóplato y de una cola autentica, alegre desatada, y no este rabo hipócrita, degenerado, enano.  Cansado, sobre todo, de estar siempre conmigo, de hallarme cada día, cuando termina el sueño, allí, donde me encuentre, con las mismas narices y con las mismas piernas; como si no deseara esperar la rompiente con un cutis de playa, ofrecer, al rocío, dos senos de magnolia, acariciar la tierra con un vientre de oruga, y vivir, unos meses, adentro de una piedra."
+        const str = "Abandoné las sombras, las espesas paredes, los ruidos familiares, la amistad de los libros, el tabaco, las plumas, los secos cielorrasos; para salir volando, desesperadamente. Abajo: en la penumbra, las amargas cornisas, las calles desoladas, los faroles sonámbulos, las muertas chimeneas los rumores cansados, desesperadamente. Ya todo era silencio, simuladas catástrofes, grandes charcos de sombra, aguaceros, relámpagos, vagabundos islotes de inestable riberas; pero seguí volando, desesperadamente. Un resplandor desnudo, una luz calcinante se interpuso en mi ruta, me fascinó de muerte, pero logré evadirme de su letal influjo, para seguir volando, desesperadamente. Todavía el destino de mundos fenecidos, desorientó mi vuelo -de sideral constancia- con sus vanas parábolas y sus aureolas falsas; pero seguí volando, desesperadamente. Me oprimía lo flúido, la limpidez maciza, el vacío escarchado, la inaudible distancia, la oquedad insonora, el reposo asfixiante; pero seguía volando, desesperadamente. Ya no existía nada, la nada estaba ausente; ni oscuridad, ni lumbre, -ni unas manos celestes- ni vida, ni destino, ni misterio, ni muerte; pero seguía volando, desesperadamente. ";
+        // const str = 'abc de fghij kl mnñop qrst u vw xyz ABCDEF G HI JKL MN ÑOPQ RSTUV WXYZ '
+        const palabras = str.split(' ');
+        console.log(palabras);
+        console.log(palabras.length);
+        let p = 0;
+        let x = 0;
+        let y, rx, ry;
+        // let w = 14.75;
+        fontSize = 15;
+        let w; //ancho de cada palabra en px
+        // let s = 20; // ancho del espacio entre palabras en px
+        // let s = ctx.measureText(' ').width; 
+        let s = ctx.measureText(' ').width * 2;
+        let h = fontSize / 2;
+        let r = 10; //filas 
+        let c = 10; //columnas
+        let margen = 30;
+        ctx.translate(margen, margen);
+        // for (let j = 0; j < r; j++) {
+        // En lugar de contar r filas, agrego tantas filas como sean necesarias para completar el texto
+        for (let j = 0; p < palabras.length - 1; j++) {
+            x = -s;
+            for (let i = 0; i < c; i++) {
                 ctx.save();
-                ctx.fillStyle = `rgb(${51 * i}, ${255 - 51 * i}, 255)`;
-                ctx.translate(10 + j * 50, 10 + i * 50);
-                ctx.fillRect(0, 0, 25, 25);
-                ctx.restore();
+                // rx = 0;
+                // ry = 0;
+                rx = 2 * (i / ((c - 1))) * (Math.PI);
+                ry = (j / (c - 1)) * (Math.PI);
+                ctx.font = `${fontSize}px serif`;
+                ctx.textBaseline = 'hanging';
+                w = ctx.measureText(palabras[p]).width;
+                // w = Math.ceil(ctx.measureText(palabras[p]).actualBoundingBoxRight);
+                // console.log('l = ' + ctx.measureText(palabras[p]).actualBoundingBoxLeft);
+                // console.log('r = ' + ctx.measureText(palabras[p]).actualBoundingBoxRight);
+                //////////////////////////////////////////////////////////////////////////
+                // fontHeight = fontBoundingBoxAscent + fontBoundingBoxDescent;         //
+                // actualHeight = actualBoundingBoxAscent + actualBoundingBoxDescent;   //
+                //                                                                      //
+                // fontHeight is the bounding box height regardless of the string being //
+                // rendered. actualHeight is specific to the string being rendered.     //
+                //////////////////////////////////////////////////////////////////////////
+                // h = ctx.measureText(palabras[p]).actualBoundingBoxAscent + ctx.measureText(palabras[p]).actualBoundingBoxDescent;
+                // h = ctx.measureText(palabras[p]).fontBoundingBoxAscent + ctx.measureText(palabras[p]).fontBoundingBoxDescent;
+                console.log('h ' + h);
+                // h = ctx.measureText(palabras[p]).height;
+                // w = palabras[p].length * (14.75) / 4;
+                // x = i * (2 * w) - w / 2;
+                // x += 20 +( w) - w / 2;
+                // x < canvas.width ? x += s +( w) - w / 2 : x = 0;
+                x += s + w / 2;
+                // x = centro de la palabra
+                if (x + w / 2 < canvas.width - margen) {
+                    // console.log(canvas.width);
+                    console.log(`w[${p}]` + w);
+                    console.log(`x[${p}]` + x);
+                    // y = j * (2 * h) - h / 2;
+                    // x = i * w//(2 * w) - w / 2;
+                    y = 2 * j * (2 * h) - h / 2;
+                    ctx.translate(x, y);
+                    // ctx.rotate((rx * ry));
+                    ctx.rotate(i * 0.1 - j * 0.2);
+                    // ctx.fillStyle = 'rgba(255,0,0,0.25)';
+                    // ctx.fillRect(-w / 2, -h / 2, w, h);
+                    // ctx.fillStyle = 'rgba(0,255,0,0.25)';
+                    // ctx.fillRect(w / 2, -h / 2, s, h);
+                    // ctx.textAlign = 'left';
+                    ctx.textAlign = 'center';
+                    ctx.fillStyle = 'rgba(0,0,0,1)';
+                    // ctx.fillText(palabras[p], w/2, -h / 2);
+                    ctx.fillText(palabras[p], 0, -h / 2);
+                    ctx.restore();
+                    // p < palabras.length - 1 ? p++ : p = 0;
+                    p < palabras.length - 1 ? p++ : null;
+                    x += w / 2; // x = final de la palabra
+                }
             }
         }
     }
 }
+
+
+function c3(s) {
+    console.log(`${s} loaded`);
+    let canvas = document.querySelector(s);
+    if (canvas.getContext) {
+        let ctx = canvas.getContext('2d');
+        const str = "Cansado. ¡Sí! Cansado de usar un solo bazo, dos labios, veinte dedos, no sé cuántas palabras, no sé cuantos recuerdos, grisáceos, fragmentarios. Cansado, muy cansado de este frío esqueleto, tan púdico, tan casto, que cuando se desnude no sabrá si es el mismo que usé mientras vivía.  Cansado. ¡Sí! Cansado por carecer de antenas, de un ojo en cada omóplato y de una cola autentica, alegre desatada, y no este rabo hipócrita, degenerado, enano. Cansado, sobre todo, de estar siempre conmigo, de hallarme cada día, cuando termina el sueño, allí, donde me encuentre, con las mismas narices y con las mismas piernas; como si no deseara esperar la rompiente con un cutis de playa, ofrecer, al rocío, dos senos de magnolia, acariciar la tierra con un vientre de oruga, y vivir, unos meses, adentro de una piedra."
+        const palabras = str.split(' ');
+        console.log(palabras);
+        console.log(palabras.length);
+        let ip = 0; // índice de palabra
+        let x = 0;
+        let y, rx, ry;
+        // let w = 14.75;
+        fontSize = 14;
+        let w; //ancho de cada palabra en px
+        // let s = 20; // ancho del espacio entre palabras en px
+        let s = ctx.measureText(' ').width * 2;
+        let h = fontSize / 3;
+        let r = 10;
+        let c = 10;
+        let margen = 30;
+        ctx.translate(margen, margen);
+
+        for (let j = 0; ip < palabras.length - 1; j++) {
+            x = -s;
+            for (let i = 0; i < c; i++) {
+                ctx.save();
+                ctx.font = `${fontSize}px serif`;
+                ctx.textBaseline = 'hanging';
+                w = ctx.measureText(palabras[ip]).width;
+                x += s + w / 2;
+
+                if (x + w / 2 + s < canvas.width - margen) {
+                    // console.log(canvas.width);
+                    console.log(`w[${ip}]` + w);
+                    console.log(`x[${ip}]` + x);
+                    // y = j * (2 * h) - h / 2;
+                    // x = i * w//(2 * w) - w / 2;
+                    y = 4 * j * (2 * h) - h / 2;
+                    ctx.translate(x, y);
+                    rx = 2 * (i / ((c - 1))) * (Math.PI);
+                    ry = 1//(j/(n-1)) * (Math.PI);
+                    ctx.rotate((rx * ry) * 0.5);
+
+                    ctx.fillStyle = 'rgba(255,0,0,0.15)';
+                    ctx.fillRect(-w / 2, -h / 2, w, h);
+                    ctx.fillStyle = 'rgba(0,255,0,0.15)';
+                    ctx.fillRect(w / 2, -h / 2, s, h);
+
+                    // ctx.textAlign = 'left';
+                    ctx.textAlign = 'center';
+                    ctx.fillStyle = 'rgba(0,0,0,1)';
+                    // ctx.fillText(palabras[ip], w/2, -h / 2);
+                    ctx.fillText(palabras[ip], 0, -h / 2);
+                    ctx.restore();
+                    // ip < palabras.length - 1 ? ip++ : ip = 0;
+                    ip < palabras.length - 1 ? ip++ : null;
+                    x += w / 2; // x = final de la palabra
+                }
+
+            }
+        }
+    }
+}
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -151,41 +467,6 @@ function c2(s) {
 
 // Reminder: Angles are in radians, not degrees. To convert, we are using: radians = (Math.PI/180)*degrees.
 
-function c3(s) {
-    console.log(`${s} loaded`);
-    let canvas = document.querySelector(s);
-    if (canvas.getContext) {
-        let ctx = canvas.getContext('2d');
-
-        // left rectangles, rotate from canvas origin
-        ctx.save();
-        // blue rect
-        ctx.fillStyle = '#0095dd';
-        ctx.fillRect(30, 30, 100, 100);
-        ctx.rotate((Math.PI / 180) * 25);
-        // grey rect
-        ctx.fillStyle = '#4d4e53';
-        ctx.fillRect(30, 30, 100, 100);
-        ctx.restore();
-
-        // right rectangles, rotate from rectangle center
-        // draw blue rect
-        ctx.fillStyle = '#0095dd';
-        ctx.fillRect(150, 30, 100, 100);
-        ctx.translate(200, 80);
-        // translate to rectangle center 
-        // x = x + 0.5 * width
-        // y = y + 0.5 * height
-        ctx.rotate((Math.PI / 180) * 45); // rotate
-        ctx.translate(-200, -80);
-
-        // draw grey rect
-        ctx.fillStyle = '#4d4e53';
-        ctx.fillRect(150, 30, 100, 100);
-    }
-}
-
-
 function c4(s) {
     console.log(`${s} loaded`);
     let canvas = document.querySelector(s);
@@ -193,24 +474,90 @@ function c4(s) {
         let ctx = canvas.getContext('2d');
 
         // ctx.fillStyle = '#0095dd';
-        let x, y, rx, ry;
-        let w = 10;
-        ctx.translate(15, 15);
-        for (let i = 0; i < 20; i++) {
-            for (let j = 0; j < 20; j++) {
+        //!!Agregar un espacio al final de la cadena siempre
+        // const str = `El no el no inóvulo el no nonato el noo el no poslodocosmos de impuros ceros noes que noan noan noan y nooan y plurimono noan al morbo amorfo noo no démono no deo sin son sin sexo ni órbita el yerto inóseo noo en unisolo amódulo sin poros ya sin nódulo ni yo ni fosa ni hoyo el macro no ni polvo el no más nada todo el puro no sin no. `;
+        // const str = "Cansado. ¡Sí! Cansado de usar un solo bazo, dos labios, veinte dedos, no sé cuántas palabras, no sé cuantos recuerdos, grisáceos, fragmentarios.  Cansado, muy cansado de este frío esqueleto, tan púdico, tan casto, que cuando se desnude no sabrá si es el mismo que usé mientras vivía.  Cansado. ¡Sí! Cansado por carecer de antenas, de un ojo en cada omóplato y de una cola autentica, alegre desatada, y no este rabo hipócrita, degenerado, enano.  Cansado, sobre todo, de estar siempre conmigo, de hallarme cada día, cuando termina el sueño, allí, donde me encuentre, con las mismas narices y con las mismas piernas; como si no deseara esperar la rompiente con un cutis de playa, ofrecer, al rocío, dos senos de magnolia, acariciar la tierra con un vientre de oruga, y vivir, unos meses, adentro de una piedra."
+        const str = "Abandoné las sombras, las espesas paredes, los ruidos familiares, la amistad de los libros, el tabaco, las plumas, los secos cielorrasos; para salir volando, desesperadamente. Abajo: en la penumbra, las amargas cornisas, las calles desoladas, los faroles sonámbulos, las muertas chimeneas los rumores cansados, desesperadamente. Ya todo era silencio, simuladas catástrofes, grandes charcos de sombra, aguaceros, relámpagos, vagabundos islotes de inestable riberas; pero seguí volando, desesperadamente. Un resplandor desnudo, una luz calcinante se interpuso en mi ruta, me fascinó de muerte, pero logré evadirme de su letal influjo, para seguir volando, desesperadamente. Todavía el destino de mundos fenecidos, desorientó mi vuelo -de sideral constancia- con sus vanas parábolas y sus aureolas falsas; pero seguí volando, desesperadamente. Me oprimía lo flúido, la limpidez maciza, el vacío escarchado, la inaudible distancia, la oquedad insonora, el reposo asfixiante; pero seguía volando, desesperadamente. Ya no existía nada, la nada estaba ausente; ni oscuridad, ni lumbre, -ni unas manos celestes- ni vida, ni destino, ni misterio, ni muerte; pero seguía volando, desesperadamente. ";
+        // const str = 'abc de fghij kl mnñop qrst u vw xyz ABCDEF G HI JKL MN ÑOPQ RSTUV WXYZ '
+        const palabras = str.split(' ');
+        console.log(palabras);
+        console.log(palabras.length);
+        let p = 0;
+        let x = 0;
+        let y, rx, ry;
+        // let w = 14.75;
+        fontSize = 15;
+        let w; //ancho de cada palabra en px
+        // let s = 20; // ancho del espacio entre palabras en px
+        // let s = ctx.measureText(' ').width; 
+        let s = ctx.measureText(' ').width * 2;
+        let h = fontSize / 3;
+        let r = 10; //filas 
+        let c = 10; //columnas
+        let margen = 30;
+        ctx.translate(margen, margen);
+        // for (let j = 0; j < r; j++) {
+        // En lugar de contar r filas, agrego tantas filas como sean necesarias para completar el texto
+        for (let j = 0; p < palabras.length - 1; j++) {
+            x = -s;
+            for (let i = 0; i < c; i++) {
                 ctx.save();
-                x = i * 20 - w / 2;
-                y = j * 20 - w / 2;
-                ctx.translate(x, y);
-                rx = (i / 19) * (Math.PI * 2);
-                ry = (j / 19) * (Math.PI * 2);
-                ctx.rotate((rx * ry));
-                ctx.fillRect(-w / 2, -w / 2, 10, 10);
-                ctx.restore();
+                // rx = 0;
+                // ry = 0;
+                rx = 2 * (i / ((c - 1))) * (Math.PI);
+                ry = (j / (c - 1)) * (Math.PI);
+                ctx.font = `${fontSize}px serif`;
+                ctx.textBaseline = 'hanging';
+                w = ctx.measureText(palabras[p]).width;
+                // w = Math.ceil(ctx.measureText(palabras[p]).actualBoundingBoxRight);
+                // console.log('l = ' + ctx.measureText(palabras[p]).actualBoundingBoxLeft);
+                // console.log('r = ' + ctx.measureText(palabras[p]).actualBoundingBoxRight);
+                //////////////////////////////////////////////////////////////////////////
+                // fontHeight = fontBoundingBoxAscent + fontBoundingBoxDescent;         //
+                // actualHeight = actualBoundingBoxAscent + actualBoundingBoxDescent;   //
+                //                                                                      //
+                // fontHeight is the bounding box height regardless of the string being //
+                // rendered. actualHeight is specific to the string being rendered.     //
+                //////////////////////////////////////////////////////////////////////////
+                // h = ctx.measureText(palabras[p]).actualBoundingBoxAscent + ctx.measureText(palabras[p]).actualBoundingBoxDescent;
+                // h = ctx.measureText(palabras[p]).fontBoundingBoxAscent + ctx.measureText(palabras[p]).fontBoundingBoxDescent;
+                console.log('h ' + h);
+                // h = ctx.measureText(palabras[p]).height;
+                // w = palabras[p].length * (14.75) / 4;
+                // x = i * (2 * w) - w / 2;
+                // x += 20 +( w) - w / 2;
+                // x < canvas.width ? x += s +( w) - w / 2 : x = 0;
+                x += s + w / 2;
+                // x = centro de la palabra
+                if (x + w / 2 + s < canvas.width - margen) {
+                    // console.log(canvas.width);
+                    console.log(`w[${p}]` + w);
+                    console.log(`x[${p}]` + x);
+                    // y = j * (2 * h) - h / 2;
+                    // x = i * w//(2 * w) - w / 2;
+                    y = 4 * j * (2 * h) - h / 2;
+                    ctx.translate(x, y);
+                    ctx.rotate((rx * ry));
+                    // ctx.rotate(i * 0.1 - j * 0.1);
+                    ctx.fillStyle = 'rgba(255,0,0,0.17)';
+                    ctx.fillRect(-w / 2, -h / 2, w, h * 2);
+                    ctx.fillStyle = 'rgba(0,255,0,0.25)';
+                    ctx.fillRect(w / 2, -h / 2, s, h * 2);
+                    // ctx.textAlign = 'left';
+                    ctx.textAlign = 'center';
+                    ctx.fillStyle = 'rgba(0,0,0,1)';
+                    // ctx.fillText(palabras[p], w/2, -h / 2);
+                    ctx.fillText(palabras[p], 0, -h / 2);
+                    ctx.restore();
+                    // p < palabras.length - 1 ? p++ : p = 0;
+                    p < palabras.length - 1 ? p++ : null;
+                    x += w / 2; // x = final de la palabra
+                }
             }
         }
     }
 }
+
 
 function c5(s) {
     console.log(`${s} loaded`);
