@@ -1,8 +1,46 @@
 let body = document.querySelector('body');
 body.addEventListener('load', draw());
 
+
+let parametros = {
+    tamFuente: 13, 
+    // tipoFuente: 
+    multiplicadorEspacio: 2,
+    multiplicadorAncho: 1,
+    multiplicadorAlto: 3,
+    algoritmoAncho: 2,
+    algoritmoRotacion: 10,
+    guias: true
+};
+
+
+let sliderTamFuente = document.querySelector("#sliderTamFuente");
+let txtTamFuente = document.querySelector("#txtTamFuente");
+txtTamFuente.innerHTML = sliderTamFuente.value;
+
+sliderTamFuente.addEventListener('input', function() {
+    parametros.tamFuente = this.value;
+    txtTamFuente.innerHTML = parametros.tamFuente;
+    // c1('.c1', parametros);
+})
+
+
+// let sliderEspacio = document.querySelector("#sliderEspacio");
+// let txtTamEspacio = document.querySelector("#txtEspacio");
+// txtTamEspacio.innerHTML = sliderEspacio.value;
+
+// sliderEspacio.addEventListener('input', function() {
+//     parametros.multiplicadorEspacio = this.value;
+//     txtTamEspacio.innerHTML = parametros.multiplicadorEspacio;
+//     // c1('.c1', esp);
+// })
+
+function update(){
+    c1('.c1', parametros);
+}
+
 function draw() {
-    c1('.c1');
+    // c1('.c1', parametros);
     // c2('.c2');
     // c3('.c3');
     // c4('.c4');
@@ -18,6 +56,8 @@ function draw() {
     // c14('.c14');
     // c15('.c15');
 }
+
+
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -45,7 +85,7 @@ function draw() {
 // This example tries to illustrate how the stack of drawing states functions by drawing a set of consecutive rectangles.
 
 
-function c1(s) {
+function c1(s, parametros) {
     console.log(`${s} loaded`);
     let canvas = document.querySelector(s);
     if (canvas.getContext) {
@@ -53,8 +93,8 @@ function c1(s) {
 
         //!!Agregar un espacio al final de la cadena siempre
         // const str = `El no el no inóvulo el no nonato el noo el no poslodocosmos de impuros ceros noes que noan noan noan y nooan y plurimono noan al morbo amorfo noo no démono no deo sin son sin sexo ni órbita el yerto inóseo noo en unisolo amódulo sin poros ya sin nódulo ni yo ni fosa ni hoyo el macro no ni polvo el no más nada todo el puro no sin no. `;
-        // const str = "Cansado. ¡Sí! Cansado de usar un solo bazo, dos labios, veinte dedos, no sé cuántas palabras, no sé cuantos recuerdos, grisáceos, fragmentarios. Cansado, muy cansado de este frío esqueleto, tan púdico, tan casto, que cuando se desnude no sabrá si es el mismo que usé mientras vivía. Cansado. ¡Sí! Cansado por carecer de antenas, de un ojo en cada omóplato y de una cola autentica, alegre desatada, y no este rabo hipócrita, degenerado, enano. Cansado, sobre todo, de estar siempre conmigo, de hallarme cada día, cuando termina el sueño, allí, donde me encuentre, con las mismas narices y con las mismas piernas; como si no deseara esperar la rompiente con un cutis de playa, ofrecer, al rocío, dos senos de magnolia, acariciar la tierra con un vientre de oruga, y vivir, unos meses, adentro de una piedra. "
-        const str = "Abandoné las sombras, las espesas paredes, los ruidos familiares, la amistad de los libros, el tabaco, las plumas, los secos cielorrasos; para salir volando, desesperadamente. Abajo: en la penumbra, las amargas cornisas, las calles desoladas, los faroles sonámbulos, las muertas chimeneas los rumores cansados, desesperadamente. Ya todo era silencio, simuladas catástrofes, grandes charcos de sombra, aguaceros, relámpagos, vagabundos islotes de inestable riberas; pero seguí volando, desesperadamente. Un resplandor desnudo, una luz calcinante se interpuso en mi ruta, me fascinó de muerte, pero logré evadirme de su letal influjo, para seguir volando, desesperadamente. Todavía el destino de mundos fenecidos, desorientó mi vuelo -de sideral constancia- con sus vanas parábolas y sus aureolas falsas; pero seguí volando, desesperadamente. Me oprimía lo flúido, la limpidez maciza, el vacío escarchado, la inaudible distancia, la oquedad insonora, el reposo asfixiante; pero seguía volando, desesperadamente. Ya no existía nada, la nada estaba ausente; ni oscuridad, ni lumbre, -ni unas manos celestes- ni vida, ni destino, ni misterio, ni muerte; pero seguía volando, desesperadamente. ";
+        const str = "Cansado. ¡Sí! Cansado de usar un solo bazo, dos labios, veinte dedos, no sé cuántas palabras, no sé cuantos recuerdos, grisáceos, fragmentarios. Cansado, muy cansado de este frío esqueleto, tan púdico, tan casto, que cuando se desnude no sabrá si es el mismo que usé mientras vivía. Cansado. ¡Sí! Cansado por carecer de antenas, de un ojo en cada omóplato y de una cola autentica, alegre desatada, y no este rabo hipócrita, degenerado, enano. Cansado, sobre todo, de estar siempre conmigo, de hallarme cada día, cuando termina el sueño, allí, donde me encuentre, con las mismas narices y con las mismas piernas; como si no deseara esperar la rompiente con un cutis de playa, ofrecer, al rocío, dos senos de magnolia, acariciar la tierra con un vientre de oruga, y vivir, unos meses, adentro de una piedra. "
+        // const str = "Abandoné las sombras, las espesas paredes, los ruidos familiares, la amistad de los libros, el tabaco, las plumas, los secos cielorrasos; para salir volando, desesperadamente. Abajo: en la penumbra, las amargas cornisas, las calles desoladas, los faroles sonámbulos, las muertas chimeneas los rumores cansados, desesperadamente. Ya todo era silencio, simuladas catástrofes, grandes charcos de sombra, aguaceros, relámpagos, vagabundos islotes de inestable riberas; pero seguí volando, desesperadamente. Un resplandor desnudo, una luz calcinante se interpuso en mi ruta, me fascinó de muerte, pero logré evadirme de su letal influjo, para seguir volando, desesperadamente. Todavía el destino de mundos fenecidos, desorientó mi vuelo -de sideral constancia- con sus vanas parábolas y sus aureolas falsas; pero seguí volando, desesperadamente. Me oprimía lo flúido, la limpidez maciza, el vacío escarchado, la inaudible distancia, la oquedad insonora, el reposo asfixiante; pero seguía volando, desesperadamente. Ya no existía nada, la nada estaba ausente; ni oscuridad, ni lumbre, -ni unas manos celestes- ni vida, ni destino, ni misterio, ni muerte; pero seguía volando, desesperadamente. ";
         // const  str = "Toco toco poros amarras calas toco teclas de nervios muelles tejidos que me tocan cicatrices cenizas trópicos vientres toco solos solos resacas estertores toco y mas toco y nada Prefiguras de ausencia inconsistentes tropos qué tú qué qué qué quenas qué hondonadas qué máscaras qué soledades huecas qué sí qué no qué sino que me destempla el toque qué reflejos qué fondos qué materiales brujos qué llaves qué ingredientes nocturnos qué fallebas heladas que no abren qué nada toco en todo. ";
         //         const str = `Toco 
         // toco poros
@@ -97,20 +137,66 @@ function c1(s) {
         let x = 0; //coord x del centro de la palabra
         let y = 0; //coord y del centro de la palabra
         let rx, ry; //parámetros de la rotación
-        fontSize = 13;
+    //Tamaño fuente
+        // fontSize = 13;
+        // if(fs){
+            // ctx.save()
+            ctx.translate(0,0);
+            ctx.fillStyle = "#fff";
+            ctx.fillRect(0,0,canvas.width,canvas.height);
+            fontSize = parametros.tamFuente;
+            // ctx.restore();
+        // }
+            ////////
+    //Tipo de fuente
         ctx.font = `${fontSize}px serif`;
+        ////////
+        //
         ctx.textBaseline = 'hanging';
         let w; //ancho en px de cada palabra 
         let mxw = maxW(palabras, ctx);  //ancho en px de la palabra más larga
         let mdw = medW(palabras, ctx);  //promedio de ancho de palabra en px
-        let s = ctx.measureText(' ').width * 2; // ancho del espacio horizontal entre palabras en px
+    // Multiplicador espacio entre palabras
+        let ms = 2;
+        //////
+    // Multiplicador ancho palabras
+        let mw = 1;
+        //////
+    // Multiplicador alto palabras
+        let mh = 3;
+        //////
+    // Algoritmo ancho de palabras
+        let aw = 2;
+        //////
+    // Algoritmo de rotacion
+        let ar = 10;
+        //////
+    // guias on/off
+        let g = 1;
+
+        switch (aw) {
+            case 0:
+                break;
+            case 1:
+                w = mxw*mw;
+                break;
+            case 2:
+                w = mdw*mw;
+                break;
+        }
+    // 
+        let s = ctx.measureText(' ').width * ms; // ancho del espacio horizontal entre palabras en px
         // let h = fontSize / 2; //altura de la línea
 
         let r = 15; //filas *no usado
         // let c = 12; //columnas, o sea, palabras por fila
-        let c = Math.sqrt(palabras.length);
-        let margen = 30;
+        let c = Math.sqrt(palabras.length); //columndas calculadas como raiz cuadrada de la cantidad de palabras para una disposicion cuadrada
+        
+        // let margen = 30;
+        let margen = 3 * fontSize;
+        ctx.save();
         ctx.translate(margen, margen);
+        
         // for (let j = 0; j < r; j++) {
         // En lugar de contar r filas, agrego tantas filas como sean necesarias para completar el texto
         for (let j = 0; ip < palabras.length - 1; j++) {
@@ -121,11 +207,14 @@ function c1(s) {
 
                 // w = ctx.measureText(palabras[ip]).width; //ancho por palabra
                 // w = mxw // ancho de la palabra más larga
-                w = mdw*2; // ancho promedio de las palabras
+                // w = mdw*2; // ancho promedio de las palabras
+                // setW(palabras, mxw, mdw, a, ctx);
+                //si aw vale 0 ejecuta el algoritmo de longitud palabra a palabra
+                if (!aw) w = ctx.measureText(palabras[ip]).width * mw;
                 //
 
                 //densidad vertical
-                h = w/3;
+                h = w / mh;
                 //
 
                 // w = Math.ceil(ctx.measureText(palabras[ip]).actualBoundingBoxRight);
@@ -162,10 +251,10 @@ function c1(s) {
                     y = 2 * j * (2 * h) - h / 2;
                     ctx.translate(x, y);
                     // ctx.rotate((rx * ry));
-                    ctx.rotate(rotacion(i, j, c, 9));
+                    if(ar)ctx.rotate(rotacion(i, j, c, ar));
                     // ctx.rotate(i * 0.1 - j * 0.1);
                     //
-                    guias(w, h, s, ctx);
+                    if(g) guias(w, h, s, ctx);
                     //
                     // ctx.textAlign = 'left';
                     ctx.textAlign = 'center';
@@ -179,71 +268,73 @@ function c1(s) {
                 }
             }
         }
+        ctx.restore();
     }
 }
 
+//algoritmos de rotación, 0 no rotación
 function rotacion(i, j, c, a) {
     let rx = 0;
     let ry = 0;
     let r;
     switch (a) {
-        case 0:
+        case 1:
             rx = 2 * (i / ((c - 1))) * (Math.PI);
             ry = (j / (c - 1)) * (Math.PI);
             r = rx * ry;
             break;
-        case 1:
+        case 2:
             r = i * 0.1 - j * 0.2;
             break;
-        case 2:
+        case 3:
             rx = 2 * (i / ((c - 1))) * (Math.PI);
             ry = 1//(j/(n-1)) * (Math.PI);
             r = (rx * ry) * 0.5;
             break;
-        case 3:
+        case 4:
             rx = (i / (c - 1)) * (Math.PI * 2);
             ry = (j / (c - 1)) * (Math.PI * 2);
             r = rx * ry;
             break;
-        case 4:
+        case 5:
             rx = 2 * (i / ((c - 1))) * (Math.PI);
             ry = 2 * (j / ((c - 1))) * (Math.PI);
             r = (rx - ry);
-            break;
-        case 5:
-            rx = (i / (c - 1)) * (Math.PI * 2);
-            ry = (j / (c - 1)) * (Math.PI * 2);
-            rx = 2 * Math.sin(rx);
-            ry = 2 * Math.sin(ry);
-            r = (rx * ry);
             break;
         case 6:
             rx = (i / (c - 1)) * (Math.PI * 2);
             ry = (j / (c - 1)) * (Math.PI * 2);
             rx = 2 * Math.sin(rx);
             ry = 2 * Math.sin(ry);
-            r = (rx + ry);
+            r = (rx * ry);
             break;
         case 7:
             rx = (i / (c - 1)) * (Math.PI * 2);
             ry = (j / (c - 1)) * (Math.PI * 2);
             rx = 2 * Math.sin(rx);
             ry = 2 * Math.sin(ry);
-            r = ((rx + ry) * (rx - ry));
+            r = (rx + ry);
             break;
         case 8:
+            rx = (i / (c - 1)) * (Math.PI * 2);
+            ry = (j / (c - 1)) * (Math.PI * 2);
+            rx = 2 * Math.sin(rx);
+            ry = 2 * Math.sin(ry);
+            r = ((rx + ry) * (rx - ry));
+            break;
+        case 9:
             rx = (i / (c - 1)) * (Math.PI * 2);
             ry = (j / (c - 1)) * (Math.PI * 2);
             rx = Math.abs(Math.sin(rx + Math.sin(ry)));
             ry = Math.cos(ry + Math.cos(rx));
             r = (Math.PI * rx * 0.5);
             break;
-        case 9:
+        case 10:
             rx = (i / (c - 1)) * (Math.PI * 2);
             ry = (j / (c - 1)) * (Math.PI * 2);
             r = 1 * Math.sin(rx + ry) + 1 * Math.cos(rx + ry);
             break;
-        case 10:
+        case 11:
             rx = (i / (c - 1)) * (Math.PI);
             ry = (j / (c - 1)) * (Math.PI * 2);
             rx = Math.abs(Math.sin(4 * rx + Math.sin(4 * ry)));
@@ -257,6 +348,7 @@ function rotacion(i, j, c, a) {
     return r;
 }
 
+// devuelve el ancho en px de la palabra más larga
 function maxW(palabras, ctx) {
     let i = palabras.length, max = 0, im = 0;
     while (i--) {
@@ -269,6 +361,7 @@ function maxW(palabras, ctx) {
     return ctx.measureText(palabras[im]).width;
 };
 
+// devuelve el ancho promedio de palabra en px
 function medW(palabras, ctx) {
     let i = palabras.length, n = i, s = 0, prom = 0;
     while (i--) {
@@ -277,6 +370,22 @@ function medW(palabras, ctx) {
     prom = ctx.measureText(' ').width * (s / n);
     console.log('longitud promedio: ' + s / n + ' letras, ' + prom + 'px');
     return prom;
+}
+
+// selector de algoritmo de ancho: 0 palabra a palabra, 1 máximo, 2 promedio
+function setW(palabras, mxw, mdw, a, ctx) {
+    let w = 0;
+    switch (a) {
+        case 0:
+            w = ctx.measureText(palabras[ip]).width;
+            break;
+        case 1:
+            w = mxw;
+            break;
+        case 2:
+            w = mdw;
+            break;
+    }
 }
 
 function guias(w, h, s, ctx) {
